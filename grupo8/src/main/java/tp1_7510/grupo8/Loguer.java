@@ -8,6 +8,8 @@ public class Loguer {
 	
 	private ArrayList<Printer> m_Printers;
 	private FormaterMessage m_FormaterMessage;
+	
+	
 
 	public void log(String message, LogLevel level) {
 		String formatedMessage;

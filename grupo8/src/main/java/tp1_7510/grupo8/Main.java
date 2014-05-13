@@ -6,7 +6,5 @@ public class Main {
         Loguer loguer = new Loguer();
         
         loguer.log("Un mensaje DEBUG",LogLevel.DEBUG);
-
-		System.out.println("HOLA MUNDO, jajajaj");
 	}
 }
