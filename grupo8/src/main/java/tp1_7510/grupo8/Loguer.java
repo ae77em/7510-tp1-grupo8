@@ -8,18 +8,21 @@ public class Loguer {
 	
 	private ArrayList<Printer> m_Printers;
 	private FormaterMessage m_FormaterMessage;
+	private Configurer m_ConfigurerProperties = new Configurer() ;
 	
+	Loguer(){
+		m_ConfigurerProperties.loadProperties();	
+	}
 	
-
 	public void log(String message, LogLevel level) {
 		String formatedMessage;
         
         if(isGreaterOrEqualThanLevelConfigured(level)){
-        	formatedMessage = m_FormaterMessage.formatMessage( message, level );
+        	/*formatedMessage = m_FormaterMessage.formatMessage( message, level );
                 
             for (int i = 0; i < m_Printers.size(); i++){
             	m_Printers.get(i).print( formatedMessage );
-            }
+            }*/
         }
 	}
 
