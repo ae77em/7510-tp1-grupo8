@@ -1,4 +1,4 @@
-package tp1_7510.grupo8;
+package tp1_7510.grupo8.Printer;
 
 public class ConsolePrinter implements Printer 
 {
