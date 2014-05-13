@@ -1,6 +1,6 @@
-package tp1_7510.grupo8.Printer.Patterns;
+package tp1_7510.grupo8.Patterns;
 
-public class PatternEscape implements MessagePattern {
+public class PatternFilename implements MessagePattern {
 
 	public void configurePattern(String prefix) {
 		// TODO Auto-generated method stub
