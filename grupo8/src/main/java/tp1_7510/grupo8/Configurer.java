@@ -106,7 +106,7 @@ public class Configurer {
 	private MessagePattern createPattern(String aPattern) {
 		MessagePattern patternCreated = null;
 		
-		switch(aPattern){
+		switch(aPattern.substring(0,1)){
 			 case "%d": //buscar con expresion regular por %d
 			     patternCreated = new PatternDate();
 			     break;
