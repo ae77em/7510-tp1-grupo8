@@ -21,7 +21,7 @@ public class Configurer {
 	}
 
 	private void loadDefaultProperties(){
-		prop.setProperty("separatorDefault", "-");
+		prop.setProperty("separator", "-");
 	}
 
 	/**************SETTERS*************************/
