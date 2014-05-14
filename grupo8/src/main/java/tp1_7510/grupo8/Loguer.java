@@ -2,16 +2,20 @@ package tp1_7510.grupo8;
 
 import java.util.ArrayList;
 
+import tp1_7510.grupo8.Patterns.MessagePattern;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Loguer {
 	
-	private ArrayList<Printer> m_Printers;
-	private FormaterMessage m_FormaterMessage;
+	private ArrayList<Printer> m_Printers = new ArrayList<Printer>();
+	private FormaterMessage m_FormaterMessage = new FormaterMessage();
 	private Configurer m_ConfigurerProperties = new Configurer() ;
 	
 	Loguer(){
-		m_ConfigurerProperties.loadProperties();	
+		//DEBE DE SER UN OBJETO QUE COMO CONSTRUCTOR TOME LA LISTA DE PATTERNS A APLICAR AL MENSAJE
+		ArrayList<MessagePattern> PATTERNS = m_ConfigurerProperties.getPatterns();
+		System.out.println(PATTERNS.size());
+		
 	}
 	
 	public void log(String message, LogLevel level) {
