@@ -14,16 +14,19 @@ public class Configurer {
  	 
 	private Properties prop;
 	
+	//-----------------------------------------------
 	Configurer(){
 		prop = new Properties();
 		
 		loadDefaultProperties();
 	}
 
+	//-----------------------------------------------
 	private void loadDefaultProperties(){
 		prop.setProperty("separatorDefault", "-");
 	}
 	
+	//-----------------------------------------------
 	public void saveProperties(){
 		OutputStream output = null;
 	 
@@ -37,6 +40,7 @@ public class Configurer {
 		}
 	}
 	
+	//-----------------------------------------------
 	public void loadProperties(){
 		
 		InputStream input = null;
@@ -51,6 +55,7 @@ public class Configurer {
 		}
 	}
 	
+	//-----------------------------------------------
 	public ArrayList<MessagePattern> getPatternsOfList(String[] patternsText){
 		ArrayList<MessagePattern> patterns = new ArrayList<MessagePattern>();
 		
@@ -61,13 +66,16 @@ public class Configurer {
 		return patterns;
 	}
 	
+	//-----------------------------------------------
 	public ArrayList<MessagePattern> getPatterns(){
 		String[] patternsText = prop.getProperty("format").split("-");
 
 		return getPatternsOfList(patternsText);
 	}
 	
+	//-----------------------------------------------
 	private MessagePattern createPattern(String aPattern) {
+		
 		MessagePattern patternCreated = null;
 		
 		switch(aPattern){
