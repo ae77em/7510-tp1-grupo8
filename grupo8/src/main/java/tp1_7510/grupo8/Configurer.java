@@ -11,7 +11,7 @@ import java.util.Properties;
 import tp1_7510.grupo8.Patterns.*;
 
 public class Configurer {
- 	 
+ 	 	
 	private Properties prop;
 	
 	//-----------------------------------------------
@@ -23,10 +23,48 @@ public class Configurer {
 
 	//-----------------------------------------------
 	private void loadDefaultProperties(){
-		prop.setProperty("separatorDefault", "-");
+		prop.setProperty("separator", "-");
+		prop.setProperty("logLevel", "DEBUG");
+		prop.setProperty("formatDate", "%d{HH:mm:ss}");
+		prop.setProperty("format", "%d{HH:mm:ss}-%p-%t-%m");
+	}
+
+	/**************SETTERS*************************/
+	public void setFormatDate(String formatDate){
+		prop.setProperty("formatDate", formatDate);
+	}
+	
+	public void setFormatMessage(String formatMessage){
+		prop.setProperty("format", formatMessage);
+	}
+	
+	public void setLogLevel(String logLevel){
+		prop.setProperty("logLevel", logLevel);
+	}
+	
+	public void setSeparator(String separator){
+		prop.setProperty("separator", separator);
+	}
+	
+	/**************GETTERS*************************/
+	public String getFormatDate(){
+		return prop.getProperty("formatDate");
+	}
+	
+	public String getFormatMessage(){
+		return prop.getProperty("format");
+	}
+	
+	public String getLogLevel(){
+		return prop.getProperty("logLevel");
+	}
+	
+	public String getSeparator(){
+		return prop.getProperty("separator");
 	}
 	
 	//-----------------------------------------------
+	/*INI ACCESO A DISCO**/
 	public void saveProperties(){
 		OutputStream output = null;
 	 
@@ -42,7 +80,6 @@ public class Configurer {
 	
 	//-----------------------------------------------
 	public void loadProperties(){
-		
 		InputStream input = null;
 	 
 		try {
@@ -54,8 +91,10 @@ public class Configurer {
 			ex.printStackTrace();
 		}
 	}
+	/*FIN ACCESO A DISCO**/
 	
 	//-----------------------------------------------
+	/*CREACION DE PATTERS*/
 	public ArrayList<MessagePattern> getPatternsOfList(String[] patternsText){
 		ArrayList<MessagePattern> patterns = new ArrayList<MessagePattern>();
 		
@@ -78,7 +117,7 @@ public class Configurer {
 		
 		MessagePattern patternCreated = null;
 		
-		switch(aPattern){
+		switch(aPattern.substring(0,1)){
 			 case "%d": //buscar con expresion regular por %d
 			     patternCreated = new PatternDate();
 			     break;
