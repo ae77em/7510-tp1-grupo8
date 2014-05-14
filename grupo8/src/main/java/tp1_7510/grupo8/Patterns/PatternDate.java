@@ -4,7 +4,6 @@ public class PatternDate implements MessagePattern {
 
 	public void configurePattern(String prefix) {
 		// TODO Auto-generated method stub
-
 	}
 
 }

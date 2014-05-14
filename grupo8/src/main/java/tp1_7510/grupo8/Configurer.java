@@ -1,31 +1,114 @@
 package tp1_7510.grupo8;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Properties;
 
+import tp1_7510.grupo8.Patterns.*;
+
 public class Configurer {
- 
-	 /**
-	  * Configura el logger desde un archivo properties.
-	  */
-	 public void configureFromProperties() {
-		 try {			 
-	   		Properties propiedades = new Properties();
-			    
-			propiedades.load(new FileInputStream("src/main/java/properties/logger.properties"));
-			 
-			String format = propiedades.getProperty("format");
-			String level = propiedades.getProperty("level");
-			
-			System.out.println("Formato: "+format+ "\n" +"Nivel: "+ level);
+ 	 
+	private Properties prop;
 	
-	 	} catch (FileNotFoundException e) {
- 			System.out.println("Error, el archivo de propiedades no existe.");
- 		} catch (IOException e) {
-			System.out.println("Error, no se puede leer el archivo");
- 		}
- 	}
+	Configurer(){
+		prop = new Properties();
+		
+		loadDefaultProperties();
+	}
+
+	private void loadDefaultProperties(){
+		prop.setProperty("separatorDefault", "-");
+	}
+	
+	public void saveProperties(){
+		OutputStream output = null;
+	 
+		try {
+			output = new FileOutputStream("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
+			 
+			prop.store(output, null);
+	 
+		} catch (IOException io) {
+			io.printStackTrace();
+		}
+	}
+	
+	public void loadProperties(){
+		
+		InputStream input = null;
+	 
+		try {
+			input = new FileInputStream("src/main/java/tp1_7510/grupo8/Properties/logger.properties");	 
+			// load a properties file
+			prop.load(input);
+	 	 
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public ArrayList<MessagePattern> getPatternsOfList(String[] patternsText){
+		ArrayList<MessagePattern> patterns = new ArrayList<MessagePattern>();
+		
+		for(int i=0;i<patternsText.length;i++){
+			patterns.add( createPattern(patternsText[i]) );
+		}
+		
+		return patterns;
+	}
+	
+	public ArrayList<MessagePattern> getPatterns(){
+		String[] patternsText = prop.getProperty("format").split("-");
+
+		return getPatternsOfList(patternsText);
+	}
+	
+	private MessagePattern createPattern(String aPattern) {
+		MessagePattern patternCreated = null;
+		
+		switch(aPattern){
+			 case "%d": //buscar con expresion regular por %d
+			     patternCreated = new PatternDate();
+			     break;
+			     
+			 case "%p": 
+				 patternCreated = new PatternLevel();
+			     break;
+			     
+			 case "%t": 
+				 patternCreated = new PatternThread();
+				 break;
+				 
+			 case "%m": 
+				 patternCreated = new PatternUserDefinedMessage();
+			     break;
+			     
+			 case "%%": 
+				 patternCreated = new PatternEscape();
+			     break;
+			     
+			 case "%n": 
+				 patternCreated = new PatternSeparator();
+			     break;
+			     
+			 case "%L": 
+				 patternCreated = new PatternLineNumber();
+			     break;
+			     
+			 case "%F": 
+				 patternCreated = new PatternFilename();
+			     break;
+			     
+			 case "%M": 
+				 patternCreated = new PatternMethodName();
+				 break;
+			}
+		
+		return patternCreated;
+	}
 }
 

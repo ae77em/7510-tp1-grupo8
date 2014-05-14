@@ -13,4 +13,8 @@ public class FilePrinter implements Printer
 	public void print(String message){
 		m_Writter.println(message);
 	}
+
+	public String notifyDestiny(String s) {
+		return s;
+	}
 }
