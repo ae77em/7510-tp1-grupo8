@@ -22,6 +22,9 @@ public class Configurer {
 
 	private void loadDefaultProperties(){
 		prop.setProperty("separator", "-");
+		prop.setProperty("logLevel", "DEBUG");
+		prop.setProperty("formatDate", "%d{HH:mm:ss}");
+		prop.setProperty("format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
 
 	/**************SETTERS*************************/
