@@ -1,23 +1,42 @@
 package tp1_7510.grupo8;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
 import tp1_7510.grupo8.Patterns.*;
 
 public class Configurer {
-	
 	private Properties prop;
 	
 	Configurer(){
 		prop = new Properties();
-		loadProperties();
+		
+		loadDefaultProperties();
 	}
 
-	private void loadProperties(){
+	private void loadDefaultProperties(){
+		prop.setProperty("separatorDefault", "-");
+	}
+	
+	public void saveProperties(){
+		OutputStream output = null;
+	 
+		try {
+			output = new FileOutputStream("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
+			 
+			prop.store(output, null);
+	 
+		} catch (IOException io) {
+			io.printStackTrace();
+		}
+	}
+	
+	public void loadProperties(){
 		
 		InputStream input = null;
 	 
@@ -28,11 +47,12 @@ public class Configurer {
 	 	 
 		} catch (IOException ex) {
 			ex.printStackTrace();
-		} 
+		}
 	}
 	
 	public ArrayList<MessagePattern> getPatternsOfList(String[] patternsText){
 		ArrayList<MessagePattern> patterns = new ArrayList<MessagePattern>();
+		
 		for(int i=0;i<patternsText.length;i++){
 			patterns.add( createPattern(patternsText[i]) );
 		}
