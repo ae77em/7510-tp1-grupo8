@@ -20,6 +20,7 @@ public class Configurer {
 		prop = new Properties();
 		
 		loadDefaultProperties();
+		loadProperties();
 	}
 
 	//-----------------------------------------------
@@ -29,7 +30,7 @@ public class Configurer {
 		prop.setProperty("consoleDefault-separator", "-");
 		prop.setProperty("consoleDefault-logLevel", "DEBUG");
 		prop.setProperty("consoleDefault-formatDate", "%d{HH:mm:ss}");
-		prop.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%p-%t-%m");
+		prop.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%n-%p-%n-%m");
 	}
 	
 	public void createPrinter(String printer,String name){
@@ -79,12 +80,11 @@ public class Configurer {
 		prop.setProperty(aPrinter+"-separator", separator);
 	}
 	
+	/**************GETTERS*************************/
 	public String getFiles() {
 		// TODO Auto-generated method stub
 		return prop.getProperty("files");
 	}
-
-	/**************GETTERS*************************/
 	public String getConsoles() {
 		// TODO Auto-generated method stub
 		return prop.getProperty("consoles");
@@ -126,7 +126,7 @@ public class Configurer {
 	}
 	
 	//-----------------------------------------------
-	public void loadProperties(){
+	private void loadProperties(){
 		InputStream input = null;
 	 
 		try {
