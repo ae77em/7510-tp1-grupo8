@@ -2,30 +2,15 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternEscape implements Pattern {
 
-	String pattern;
+	String m_escape;
 
 	public PatternEscape(String p) {
-		pattern = p;
-	}
-	
-	public PatternEscape() {
-		System.out.println("CREE ESCAPE");
-		pattern = "%%";
-	}
-	
-	
-	public void configurePattern(String p) {
-		pattern = p;
-	}
-	
-	public String getPattern(){
-		return this.pattern;
+		m_escape = p;
 	}
 
 	@Override
 	public String execute(String s) {
-		// TODO Auto-generated method stub
-		return null;
+		return m_escape + s;
 	}
 
 }

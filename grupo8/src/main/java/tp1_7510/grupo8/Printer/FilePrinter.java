@@ -18,9 +18,7 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 public class FilePrinter implements Printer 
 {
 	private PrintWriter m_Writter;
-	private String m_logLevel;
-	private String m_separator;
-	private String m_formatDate;
+	private String m_logLevel, m_separator, m_formatDate, m_nameFile;
 	//private String m_formatMessage;
 	
 	private ArrayList<Pattern> messagePatterns;
@@ -31,9 +29,9 @@ public class FilePrinter implements Printer
 		m_formatDate = dataConfiguration.get("formatDate");
 		//m_formatMessage = dataConfiguration.get("format");
 		
-		String nameFile = dataConfiguration.get("name");
+		m_nameFile = dataConfiguration.get("name");
 		
-		m_Writter = new PrintWriter(new FileOutputStream(new File(nameFile),true));
+		m_Writter = new PrintWriter(new FileOutputStream(new File(m_nameFile),true));
 		messagePatterns = createListOfPatterns(dataConfiguration.get("format").split("-"));
 	}
 	
@@ -42,7 +40,6 @@ public class FilePrinter implements Printer
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 		
 		for(int i=0;i<patternsText.length;i++){
-			System.out.println("CREE "+patternsText[i]);
 			patterns.add( createPattern(patternsText[i]) );
 		}
 		
@@ -56,26 +53,23 @@ public class FilePrinter implements Printer
 		switch(aPattern.substring(0,2)){
 		
 			 case "%d": //buscar con expresion regular por %d
-			     patternCreated = new PatternDate(aPattern.substring(2));
+			     patternCreated = new PatternDate(aPattern.substring(3,aPattern.length()-1));
 			     break;
 			 case "%p": 
-				 patternCreated = new PatternLevel();
+				 patternCreated = new PatternLevel(m_logLevel);
 			     break;
-			     
 			 case "%t": 
 				 patternCreated = new PatternThread();
 				 break;
-				 
 			 case "%m": 
 				 patternCreated = new PatternUserDefinedMessage();
 			     break;
-			     
-			 case "%%": 
+			 /*case "%%": 
 				 patternCreated = new PatternEscape();
-			     break;
+			     break;*/
 			     
 			 case "%n": 
-				 patternCreated = new PatternSeparator();
+				 patternCreated = new PatternSeparator(m_separator);
 			     break;
 			     
 			 case "%L": 
@@ -83,19 +77,26 @@ public class FilePrinter implements Printer
 			     break;
 			     
 			 case "%F": 
-				 patternCreated = new PatternFilename();
+				 patternCreated = new PatternFilename(m_nameFile);
 			     break;
-			     
 			 case "%M": 
 				 patternCreated = new PatternMethodName();
 				 break;
 			}
 		
+	//	System.out.println("LLEGUE AL GINAL Y NOSP AS " + aPattern.substring(0,2));
+		
 		return patternCreated;
 	}
 	
 	public void print(String message){
-		m_Writter.println(message);
+		//m_Writter.println(message);
+
+		for(Pattern aPattern : messagePatterns){
+			message = aPattern.execute(message);
+		}
+		
+		System.out.println(message);
 	}
 
 	public String notifyDestiny(String s) {

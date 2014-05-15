@@ -39,15 +39,9 @@ public class Logger {
 		return printers;
 	}
 
-	public void log(String message, LogLevel level) {        
-        if(isGreaterOrEqualThanLevelConfigured(level)){    
-            for (int i = 0; i < m_Printers.size(); i++){
-            	m_Printers.get(i).print( message );
-            }
+	public void log(String message) {        
+        for (int i = 0; i < m_Printers.size(); i++){
+          	m_Printers.get(i).print( message );
         }
-	}
-
-	private boolean isGreaterOrEqualThanLevelConfigured(LogLevel level) {
-		return true;
 	}
 }

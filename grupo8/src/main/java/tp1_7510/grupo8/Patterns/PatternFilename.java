@@ -2,30 +2,15 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternFilename implements Pattern {
 
-	String pattern;
+	String m_fileName;
 
 	public PatternFilename(String p) {
-		pattern = p;
+		m_fileName = p;
 	}
 	
-	public PatternFilename() {
-		System.out.println("FILE NAME");
-		pattern = "%F";
-	}
-	
-	
-	public void configurePattern(String p) {
-		pattern = p;
-	}
-	
-	public String getPattern(){
-		return this.pattern;
-	}
-
 	@Override
 	public String execute(String s) {
-		// TODO Auto-generated method stub
-		return null;
+		return s += m_fileName;
 	}
 
 }
