@@ -11,7 +11,7 @@ public class PatternUserDefinedMessage implements Pattern {
 	@Override
 	public String execute(String s) {
 		//es el mensaje en si, por lo atnto solo lo deuvelve
-		return s += FilePrinter.message;
+		return FilePrinter.message + s ;
 	}
 
 }

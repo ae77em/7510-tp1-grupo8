@@ -10,7 +10,7 @@ public class PatternFilename implements Pattern {
 	
 	@Override
 	public String execute(String s) {
-		return s += m_fileName;
+		return  m_fileName + s;
 	}
 
 }

@@ -1,2 +1,2 @@
-main1*06:20:56*Mensaje1*ERROR**file4.txtexecute
-main2*06:20:56*Mensaje2*ERROR**file4.txtexecute
+Mensaje1mainDEBUG06:52:29
+Mensaje2mainDEBUG06:52:29

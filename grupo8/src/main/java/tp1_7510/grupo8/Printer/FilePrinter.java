@@ -21,8 +21,6 @@ public class FilePrinter implements Printer
 
 	private PrintWriter m_Writter;
 	private String m_logLevel, m_separator, m_formatDate, m_nameFile;
-	//private String m_formatMessage;
-	
 	private ArrayList<Pattern> messagePatterns;
 	
 	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{

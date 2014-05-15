@@ -25,7 +25,7 @@ public class Configurer {
 	//-----------------------------------------------
 	public void loadDefaultProperties(){
 		prop.setProperty("files","");
-		prop.setProperty("consoles","consoleDefault");	
+		prop.setProperty("consoles","consoleDefault,");	
 		prop.setProperty("consoleDefault-separator", "-");
 		prop.setProperty("consoleDefault-logLevel", "DEBUG");
 		prop.setProperty("consoleDefault-formatDate", "%d{HH:mm:ss}");
@@ -68,11 +68,7 @@ public class Configurer {
 		prop.setProperty(aPrinter+"-format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
 
-	public void createConsole(String aConsole) {
-		if(prop.getProperty("consoles") == "consoleDefault"){
-			eraseDefaultConfiguration();
-		}
-		
+	public void createConsole(String aConsole){
 		String consoles = prop.getProperty("consoles");
 		
 		consoles += aConsole + ","; 
@@ -163,7 +159,6 @@ public class Configurer {
 		String[] files = getFiles().split(",");
 		
 		for(int i=0; i<files.length;i++){
-			//System.out.println(files[i].toString());
 			filesConfiguration.add( getFileConfiguration(files[i]));
 		}
 

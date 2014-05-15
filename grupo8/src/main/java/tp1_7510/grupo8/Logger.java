@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
 
+import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
@@ -36,6 +37,12 @@ public class Logger {
 
 	private ArrayList<Printer> createPrintersConsole(ArrayList<Hashtable<String, String>> printersConsole) {
 		ArrayList<Printer> printers = new ArrayList<Printer>();
+		
+		for(Hashtable<String, String> aConsolePrinter : printersConsole){
+			printers.add( new ConsolePrinter(aConsolePrinter) );
+		    //System.out.println(aConsolePrinter);
+		}
+		
 		return printers;
 	}
 
