@@ -14,7 +14,7 @@ public class TestPrint extends TestCase {
 		prop.put("separator", ";");
 		prop.put("formatDate", "yyyy/MM/dd");
 		prop.put("name", "prueba");
-		prop.put("format","%d %L");
+		prop.put("format","%L-%n-%d{HH:mm:ss}-%n-%p-%n-%m");
 		
 		Printer p = new Printer(prop);
 		

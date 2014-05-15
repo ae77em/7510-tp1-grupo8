@@ -11,11 +11,13 @@ import tp1_7510.grupo8.Patterns.PatternThread;
 
 //interface que usan las clases que imprimen los mensajes de log
 public  class Printer {
+	
 	protected ArrayList<Pattern> m_messagePatterns;//contendra los patrones a aplicar al mensaje
 	protected FactoryPatterns m_factoryPatterns;//fabrica los patrones a aplicar al mensaje
 	LogLevel m_levelLog;
 	
 	public Printer(Hashtable<String,String> dataConfiguration){
+		
 		m_factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
 		m_messagePatterns = m_factoryPatterns.createListOfPatterns();
