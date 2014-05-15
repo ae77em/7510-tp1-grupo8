@@ -1,10 +1,24 @@
 package tp1_7510.grupo8.Patterns;
 
-public class PatternFilename implements MessagePattern {
+public class PatternFilename implements Pattern {
 
-	public void configurePattern(String prefix) {
-		// TODO Auto-generated method stub
+	String pattern;
 
+	public PatternFilename(String p) {
+		pattern = p;
+	}
+	
+	public PatternFilename() {
+		pattern = "%F";
+	}
+	
+	
+	public void configurePattern(String p) {
+		pattern = p;
+	}
+	
+	public String getPattern(){
+		return this.pattern;
 	}
 
 }
