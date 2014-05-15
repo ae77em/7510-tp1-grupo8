@@ -9,7 +9,7 @@ public class PatternLineNumber implements Pattern {
 	}
 	
 	@Override //se imprime nro de linea de logueo
-	public String formatText(String s) {
+	public String addText(String s) {
 		String message = s + Integer.toString(m_numberLine);
 
 		m_numberLine++;

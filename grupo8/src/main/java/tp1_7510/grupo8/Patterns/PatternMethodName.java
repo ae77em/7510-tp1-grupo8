@@ -7,7 +7,7 @@ public class PatternMethodName implements Pattern {
 	}
 	
 	@Override //imprime el nombre dle metodo invocante
-	public String formatText(String s) {
+	public String addText(String s) {
 		//NI IDEA SI ANDA
 		return  s + new Object(){}.getClass().getEnclosingMethod().getName();
 	}

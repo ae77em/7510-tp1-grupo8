@@ -37,7 +37,7 @@ public class FilePrinter extends Printer{
 		String messageFormated = "";
 
 		for(Pattern aPattern : m_messagePatterns){
-			messageFormated = aPattern.formatText(messageFormated);
+			messageFormated = aPattern.addText(messageFormated);
 		}
 		
 		m_Writter.println(messageFormated);

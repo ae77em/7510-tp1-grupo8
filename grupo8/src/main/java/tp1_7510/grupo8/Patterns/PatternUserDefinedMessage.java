@@ -10,7 +10,7 @@ public class PatternUserDefinedMessage implements Pattern {
 	}
 	
 	@Override //imprime algun mensaje que el usuario setee en el formato del mensaje
-	public String formatText(String s) {
+	public String addText(String s) {
 		//es el mensaje en si, por lo atnto solo lo deuvelve
 		return s + Logger.message;
 	}
