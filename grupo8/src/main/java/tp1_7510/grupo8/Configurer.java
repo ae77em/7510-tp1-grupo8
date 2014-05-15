@@ -54,8 +54,8 @@ public class Configurer {
 	public void createFile(String aFile) {		
 		String files = prop.getProperty("files");
 		
-		files += aFile + ","; 
-		
+		files += aFile + ",";
+			
 		prop.setProperty("files",files);
 		
 		createDefaultsSetting(aFile);
@@ -161,13 +161,17 @@ public class Configurer {
 	/*FIN ACCESO A DISCO**/
 	public ArrayList<Hashtable<String, String>> getFilesConfiguration() {
 		ArrayList<Hashtable<String, String>> filesConfiguration = new ArrayList<Hashtable<String, String>>();
+			
+		if(getFiles().length()<=1){
+			return filesConfiguration;
+		}
 		
 		String[] files = getFiles().split(",");
-		
+
 		for(int i=0; i<files.length;i++){
 			filesConfiguration.add( getFileConfiguration(files[i]));
 		}
-
+		
 		return filesConfiguration;
 	}
 
@@ -186,10 +190,13 @@ public class Configurer {
 	public ArrayList<Hashtable<String, String>> getConsolesConfiguration() {
 		ArrayList<Hashtable<String, String>> consolesConfiguration = new ArrayList<Hashtable<String, String>>();
 		
+		if(getConsoles().length()<=1){
+			return consolesConfiguration;
+		}
+		
 		String[] consoles = getConsoles().split(",");
 		
 		for(int i=0; i<consoles.length;i++){
-			//System.out.println(consoles[i].toString());
 			consolesConfiguration.add( getFileConfiguration(consoles[i]));
 		}
 

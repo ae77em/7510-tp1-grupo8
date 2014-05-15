@@ -13,11 +13,10 @@ public class Logger {
 	private ArrayList<Printer> m_Printers = new ArrayList<Printer>();
 	
 	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
-		/*quedatio mejor pregunta si contiene algun printer cada hash*/
-	//System.out.println("CONSOLES");
-		m_Printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")) );
-		//System.out.println("FILES");
-		m_Printers.addAll( createPrintersFile(dataConfiguration.get("FILES")) );
+		
+		m_Printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
+
+		m_Printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
 	}
 	
 	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,String>> printersFiles) {
@@ -48,6 +47,7 @@ public class Logger {
 
 	public void log(String message) {        
         for (int i = 0; i < m_Printers.size(); i++){
+        	System.out.println(i);
           	m_Printers.get(i).print( message );
         }
 	}

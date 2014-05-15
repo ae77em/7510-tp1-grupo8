@@ -12,6 +12,7 @@ import tp1_7510.grupo8.Patterns.PatternLevel;
 import tp1_7510.grupo8.Patterns.PatternLineNumber;
 import tp1_7510.grupo8.Patterns.PatternMethodName;
 import tp1_7510.grupo8.Patterns.PatternSeparator;
+import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
 import tp1_7510.grupo8.Patterns.PatternThread;
 import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
@@ -65,9 +66,9 @@ public class FilePrinter implements Printer
 			 case "%m": 
 				 patternCreated = new PatternUserDefinedMessage();
 			     break;
-			 /*case "%%": 
+			 case "%%": 
 				 patternCreated = new PatternEscape();
-			     break;*/
+			     break;
 			     
 			 case "%n": 
 				 patternCreated = new PatternSeparator(m_separator);
@@ -83,6 +84,9 @@ public class FilePrinter implements Printer
 			 case "%M": 
 				 patternCreated = new PatternMethodName();
 				 break;
+			 default:
+				patternCreated = new PatternSimpleMessage(aPattern);
+                break;
 			}
 		
 	//	System.out.println("LLEGUE AL GINAL Y NOSP AS " + aPattern.substring(0,2));

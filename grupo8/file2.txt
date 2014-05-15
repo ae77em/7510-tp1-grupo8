@@ -1,2 +1,1 @@
-file2.txt-main-DEBUG-Mensaje1-06:49:57
-file2.txt-main-DEBUG-Mensaje2-06:49:57
+08:21:07-Mensaje1-DEBUG-main-file2.txt
