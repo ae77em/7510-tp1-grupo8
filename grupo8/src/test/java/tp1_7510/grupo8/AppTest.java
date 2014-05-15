@@ -13,10 +13,8 @@ public class AppTest
 		String prop = "{consoleDefault-separator=-, consoles=consoleDefault, consoleDefault-formatDate=%d{HH:mm:ss}, consoleDefault-format=%d{HH:mm:ss}-%p-%t-%m, files=, consoleDefault-logLevel=DEBUG}";
 
 		configurer.loadDefaultProperties();
-		System.out.println(configurer.getProperties().toString());
 
-		assertEquals( prop , configurer.getProperties().toString() );
-		
+		assertEquals( prop , configurer.getProperties().toString() );		
 	}
 	
 	public void testCreateConsolesConfigurer(){
@@ -47,13 +45,15 @@ public class AppTest
 	public void testChangeDefaultSettingsFile(){
 		configurer.createFile("file3");
 		
-	//	System.out.println(configurer.getFormatMessage("file3"));
+		configurer.setFormatDate("file3","%d{yyyyy-mm-dd hh:mm:ss}");
+		configurer.setFormatMessage("file3","%d{HH:mm:ss}-%t-%p-%T-%m");
+		configurer.setLogLevel("file3","ERROR");
+		configurer.setSeparator("file3","*");
 		
-		assertEquals(configurer.getFormatDate("file3"),"%d{HH:mm:ss}");
-		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
-		assertEquals(configurer.getLogLevel1("file3"),"DEBUG");
-		assertEquals(configurer.getSeparator("file3"),"-");
-		
+		assertEquals(configurer.getFormatDate("file3"),"%d{yyyyy-mm-dd hh:mm:ss}");
+		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}-%t-%p-%T-%m");
+		assertEquals(configurer.getLogLevel1("file3"),"ERROR");
+		assertEquals(configurer.getSeparator("file3"),"*");
 		
 	}
 }

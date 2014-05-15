@@ -79,20 +79,20 @@ public class Configurer {
 	}
 
 	/**************SETTERS*************************/
-	public void setFormatDate(String formatDate){
-		prop.setProperty("formatDate", formatDate);
+	public void setFormatDate(String aPrinter, String formatDate){
+		prop.setProperty(aPrinter+"-formatDate", formatDate);
 	}
 	
-	public void setFormatMessage(String formatMessage){
-		prop.setProperty("format", formatMessage);
+	public void setFormatMessage(String aPrinter, String formatMessage){
+		prop.setProperty(aPrinter+"-format", formatMessage);
 	}
 	
-	public void setLogLevel(String logLevel){
-		prop.setProperty("logLevel", logLevel);
+	public void setLogLevel(String aPrinter, String logLevel){
+		prop.setProperty(aPrinter+"-logLevel", logLevel);
 	}
 	
-	public void setSeparator(String separator){
-		prop.setProperty("separator", separator);
+	public void setSeparator(String aPrinter, String separator){
+		prop.setProperty(aPrinter+"-separator", separator);
 	}
 	
 	/**************GETTERS*************************/
