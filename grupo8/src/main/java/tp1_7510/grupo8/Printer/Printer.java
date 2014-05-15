@@ -14,7 +14,8 @@ public  class Printer {
 	
 	protected ArrayList<Pattern> m_messagePatterns;//contendra los patrones a aplicar al mensaje
 	protected FactoryPatterns m_factoryPatterns;//fabrica los patrones a aplicar al mensaje
-	LogLevel m_levelLog;
+	private LogLevel m_levelLog;
+	private String m_namePrinter;
 	
 	public Printer(Hashtable<String,String> dataConfiguration){
 		
@@ -23,6 +24,12 @@ public  class Printer {
 		m_messagePatterns = m_factoryPatterns.createListOfPatterns();
 		
 		setLogLevel(dataConfiguration.get("logLevel"));
+		
+		m_namePrinter = dataConfiguration.get("name");
+	}
+	
+	public String getPrinterName(){
+		return m_namePrinter;
 	}
 	
 	public LogLevel getLogLevel(){
@@ -53,6 +60,11 @@ public  class Printer {
 		}
 	}
 
+	public Boolean verifyLogLevel(LogLevel level){
+		System.out.println("COMPARANDO "+level+" CON "+m_levelLog);
+		return (level.ordinal() <= m_levelLog.ordinal());
+	}
+	
 	public void print(String s){
 		
 	}
@@ -61,7 +73,5 @@ public  class Printer {
 		
 	}
 	
-	public Boolean verifyLogLevel(LogLevel level){
-		return (level.ordinal() >= m_levelLog.ordinal());
-	}
+	
 }
