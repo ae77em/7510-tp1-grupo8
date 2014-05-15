@@ -58,6 +58,6 @@ public  class Printer {
 	}
 	
 	public Boolean verifyLogLevel(LogLevel level){
-		return true;//(level >= m_levelLog)?true:false;
+		return (level.ordinal() >= m_levelLog.ordinal());
 	}
 }

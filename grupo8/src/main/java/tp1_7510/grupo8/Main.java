@@ -5,8 +5,8 @@ public class Main{
 	public static void main(String[] args) {
 		Configurer configurer = new Configurer();
 		
-		configurer.createPrinter("files","file4");
-		configurer.createPrinter("files","file2");
+		configurer.createPrinter("files","file4.txt");
+		configurer.createPrinter("files","file2.txt");
 		
 		configurer.setFormatDate("file4.txt","%d{yyyyy-mm-dd hh:mm:ss}");
 		configurer.setFormatMessage("file4.txt","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M");
@@ -15,7 +15,7 @@ public class Main{
 		
 		configurer.setFormatDate("file2.txt","%d{hh:mm:ss}");
 		configurer.setFormatMessage("file2.txt","%d{hh:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-MENSAJEFEO");
-		configurer.setLogLevel("file2.txt","DEBUG");
+		configurer.setLogLevel("file2.txt","FATAL");
 		configurer.setSeparator("file2.txt","-");
 		
 		configurer.createPrinter("consoles","SUPER_CONSOLA");
@@ -26,7 +26,7 @@ public class Main{
 		
 		Logger loguer = new Logger( configurer.getPrintersConfiguration() );
         		
-        loguer.log("Mensaje1");
+        loguer.log("Mensaje1",LogLevel.ERROR);
      
         loguer.close();
 	}
