@@ -5,7 +5,7 @@ public class Main{
 	public static void main(String[] args) {
 		Configurer configurer = new Configurer();
 		
-		configurer.createFile("file1121.txt");
+		configurer.createFile("file4.txt");
 		configurer.createFile("file2.txt");
 		
 		configurer.setFormatDate("file4.txt","%d{yyyyy-mm-dd hh:mm:ss}");
@@ -14,7 +14,7 @@ public class Main{
 		configurer.setSeparator("file4.txt","*");
 		
 		configurer.setFormatDate("file2.txt","%d{hh:mm:ss}");
-		configurer.setFormatMessage("file2.txt","%d{hh:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F");
+		configurer.setFormatMessage("file2.txt","%d{hh:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-MENSAJEFEO");
 		configurer.setLogLevel("file2.txt","DEBUG");
 		configurer.setSeparator("file2.txt","-");
 		
