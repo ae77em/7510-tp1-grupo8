@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Properties;
 
 import tp1_7510.grupo8.Patterns.*;
@@ -67,7 +68,9 @@ public class Configurer {
 		
 		consoles += aConsole + ","; 
 		
-		prop.setProperty("consoles",consoles);	
+		prop.setProperty("consoles",consoles);
+		
+		createDefaultsSetting(aConsole);
 	}
 
 	private void eraseDefaultConfiguration() {
@@ -108,7 +111,7 @@ public class Configurer {
 		return prop.getProperty(aPrinter+"-format");
 	}
 	
-	public String getLogLevel1(String aPrinter){
+	public String getLogLevel(String aPrinter){
 		return prop.getProperty(aPrinter+"-logLevel");
 	}
 	
@@ -145,10 +148,41 @@ public class Configurer {
 		}
 	}
 	/*FIN ACCESO A DISCO**/
+	public ArrayList<Hashtable<String, String>> getFilesConfiguration() {
+		ArrayList<Hashtable<String, String>> filesConfiguration = new ArrayList<Hashtable<String, String>>();
+		
+		String[] files = getFiles().split(",");
+		
+		for(int i=0; i<files.length;i++){
+			filesConfiguration.add( getFileConfiguration(files[i]));
+		}
 
-	public String getLogLevel(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return filesConfiguration;
+	}
+
+	public Hashtable<String, String> getFileConfiguration(String aPrinter) {
+		Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
+		
+		dataConfiguration.put("name", aPrinter);
+		dataConfiguration.put("separator", prop.getProperty(aPrinter+"-separator"));
+		dataConfiguration.put("logLevel", prop.getProperty(aPrinter+"-logLevel"));
+		dataConfiguration.put("formatDate", prop.getProperty(aPrinter+"-formatDate"));
+		dataConfiguration.put("format", prop.getProperty(aPrinter+"-format"));
+				
+		return dataConfiguration;
+	}
+
+	public ArrayList<Hashtable<String, String>> getConsolesConfiguration() {
+		ArrayList<Hashtable<String, String>> consolesConfiguration = new ArrayList<Hashtable<String, String>>();
+		
+		String[] consoles = getConsoles().split(",");
+		
+		for(int i=0; i<consoles.length;i++){
+			System.out.println(consoles[i].toString());
+			consolesConfiguration.add( getFileConfiguration(consoles[i]));
+		}
+
+		return consolesConfiguration;
 	}
 }
 
