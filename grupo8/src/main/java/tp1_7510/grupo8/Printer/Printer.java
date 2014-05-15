@@ -20,33 +20,35 @@ public  class Printer {
 		
 		m_messagePatterns = m_factoryPatterns.createListOfPatterns();
 		
-		m_levelLog = setLogLevel(dataConfiguration.get("logLevel"));
+		setLogLevel(dataConfiguration.get("logLevel"));
 	}
 	
-	private LogLevel setLogLevel(String levelString){
-		LogLevel level;
-		
+	public LogLevel getLogLevel(){
+		return m_levelLog;
+	}
+	
+	private void setLogLevel(String levelString){
+				
         switch(levelString){
 		 case "OFF": 
-		     level = LogLevel.OFF;
+			 m_levelLog = LogLevel.OFF;
 		     break;
 		 case "FATAL": 
-			 level = LogLevel.FATAL;
+			 m_levelLog = LogLevel.FATAL;
 		     break;
 		 case "ERROR": 
-			 level = LogLevel.ERROR;
+			 m_levelLog = LogLevel.ERROR;
 			 break;
 		 case "WARN": 
-			 level = LogLevel.WARN;
+			 m_levelLog = LogLevel.WARN;
 		     break;
 		 case "INFO": 
-			 level = LogLevel.INFO;
+			 m_levelLog = LogLevel.INFO;
 		     break;
 		 default: 
-			 level = LogLevel.DEBUG;
+			 m_levelLog = LogLevel.DEBUG;
 			 break;
 		}
-        return level;
 	}
 
 	public void print(String s){
