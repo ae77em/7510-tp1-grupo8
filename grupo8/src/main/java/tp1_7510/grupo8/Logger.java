@@ -37,7 +37,7 @@ public class Logger {
 				printers.add( new FilePrinter(aFilePrinter) );
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
-				System.out.println("NO SE PUEDO CREAR ARHICO");
+				System.out.println("NO SE PUEDO CREAR ARCHIVO.");
 			}
 		}
 		
@@ -71,7 +71,7 @@ public class Logger {
         	if(aPrinter.verifyLogLevel(levelLog)){
         		aPrinter.print( aMessage );
         	}else{
-        		//IMPLEMENTAR ALGUN MENSAJE DE ERROR
+        		System.out.println("NO SE PUEDO ESCRIBIR EL LOG.");
         	}
         }
 	}

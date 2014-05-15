@@ -11,4 +11,9 @@ public class PatternEscape implements Pattern {
 		return s + "%";
 	}
 
+	@Override
+	public String getText() {
+		return "%";
+	}
+
 }

@@ -12,4 +12,9 @@ public class PatternMethodName implements Pattern {
 		return  s + new Object(){}.getClass().getEnclosingMethod().getName();
 	}
 
+	@Override
+	public String getText() {
+		return new Object(){}.getClass().getEnclosingMethod().getName();
+	}
+
 }

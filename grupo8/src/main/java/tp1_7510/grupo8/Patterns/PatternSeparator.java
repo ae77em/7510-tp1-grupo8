@@ -17,4 +17,9 @@ public class PatternSeparator implements Pattern {
 		return s + m_separator;
 	}
 
+	@Override
+	public String getText() {
+		return m_separator;
+	}
+
 }

@@ -5,7 +5,7 @@ public class PatternLineNumber implements Pattern {
 	int m_numberLine;
 
 	public PatternLineNumber() {
-		m_numberLine=1;
+		m_numberLine=0;
 	}
 	
 	@Override //se imprime nro de linea de logueo
@@ -17,5 +17,12 @@ public class PatternLineNumber implements Pattern {
 		return message;
 	}
 
+	@Override
+	public String getText() {
+		// TODO Auto-generated method stub
+		return Integer.toString(m_numberLine);
+	}
+
+	
 
 }

@@ -19,4 +19,9 @@ public class PatternLevel implements Pattern {
 		return s + m_level;
 	}
 
+	@Override
+	public String getText() {		
+		return m_level;
+	}
+
 }

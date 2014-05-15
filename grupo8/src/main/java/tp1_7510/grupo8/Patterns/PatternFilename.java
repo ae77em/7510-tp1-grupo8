@@ -13,4 +13,9 @@ public class PatternFilename implements Pattern {
 		return  s + m_fileName;
 	}
 
+	@Override
+	public String getText() {
+		return m_fileName;
+	}
+
 }

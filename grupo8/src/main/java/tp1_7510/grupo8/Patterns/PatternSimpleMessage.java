@@ -4,13 +4,21 @@ public class PatternSimpleMessage implements Pattern {
 	
 	private String m_simpleText;
 	
+	public PatternSimpleMessage(){
+		m_simpleText = "";
+	}
+	
 	public PatternSimpleMessage(String text){
 		m_simpleText = text;
 	}
+	
 	@Override //imprime el mensaje, el mismo estomado de una variable estatico en la clase LOGGER
 	public String addText(String s) {
-		// TODO Auto-generated method stub
 		return s + m_simpleText;
+	}
+	@Override
+	public String getText() {		
+		return m_simpleText;
 	}
 
 }

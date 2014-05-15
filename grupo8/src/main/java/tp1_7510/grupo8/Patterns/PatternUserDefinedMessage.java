@@ -15,4 +15,9 @@ public class PatternUserDefinedMessage implements Pattern {
 		return s + Logger.message;
 	}
 
+	@Override
+	public String getText() {
+		return Logger.message;
+	}
+
 }
