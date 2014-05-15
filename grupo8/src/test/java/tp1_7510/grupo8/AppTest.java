@@ -36,9 +36,24 @@ public class AppTest
 	public void testDefaultSettingsFile(){
 		configurer.createFile("file3");
 		
-		assertEquals(configurer.getFormatDate("file3"),"%d{HH:mm:ss}-%p-%t-%m");
-		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}");
+	//	System.out.println(configurer.getFormatMessage("file3"));
+		
+		assertEquals(configurer.getFormatDate("file3"),"%d{HH:mm:ss}");
+		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
 		assertEquals(configurer.getLogLevel1("file3"),"DEBUG");
 		assertEquals(configurer.getSeparator("file3"),"-");
+	}
+	
+	public void testChangeDefaultSettingsFile(){
+		configurer.createFile("file3");
+		
+	//	System.out.println(configurer.getFormatMessage("file3"));
+		
+		assertEquals(configurer.getFormatDate("file3"),"%d{HH:mm:ss}");
+		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
+		assertEquals(configurer.getLogLevel1("file3"),"DEBUG");
+		assertEquals(configurer.getSeparator("file3"),"-");
+		
+		
 	}
 }
