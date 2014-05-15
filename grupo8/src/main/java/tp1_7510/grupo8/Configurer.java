@@ -33,7 +33,6 @@ public class Configurer {
 	}
 	
 	public Hashtable<String,ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
-	
 		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
 		
 		printers.put("FILES", getFilesConfiguration());
