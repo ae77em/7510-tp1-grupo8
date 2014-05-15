@@ -11,7 +11,7 @@ public class PatternDate implements Pattern {
 		m_sdf = new SimpleDateFormat(p);	
 	}	
 	
-	@Override
+	@Override //concatena la fecha
 	public String formatText(String s) {
 		String fecha = m_sdf.format(new Date());
 		return s + fecha; 

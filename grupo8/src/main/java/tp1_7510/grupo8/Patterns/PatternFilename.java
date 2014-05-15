@@ -8,7 +8,7 @@ public class PatternFilename implements Pattern {
 		m_fileName = p;
 	}
 	
-	@Override
+	@Override //imprime el nombre de la consola o archivo sobre el cual se esta logueando
 	public String formatText(String s) {
 		return  s + m_fileName;
 	}

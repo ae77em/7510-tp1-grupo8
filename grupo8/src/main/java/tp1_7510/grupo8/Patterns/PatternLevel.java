@@ -8,7 +8,7 @@ public class PatternLevel implements Pattern {
 		m_level = p;
 	}
 	
-	@Override
+	@Override //se imprime nivel de level
 	public String formatText(String s) {
 		return s + m_level;
 	}

@@ -7,7 +7,7 @@ public class PatternSimpleMessage implements Pattern {
 	public PatternSimpleMessage(String text){
 		m_simpleText = text;
 	}
-	@Override
+	@Override //imprime el mensaje, el mismo estomado de una variable estatico en la clase LOGGER
 	public String formatText(String s) {
 		// TODO Auto-generated method stub
 		return s + m_simpleText;

@@ -5,7 +5,7 @@ public class PatternEscape implements Pattern {
 		
 	}
 
-	@Override
+	@Override //imprime un caracter de escape
 	public String formatText(String s) {
 		return s + "%";
 	}

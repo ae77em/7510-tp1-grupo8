@@ -8,7 +8,7 @@ public class PatternSeparator implements Pattern {
 		m_separator = p;
 	}
 	
-	@Override
+	@Override //imprime un separador
 	public String formatText(String s) {
 		return s + m_separator;
 	}
