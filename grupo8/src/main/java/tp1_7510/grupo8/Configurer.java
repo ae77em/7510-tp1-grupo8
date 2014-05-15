@@ -23,13 +23,61 @@ public class Configurer {
 
 	//-----------------------------------------------
 	public void loadDefaultProperties(){
-		prop.setProperty("printers","console");	
-		prop.setProperty("console-separator", "-");
-		prop.setProperty("console-logLevel", "DEBUG");
-		prop.setProperty("console-formatDate", "%d{HH:mm:ss}");
-		prop.setProperty("console-format", "%d{HH:mm:ss}-%p-%t-%m");
+		prop.setProperty("files","");
+		prop.setProperty("consoles","consoleDefault");	
+		prop.setProperty("consoleDefault-separator", "-");
+		prop.setProperty("consoleDefault-logLevel", "DEBUG");
+		prop.setProperty("consoleDefault-formatDate", "%d{HH:mm:ss}");
+		prop.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
 	
+	public String getConsoles() {
+		// TODO Auto-generated method stub
+		return prop.getProperty("consoles");
+	}
+	
+	public String getFiles() {
+		// TODO Auto-generated method stub
+		return prop.getProperty("files");
+	}
+	
+	public void createFile(String aFile) {
+		String files = prop.getProperty("files");
+		
+		files += aFile + ","; 
+		
+		prop.setProperty("files",files);
+		
+		createDefaultsSetting(aFile);
+	}
+	
+	private void createDefaultsSetting(String aPrinter) {
+		prop.setProperty(aPrinter+"-separator", "-");
+		prop.setProperty(aPrinter+"-logLevel", "DEBUG");
+		prop.setProperty(aPrinter+"-formatDate", "%d{HH:mm:ss}");
+		prop.setProperty(aPrinter+"-format", "%d{HH:mm:ss}-%p-%t-%m");
+	}
+
+	public void createConsole(String aConsole) {
+		if(prop.getProperty("consoles") == "consoleDefault"){
+			eraseDefaultConfiguration();
+		}
+		
+		String consoles = prop.getProperty("consoles");
+		
+		consoles += aConsole + ","; 
+		
+		prop.setProperty("consoles",consoles);	
+	}
+
+	private void eraseDefaultConfiguration() {
+		prop.setProperty("consoles","");		
+		prop.remove("consoleDefault-separator");
+		prop.remove("consoleDefault-logLevel");
+		prop.remove("consoleDefault-formatDate");
+		prop.remove("consoleDefault-format");
+	}
+
 	/**************SETTERS*************************/
 	public void setFormatDate(String formatDate){
 		prop.setProperty("formatDate", formatDate);
@@ -52,20 +100,20 @@ public class Configurer {
 		return prop;
 	}
 	
-	public String getFormatDate(){
-		return prop.getProperty("formatDate");
+	public String getFormatDate(String aPrinter){
+		return prop.getProperty(aPrinter+"-formatDate");
 	}
 	
-	public String getFormatMessage(){
-		return prop.getProperty("format");
+	public String getFormatMessage(String aPrinter){
+		return prop.getProperty(aPrinter+"-format");
 	}
 	
-	public String getLogLevel(){
-		return prop.getProperty("logLevel");
+	public String getLogLevel1(String aPrinter){
+		return prop.getProperty(aPrinter+"-logLevel");
 	}
 	
-	public String getSeparator(){
-		return prop.getProperty("separator");
+	public String getSeparator(String aPrinter){
+		return prop.getProperty(aPrinter+"-separator");
 	}
 	
 	//-----------------------------------------------
@@ -97,5 +145,10 @@ public class Configurer {
 		}
 	}
 	/*FIN ACCESO A DISCO**/
+
+	public String getLogLevel(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
