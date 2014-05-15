@@ -14,6 +14,6 @@ public class Main {
 		
 		Logger loguer = new Logger( configurer.getPrintersConfiguration() );
         
-        loguer.log("Un mensaje DEBUG",LogLevel.DEBUG);
+        //loguer.log("Un mensaje DEBUG",LogLevel.DEBUG);
 	}
 }

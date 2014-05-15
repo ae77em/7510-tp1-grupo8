@@ -51,7 +51,7 @@ public class Configurer {
 		return prop.getProperty("files");
 	}
 	
-	public void createFile(String aFile) {
+	public void createFile(String aFile) {		
 		String files = prop.getProperty("files");
 		
 		files += aFile + ","; 
@@ -163,6 +163,7 @@ public class Configurer {
 		String[] files = getFiles().split(",");
 		
 		for(int i=0; i<files.length;i++){
+			//System.out.println(files[i].toString());
 			filesConfiguration.add( getFileConfiguration(files[i]));
 		}
 
@@ -187,7 +188,7 @@ public class Configurer {
 		String[] consoles = getConsoles().split(",");
 		
 		for(int i=0; i<consoles.length;i++){
-			System.out.println(consoles[i].toString());
+			//System.out.println(consoles[i].toString());
 			consolesConfiguration.add( getFileConfiguration(consoles[i]));
 		}
 

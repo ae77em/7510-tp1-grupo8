@@ -9,6 +9,7 @@ public class PatternLineNumber implements Pattern {
 	}
 	
 	public PatternLineNumber() {
+		System.out.println("CREE LINE NUMBER");
 		pattern = "%L";
 	}
 	
@@ -19,6 +20,12 @@ public class PatternLineNumber implements Pattern {
 	
 	public String getPattern(){
 		return this.pattern;
+	}
+
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

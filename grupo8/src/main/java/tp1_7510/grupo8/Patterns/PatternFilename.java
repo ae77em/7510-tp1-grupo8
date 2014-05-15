@@ -9,6 +9,7 @@ public class PatternFilename implements Pattern {
 	}
 	
 	public PatternFilename() {
+		System.out.println("FILE NAME");
 		pattern = "%F";
 	}
 	
@@ -19,6 +20,12 @@ public class PatternFilename implements Pattern {
 	
 	public String getPattern(){
 		return this.pattern;
+	}
+
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

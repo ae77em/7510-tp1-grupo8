@@ -25,7 +25,7 @@ public class FilePrinter implements Printer
 	
 	private ArrayList<Pattern> messagePatterns;
 	
-	FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
+	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
 		m_logLevel = dataConfiguration.get("logLevel");
 		m_separator = dataConfiguration.get("separator");
 		m_formatDate = dataConfiguration.get("formatDate");
@@ -34,7 +34,6 @@ public class FilePrinter implements Printer
 		String nameFile = dataConfiguration.get("name");
 		
 		m_Writter = new PrintWriter(new FileOutputStream(new File(nameFile),true));
-		
 		messagePatterns = createListOfPatterns(dataConfiguration.get("format").split("-"));
 	}
 	
@@ -42,7 +41,8 @@ public class FilePrinter implements Printer
 		
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 		
-		for(int i=0;i<patternsText.length;i++){			
+		for(int i=0;i<patternsText.length;i++){
+			System.out.println("CREE "+patternsText[i]);
 			patterns.add( createPattern(patternsText[i]) );
 		}
 		
@@ -53,11 +53,11 @@ public class FilePrinter implements Printer
 	private Pattern createPattern(String aPattern) {	
 		Pattern patternCreated = null;
 		
-		switch(aPattern.substring(0,1)){
+		switch(aPattern.substring(0,2)){
+		
 			 case "%d": //buscar con expresion regular por %d
-			     patternCreated = new PatternDate();
+			     patternCreated = new PatternDate(aPattern.substring(2));
 			     break;
-			     
 			 case "%p": 
 				 patternCreated = new PatternLevel();
 			     break;

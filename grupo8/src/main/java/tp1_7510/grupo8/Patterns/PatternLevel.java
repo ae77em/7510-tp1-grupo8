@@ -9,6 +9,7 @@ public class PatternLevel implements Pattern {
 	}
 	
 	public PatternLevel() {
+		System.out.println("CREE LEVEL");
 		pattern = "%p";
 	}
 	
@@ -19,6 +20,12 @@ public class PatternLevel implements Pattern {
 	
 	public String getPattern(){
 		return this.pattern;
+	}
+
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -21,4 +21,10 @@ public class PatternSeparator implements Pattern {
 		return this.pattern;
 	}
 
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

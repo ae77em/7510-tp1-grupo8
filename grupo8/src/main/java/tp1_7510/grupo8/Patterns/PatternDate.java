@@ -6,12 +6,7 @@ public class PatternDate implements Pattern {
 
 	public PatternDate(String p) {
 		pattern = p;
-	}
-	
-	public PatternDate() {
-		pattern = "%d{dd/mm/aaaa}";
-	}
-	
+	}	
 	
 	public void configurePattern(String p) {
 		pattern = p;
@@ -19,6 +14,12 @@ public class PatternDate implements Pattern {
 	
 	public String getPattern(){
 		return this.pattern;
+	}
+
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

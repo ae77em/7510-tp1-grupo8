@@ -9,6 +9,7 @@ public class PatternLine implements Pattern {
 	}
 	
 	public PatternLine() {
+		System.out.println("CREE LINE");
 		pattern = "%%";
 	}
 	
@@ -19,6 +20,12 @@ public class PatternLine implements Pattern {
 	
 	public String getPattern(){
 		return this.pattern;
+	}
+
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

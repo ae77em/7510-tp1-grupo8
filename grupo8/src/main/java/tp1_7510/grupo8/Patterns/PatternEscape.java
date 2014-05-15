@@ -9,6 +9,7 @@ public class PatternEscape implements Pattern {
 	}
 	
 	public PatternEscape() {
+		System.out.println("CREE ESCAPE");
 		pattern = "%%";
 	}
 	
@@ -19,6 +20,12 @@ public class PatternEscape implements Pattern {
 	
 	public String getPattern(){
 		return this.pattern;
+	}
+
+	@Override
+	public String execute(String s) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
