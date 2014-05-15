@@ -16,11 +16,11 @@ public class Main{
 		configurer.setFormatDate("file2.txt","%d{hh:mm:ss}");
 		configurer.setFormatMessage("file2.txt","%d{hh:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-MENSAJEFEO");
 		configurer.setLogLevel("file2.txt","FATAL");
-		configurer.setSeparator("file2.txt","-");
 		
 		configurer.createPrinter("consoles","SUPER_CONSOLA");
-		configurer.setFormatMessage("consoleDefault","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t");
-		configurer.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola");
+		configurer.setLogLevel("SUPER_CONSOLA","FATAL");
+		configurer.setFormatMessage("consoleDefault","	-%n-%p-%n-%t-%n-%F-%M-%t");
+		//configurer.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola");
 		
 		configurer.eraseDefaultConsole();
 		

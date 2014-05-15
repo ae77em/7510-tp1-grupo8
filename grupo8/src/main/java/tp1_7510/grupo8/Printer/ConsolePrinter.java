@@ -36,7 +36,6 @@ public class ConsolePrinter extends Printer {
 
 		for(Pattern aPattern : m_messagePatterns){
 			messageFormated = aPattern.addText(messageFormated);
-			System.out.println(messageFormated);
 		}
 		
 		System.out.println(messageFormated);
