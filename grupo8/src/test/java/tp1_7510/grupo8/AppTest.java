@@ -73,7 +73,7 @@ public class AppTest
 	}
 
 	
-	public void testObtenerConfigurationPrinters(){
+	public void testGetConfigurationPrinters(){
 		configurer.createFile("file5");
 		configurer.createFile("file6");
 		configurer.createFile("file7");

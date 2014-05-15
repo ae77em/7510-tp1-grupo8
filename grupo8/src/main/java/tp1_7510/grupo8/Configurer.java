@@ -32,6 +32,16 @@ public class Configurer {
 		prop.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
 	
+	public Hashtable<String,ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
+	
+		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
+		
+		printers.put("FILES", getFilesConfiguration());
+		printers.put("CONSOLES", getConsolesConfiguration());
+		
+		return printers;
+	}
+	
 	public String getConsoles() {
 		// TODO Auto-generated method stub
 		return prop.getProperty("consoles");

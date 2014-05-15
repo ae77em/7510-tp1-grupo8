@@ -1,6 +1,7 @@
 package tp1_7510.grupo8;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import tp1_7510.grupo8.Patterns.MessagePattern;
 import tp1_7510.grupo8.Printer.Printer;
@@ -11,11 +12,8 @@ public class Logger {
 	private FormaterMessage m_FormaterMessage = new FormaterMessage();
 	private Configurer m_ConfigurerProperties = new Configurer() ;
 	
-	Logger(){
+	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> hashtable){
 		m_ConfigurerProperties.loadProperties();
-		
-		//DEBE DE SER UN OBJETO QUE COMO CONSTRUCTOR TOME LA LISTA DE PATTERNS A APLICAR AL MENSAJE
-		
 	}
 	
 	public void log(String message, LogLevel level) {
