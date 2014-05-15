@@ -9,8 +9,7 @@ public class PatternMethodName implements Pattern {
 	@Override
 	public String execute(String s) {
 		//NI IDEA SI ANDA
-		 
-		return new Object(){}.getClass().getEnclosingMethod().getName() + s;
+		return  s + new Object(){}.getClass().getEnclosingMethod().getName();
 	}
 
 }

@@ -10,7 +10,8 @@ public class PatternLineNumber implements Pattern {
 	
 	@Override
 	public String execute(String s) {
-		String message = Integer.toString(m_numberLine) + s;
+		String message = s + Integer.toString(m_numberLine);
+
 		m_numberLine++;
 		
 		return message;

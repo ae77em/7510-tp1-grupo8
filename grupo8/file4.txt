@@ -1,2 +1,2 @@
-Mensaje1mainDEBUG06:52:29
-Mensaje2mainDEBUG06:52:29
+07:03:03DEBUGmainMensaje1
+07:03:03DEBUGmainMensaje2

@@ -14,7 +14,7 @@ public class PatternDate implements Pattern {
 	@Override
 	public String execute(String s) {
 		String fecha = m_sdf.format(new Date());
-		return fecha + s; 
+		return s + fecha; 
 	}
 
 }

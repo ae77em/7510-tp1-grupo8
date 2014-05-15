@@ -10,7 +10,7 @@ public class PatternLevel implements Pattern {
 	
 	@Override
 	public String execute(String s) {
-		return m_level + s;
+		return s + m_level;
 	}
 
 }

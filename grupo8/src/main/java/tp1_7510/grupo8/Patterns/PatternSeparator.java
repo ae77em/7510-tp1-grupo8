@@ -10,7 +10,7 @@ public class PatternSeparator implements Pattern {
 	
 	@Override
 	public String execute(String s) {
-		return m_separator + s;
+		return s + m_separator;
 	}
 
 }

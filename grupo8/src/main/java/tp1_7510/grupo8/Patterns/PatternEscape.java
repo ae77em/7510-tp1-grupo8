@@ -10,7 +10,7 @@ public class PatternEscape implements Pattern {
 
 	@Override
 	public String execute(String s) {
-		return m_escape + s;
+		return s + m_escape;
 	}
 
 }
