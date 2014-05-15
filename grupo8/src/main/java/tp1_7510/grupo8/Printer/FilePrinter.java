@@ -17,6 +17,8 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
 public class FilePrinter implements Printer 
 {
+	public static String message = "";
+
 	private PrintWriter m_Writter;
 	private String m_logLevel, m_separator, m_formatDate, m_nameFile;
 	//private String m_formatMessage;
@@ -89,14 +91,17 @@ public class FilePrinter implements Printer
 		return patternCreated;
 	}
 	
-	public void print(String message){
+	public void print(String aMessage){
+		message = aMessage;
 		//m_Writter.println(message);
+		
+		String messageFormated = "";
 
 		for(Pattern aPattern : messagePatterns){
-			message = aPattern.execute(message);
+			messageFormated = aPattern.execute(messageFormated);
 		}
 		
-		System.out.println(message);
+		System.out.println(messageFormated);
 	}
 
 	public String notifyDestiny(String s) {
