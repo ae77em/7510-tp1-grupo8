@@ -3,7 +3,6 @@ package tp1_7510.grupo8;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import tp1_7510.grupo8.Patterns.MessagePattern;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {

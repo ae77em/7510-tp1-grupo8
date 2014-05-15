@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import tp1_7510.grupo8.Patterns.MessagePattern;
 import tp1_7510.grupo8.Patterns.Pattern;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
