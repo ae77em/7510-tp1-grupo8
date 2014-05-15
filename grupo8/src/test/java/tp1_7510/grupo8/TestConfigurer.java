@@ -11,33 +11,23 @@ public class TestConfigurer
     extends TestCase{
 	
 	private Configurer configurer = new Configurer();
-	
-	public void testLoadDefaultSettingsConfigurer(){
-		String prop = "{consoleDefault-separator=-, consoles=consoleDefault, consoleDefault-formatDate=%d{HH:mm:ss}, consoleDefault-format=%d{HH:mm:ss}-%p-%t-%m, files=, consoleDefault-logLevel=DEBUG}";
-
-		configurer.loadDefaultProperties();
-
-		assertEquals( prop , configurer.getProperties().toString() );		
-	}
-	
-	public void testCreateConsolesConfigurer(){
-		configurer.createConsole("console1");
-		configurer.createConsole("console2");
 		
-		assertEquals("console1,console2,", configurer.getConsoles());
+	public void testCreateConsolesConfigurer(){
+		configurer.createPrinter("consoles","console1");
+		configurer.createPrinter("consoles","console2");
+		
+		assertEquals("consoleDefault,console1,console2,", configurer.getConsoles());
 	}
 	
 	public void testCreateFilesConfigurer(){
-		configurer.createFile("file1");
-		configurer.createFile("file2");
+		configurer.createPrinter("files","file1");
+		configurer.createPrinter("files","file2");
 		
 		assertEquals("file1,file2,", configurer.getFiles());
 	}
 	
 	public void testDefaultSettingsFile(){
-		configurer.createFile("file3");
-		
-	//	System.out.println(configurer.getFormatMessage("file3"));
+		configurer.createPrinter("files","file3");
 		
 		assertEquals(configurer.getFormatDate("file3"),"%d{HH:mm:ss}");
 		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
@@ -46,7 +36,7 @@ public class TestConfigurer
 	}
 	
 	public void testChangeDefaultSettingsFile(){
-		configurer.createFile("file4");
+		configurer.createPrinter("files","file4");
 		
 		configurer.setFormatDate("file4","%d{yyyyy-mm-dd hh:mm:ss}");
 		configurer.setFormatMessage("file4","%d{HH:mm:ss}-%t-%p-%T-%m");
@@ -67,28 +57,26 @@ public class TestConfigurer
 		hashAux.put("formatDate","%d{HH:mm:ss}");
 		hashAux.put("logLevel","DEBUG");
 		
-		configurer.createFile("file5");
+		configurer.createPrinter("files","file5");
 			
-		assertEquals(configurer.getFileConfiguration("file5"),hashAux);		
+		assertEquals(configurer.getPrinterConfiguration("file5"),hashAux);		
 	}
 
 	
 	public void testGetConfigurationPrinters(){
-		configurer.createFile("file5");
-		configurer.createFile("file6");
-		configurer.createFile("file7");
+		configurer.createPrinter("files","file5");
+		configurer.createPrinter("files","file6");
+		configurer.createPrinter("files","file7");
 		
-		configurer.createConsole("console5");
-		configurer.createConsole("console6");
-		configurer.createConsole("console7");
+		configurer.createPrinter("consoles","console5");
+		configurer.createPrinter("consoles","console6");
+		configurer.createPrinter("consoles","console7");
 		
 		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
 		
-		printers.put("FILES", configurer.getFilesConfiguration());
-		printers.put("CONSOLES", configurer.getConsolesConfiguration());
+		printers.put("FILES", configurer.getPrintersConfiguration("files"));
+		printers.put("CONSOLES", configurer.getPrintersConfiguration("consoles"));
 
-		System.out.println(printers.toString());
-	
 		assertTrue(true);
 	}
 

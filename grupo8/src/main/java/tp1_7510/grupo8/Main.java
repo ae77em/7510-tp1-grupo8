@@ -5,8 +5,8 @@ public class Main{
 	public static void main(String[] args) {
 		Configurer configurer = new Configurer();
 		
-		configurer.createFile("file4.txt");
-		configurer.createFile("file2.txt");
+		configurer.createPrinter("files","file4");
+		configurer.createPrinter("files","file2");
 		
 		configurer.setFormatDate("file4.txt","%d{yyyyy-mm-dd hh:mm:ss}");
 		configurer.setFormatMessage("file4.txt","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M");
@@ -18,7 +18,7 @@ public class Main{
 		configurer.setLogLevel("file2.txt","DEBUG");
 		configurer.setSeparator("file2.txt","-");
 		
-		configurer.createConsole("SUPER_CONSOLA");
+		configurer.createPrinter("consoles","SUPER_CONSOLA");
 		configurer.setFormatMessage("consoleDefault","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t");
 		configurer.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola");
 		

@@ -32,35 +32,16 @@ public class Configurer {
 		prop.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
 	
-	public Hashtable<String,ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
-		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
+	public void createPrinter(String printer,String name){
+		String consoles = prop.getProperty(printer);
 		
-		printers.put("FILES", getFilesConfiguration());
-		printers.put("CONSOLES", getConsolesConfiguration());
+		consoles += name + ","; 
 		
-		return printers;
-	}
-	
-	public String getConsoles() {
-		// TODO Auto-generated method stub
-		return prop.getProperty("consoles");
-	}
-	
-	public String getFiles() {
-		// TODO Auto-generated method stub
-		return prop.getProperty("files");
-	}
-	
-	public void createFile(String aFile) {		
-		String files = prop.getProperty("files");
+		prop.setProperty(printer,consoles);
 		
-		files += aFile + ",";
-			
-		prop.setProperty("files",files);
-		
-		createDefaultsSetting(aFile);
+		createDefaultsSetting(name);
 	}
-	
+		
 	private void createDefaultsSetting(String aPrinter) {
 		prop.setProperty(aPrinter+"-separator", "-");
 		prop.setProperty(aPrinter+"-logLevel", "DEBUG");
@@ -68,18 +49,7 @@ public class Configurer {
 		prop.setProperty(aPrinter+"-format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
 
-	public void createConsole(String aConsole){
-		String consoles = prop.getProperty("consoles");
-		
-		consoles += aConsole + ","; 
-		
-		prop.setProperty("consoles",consoles);
-		
-		createDefaultsSetting(aConsole);
-	}
-
-	public void eraseDefaultConsole() {
-		
+	public void eraseDefaultConsole() {		
 		String consoles = prop.getProperty("consoles");
 		
 		consoles = consoles.replace("consoleDefault,","");
@@ -109,7 +79,17 @@ public class Configurer {
 		prop.setProperty(aPrinter+"-separator", separator);
 	}
 	
+	public String getFiles() {
+		// TODO Auto-generated method stub
+		return prop.getProperty("files");
+	}
+
 	/**************GETTERS*************************/
+	public String getConsoles() {
+		// TODO Auto-generated method stub
+		return prop.getProperty("consoles");
+	}
+	
 	public Properties getProperties(){
 		return prop;
 	}
@@ -158,24 +138,27 @@ public class Configurer {
 			ex.printStackTrace();
 		}
 	}
-	/*FIN ACCESO A DISCO**/
-	public ArrayList<Hashtable<String, String>> getFilesConfiguration() {
-		ArrayList<Hashtable<String, String>> filesConfiguration = new ArrayList<Hashtable<String, String>>();
-			
-		if(getFiles().length()<=1){
-			return filesConfiguration;
-		}
+	
+	/*ACCESO A PROPIEDADES DE PRINTERS**/
+	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
+		ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
 		
-		String[] files = getFiles().split(",");
+		String printers = prop.getProperty(printer);
+		
+		if(printers.length()<=1){
+			return printersConfiguration;
+		}
+		//
+		String[] aPrinters = printers.split(",");
+		
+		for(int i=0; i<aPrinters.length;i++){
+			printersConfiguration.add( getPrinterConfiguration(aPrinters[i]));
+		}
 
-		for(int i=0; i<files.length;i++){
-			filesConfiguration.add( getFileConfiguration(files[i]));
-		}
-		
-		return filesConfiguration;
+		return printersConfiguration;
 	}
 
-	public Hashtable<String, String> getFileConfiguration(String aPrinter) {
+	public Hashtable<String, String> getPrinterConfiguration(String aPrinter) {
 		Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
 		
 		dataConfiguration.put("name", aPrinter);
@@ -186,21 +169,14 @@ public class Configurer {
 				
 		return dataConfiguration;
 	}
-
-	public ArrayList<Hashtable<String, String>> getConsolesConfiguration() {
-		ArrayList<Hashtable<String, String>> consolesConfiguration = new ArrayList<Hashtable<String, String>>();
+	
+	public Hashtable<String,ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
+		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
 		
-		if(getConsoles().length()<=1){
-			return consolesConfiguration;
-		}
+		printers.put("FILES", getPrintersConfiguration("files"));
+		printers.put("CONSOLES", getPrintersConfiguration("consoles"));
 		
-		String[] consoles = getConsoles().split(",");
-		
-		for(int i=0; i<consoles.length;i++){
-			consolesConfiguration.add( getFileConfiguration(consoles[i]));
-		}
-
-		return consolesConfiguration;
+		return printers;
 	}
 }
 
