@@ -1,0 +1,2 @@
+main06:20:56-Mensaje1-DEBUG--file2.txt
+main06:20:56-Mensaje2-DEBUG--file2.txt

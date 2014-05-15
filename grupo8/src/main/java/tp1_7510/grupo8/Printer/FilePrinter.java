@@ -33,7 +33,8 @@ public class FilePrinter implements Printer
 		
 		m_nameFile = dataConfiguration.get("name");
 		
-		m_Writter = new PrintWriter(new FileOutputStream(new File(m_nameFile),true));
+		m_Writter = new PrintWriter(new FileOutputStream(new File(m_nameFile)));
+				
 		messagePatterns = createListOfPatterns(dataConfiguration.get("format").split("-"));
 	}
 	
@@ -93,7 +94,6 @@ public class FilePrinter implements Printer
 	
 	public void print(String aMessage){
 		message = aMessage;
-		//m_Writter.println(message);
 		
 		String messageFormated = "";
 
@@ -101,10 +101,10 @@ public class FilePrinter implements Printer
 			messageFormated = aPattern.execute(messageFormated);
 		}
 		
-		System.out.println(messageFormated);
+		m_Writter.println(messageFormated);
 	}
 
-	public String notifyDestiny(String s) {
-		return s;
+	public void close() {
+		m_Writter.close();
 	}
 }

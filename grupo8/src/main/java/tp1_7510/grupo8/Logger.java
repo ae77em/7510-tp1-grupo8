@@ -44,4 +44,10 @@ public class Logger {
           	m_Printers.get(i).print( message );
         }
 	}
+
+	public void close() {
+		for (int i = 0; i < m_Printers.size(); i++){
+          	m_Printers.get(i).close();
+        }	
+	}
 }

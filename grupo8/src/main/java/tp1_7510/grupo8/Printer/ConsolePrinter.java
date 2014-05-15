@@ -13,4 +13,9 @@ public class ConsolePrinter implements Printer {
 		// TODO Auto-generated method stub
 		return s;
 	}
+
+	@Override
+	public void close() {
+		
+	}
 }

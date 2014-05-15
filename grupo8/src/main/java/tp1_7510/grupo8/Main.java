@@ -6,15 +6,24 @@ public class Main {
 		Configurer configurer = new Configurer();
 		
 		configurer.createFile("file4.txt");
+		configurer.createFile("file2.txt");
 		
 		configurer.setFormatDate("file4.txt","%d{yyyyy-mm-dd hh:mm:ss}");
 		configurer.setFormatMessage("file4.txt","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M");
 		configurer.setLogLevel("file4.txt","ERROR");
 		configurer.setSeparator("file4.txt","*");
 		
+		configurer.setFormatDate("file2.txt","%d{hh:mm:ss}");
+		configurer.setFormatMessage("file2.txt","%d{hh:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F");
+		configurer.setLogLevel("file2.txt","DEBUG");
+		configurer.setSeparator("file2.txt","-");
+		
 		Logger loguer = new Logger( configurer.getPrintersConfiguration() );
         
-        loguer.log("Un mensaje DEBUG");
+        loguer.log("Mensaje1");
+        
+        loguer.log("Mensaje2");
+        
+        loguer.close();
 	}
 }
-//%m %d %L %p %t %n %F
