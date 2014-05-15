@@ -16,23 +16,18 @@ import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
 import tp1_7510.grupo8.Patterns.PatternThread;
 import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
-public class FilePrinter implements Printer 
-{
+public class FilePrinter extends Printer{
+
 	private PrintWriter m_Writter;
-	
-	private ArrayList<Pattern> messagePatterns;//contendra los patrones a aplicar al mensaje
-	private FactoryPatterns factoryPatterns;//fabrica los patrones a aplicar al mensaje
 	
 	/*
 	 * recibe la configuracion de un archivo, lo crea y le pasa las reglas a la clase
 	 * factoryPattern para que las instancie
 	 */
 	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
-		m_Writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
-				
-		factoryPatterns = new FactoryPatterns(dataConfiguration);
+		super(dataConfiguration);
 		
-		messagePatterns = factoryPatterns.createListOfPatterns();
+		m_Writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
 	}
 	
 	/*
@@ -41,7 +36,7 @@ public class FilePrinter implements Printer
 	public void print(String aMessage){		
 		String messageFormated = "";
 
-		for(Pattern aPattern : messagePatterns){
+		for(Pattern aPattern : m_messagePatterns){
 			messageFormated = aPattern.formatText(messageFormated);
 		}
 		

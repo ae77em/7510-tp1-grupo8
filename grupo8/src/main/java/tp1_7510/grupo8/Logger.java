@@ -10,9 +10,9 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
-	public static String message = "";
+	public static String message = ""; //variable que contendra el mensaje del logueo
 	
-	private ArrayList<Printer> m_Printers = new ArrayList<Printer>();
+	private ArrayList<Printer> m_Printers = new ArrayList<Printer>(); //lista que contendra todas las clases que impriman mensajes
 	
 	/*
 	 * El constructor toma un hash con las consolas y los archivos a donde loguear los mensajes

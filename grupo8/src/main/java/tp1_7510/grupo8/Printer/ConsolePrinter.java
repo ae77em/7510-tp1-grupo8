@@ -19,19 +19,13 @@ import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
 import tp1_7510.grupo8.Patterns.PatternThread;
 import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
-public class ConsolePrinter implements Printer {
+public class ConsolePrinter extends Printer {
 
-	private ArrayList<Pattern> messagePatterns; //contendra los patrones a aplicar al mensaje
-	private FactoryPatterns factoryPatterns;//fabrica los patrones a aplicar al mensaje
-
-	
 	/*
 	 * recibe un hash con la configuracion de la salida a loguear
 	 */
 	public ConsolePrinter(Hashtable<String, String> dataConfiguration){
-		factoryPatterns = new FactoryPatterns(dataConfiguration);
-		
-		messagePatterns = factoryPatterns.createListOfPatterns();
+		super(dataConfiguration);
 	}
 	
 	/*
@@ -40,7 +34,7 @@ public class ConsolePrinter implements Printer {
 	public void print(String aMessage){		
 		String messageFormated = "";
 
-		for(Pattern aPattern : messagePatterns){
+		for(Pattern aPattern : m_messagePatterns){
 			messageFormated = aPattern.formatText(messageFormated);
 			System.out.println(messageFormated);
 		}
