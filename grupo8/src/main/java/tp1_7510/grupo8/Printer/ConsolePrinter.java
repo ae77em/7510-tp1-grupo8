@@ -90,7 +90,7 @@ public class ConsolePrinter implements Printer {
 		String messageFormated = "";
 
 		for(Pattern aPattern : messagePatterns){
-			messageFormated = aPattern.execute(messageFormated);
+			messageFormated = aPattern.formatText(messageFormated);
 		}
 		
 		System.out.println(messageFormated);

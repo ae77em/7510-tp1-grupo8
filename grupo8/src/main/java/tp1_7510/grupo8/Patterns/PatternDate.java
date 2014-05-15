@@ -12,7 +12,7 @@ public class PatternDate implements Pattern {
 	}	
 	
 	@Override
-	public String execute(String s) {
+	public String formatText(String s) {
 		String fecha = m_sdf.format(new Date());
 		return s + fecha; 
 	}

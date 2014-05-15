@@ -5,7 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		Configurer configurer = new Configurer();
 		
-		configurer.createFile("file4.txt");
+		//configurer.createFile("file4.txt");
 		/*configurer.createFile("file2.txt");
 		
 		configurer.setFormatDate("file4.txt","%d{yyyyy-mm-dd hh:mm:ss}");
@@ -21,6 +21,8 @@ public class Main {
 		configurer.createConsole("SUPER_CONSOLA");
 		configurer.setFormatMessage("consoleDefault","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t");
 		configurer.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t");
+		
+		//configurer.eraseDefaultConsole();
 		
 		Logger loguer = new Logger( configurer.getPrintersConfiguration() );
         

@@ -78,8 +78,14 @@ public class Configurer {
 		createDefaultsSetting(aConsole);
 	}
 
-	private void eraseDefaultConfiguration() {
-		prop.setProperty("consoles","");		
+	public void eraseDefaultConsole() {
+		
+		String consoles = prop.getProperty("consoles");
+		
+		consoles = consoles.replace("consoleDefault,","");
+		
+		prop.setProperty("consoles",consoles);
+		
 		prop.remove("consoleDefault-separator");
 		prop.remove("consoleDefault-logLevel");
 		prop.remove("consoleDefault-formatDate");

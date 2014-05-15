@@ -96,7 +96,7 @@ public class FilePrinter implements Printer
 		String messageFormated = "";
 
 		for(Pattern aPattern : messagePatterns){
-			messageFormated = aPattern.execute(messageFormated);
+			messageFormated = aPattern.formatText(messageFormated);
 		}
 		
 		m_Writter.println(messageFormated);

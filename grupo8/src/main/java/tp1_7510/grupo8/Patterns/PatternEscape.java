@@ -9,7 +9,7 @@ public class PatternEscape implements Pattern {
 	}
 
 	@Override
-	public String execute(String s) {
+	public String formatText(String s) {
 		return s + m_escape;
 	}
 

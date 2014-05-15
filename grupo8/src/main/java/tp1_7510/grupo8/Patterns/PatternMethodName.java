@@ -7,7 +7,7 @@ public class PatternMethodName implements Pattern {
 	}
 	
 	@Override
-	public String execute(String s) {
+	public String formatText(String s) {
 		//NI IDEA SI ANDA
 		return  s + new Object(){}.getClass().getEnclosingMethod().getName();
 	}

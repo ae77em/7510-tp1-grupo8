@@ -9,7 +9,7 @@ public class PatternLineNumber implements Pattern {
 	}
 	
 	@Override
-	public String execute(String s) {
+	public String formatText(String s) {
 		String message = s + Integer.toString(m_numberLine);
 
 		m_numberLine++;
