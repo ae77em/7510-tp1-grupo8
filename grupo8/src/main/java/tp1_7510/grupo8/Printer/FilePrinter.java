@@ -18,85 +18,27 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
 public class FilePrinter implements Printer 
 {
-	public static String message = "";
-
 	private PrintWriter m_Writter;
-	private String m_logLevel, m_separator, m_formatDate, m_nameFile;
-	private ArrayList<Pattern> messagePatterns;
 	
+	private ArrayList<Pattern> messagePatterns;//contendra los patrones a aplicar al mensaje
+	private FactoryPatterns factoryPatterns;//fabrica los patrones a aplicar al mensaje
+	
+	/*
+	 * recibe la configuracion de un archivo, lo crea y le pasa las reglas a la clase
+	 * factoryPattern para que las instancie
+	 */
 	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
-		m_logLevel = dataConfiguration.get("logLevel");
-		m_separator = dataConfiguration.get("separator");
-		m_formatDate = dataConfiguration.get("formatDate");
-		//m_formatMessage = dataConfiguration.get("format");
-		
-		m_nameFile = dataConfiguration.get("name");
-		
-		m_Writter = new PrintWriter(new FileOutputStream(new File(m_nameFile)));
+		m_Writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
 				
-		messagePatterns = createListOfPatterns(dataConfiguration.get("format").split("-"));
+		factoryPatterns = new FactoryPatterns(dataConfiguration);
+		
+		messagePatterns = factoryPatterns.createListOfPatterns();
 	}
 	
-	private ArrayList<Pattern> createListOfPatterns(String[] patternsText){
-		
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		
-		for(int i=0;i<patternsText.length;i++){
-			patterns.add( createPattern(patternsText[i]) );
-		}
-		
-		return patterns;
-	}
-		
-	//-----------------------------------------------
-	private Pattern createPattern(String aPattern) {	
-		Pattern patternCreated = null;
-		
-		switch(aPattern.substring(0,2)){
-		
-			 case "%d": //buscar con expresion regular por %d
-			     patternCreated = new PatternDate(aPattern.substring(3,aPattern.length()-1));
-			     break;
-			 case "%p": 
-				 patternCreated = new PatternLevel(m_logLevel);
-			     break;
-			 case "%t": 
-				 patternCreated = new PatternThread();
-				 break;
-			 case "%m": 
-				 patternCreated = new PatternUserDefinedMessage();
-			     break;
-			 case "%%": 
-				 patternCreated = new PatternEscape();
-			     break;
-			     
-			 case "%n": 
-				 patternCreated = new PatternSeparator(m_separator);
-			     break;
-			     
-			 case "%L": 
-				 patternCreated = new PatternLineNumber();
-			     break;
-			     
-			 case "%F": 
-				 patternCreated = new PatternFilename(m_nameFile);
-			     break;
-			 case "%M": 
-				 patternCreated = new PatternMethodName();
-				 break;
-			 default:
-				patternCreated = new PatternSimpleMessage(aPattern);
-                break;
-			}
-		
-	//	System.out.println("LLEGUE AL GINAL Y NOSP AS " + aPattern.substring(0,2));
-		
-		return patternCreated;
-	}
-	
-	public void print(String aMessage){
-		message = aMessage;
-		
+	/*
+	 * formatee el texto y lo baja a disco
+	 */
+	public void print(String aMessage){		
 		String messageFormated = "";
 
 		for(Pattern aPattern : messagePatterns){
@@ -105,7 +47,10 @@ public class FilePrinter implements Printer
 		
 		m_Writter.println(messageFormated);
 	}
-
+	
+	/*
+	 * cierra el archivo
+	 */
 	public void close() {
 		m_Writter.close();
 	}

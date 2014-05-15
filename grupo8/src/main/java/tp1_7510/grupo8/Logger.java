@@ -10,6 +10,8 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
+	public static String message = "";
+	
 	private ArrayList<Printer> m_Printers = new ArrayList<Printer>();
 	
 	/*
@@ -60,10 +62,13 @@ public class Logger {
 	 *toma el mensaje a loguer y se lo pasa a cada printer para que aplique su respectivo formato y lo vuelque
 	 *a su respectiva salida 
 	 */
-	public void log(String message) {        
+	public void log(String aMessage) {
+		
+		message = aMessage;
+		
         for (int i = 0; i < m_Printers.size(); i++){
         	System.out.println(i);
-          	m_Printers.get(i).print( message );
+          	m_Printers.get(i).print( aMessage );
         }
 	}
 

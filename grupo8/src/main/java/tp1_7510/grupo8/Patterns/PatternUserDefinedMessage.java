@@ -1,5 +1,6 @@
 package tp1_7510.grupo8.Patterns;
 
+import tp1_7510.grupo8.Logger;
 import tp1_7510.grupo8.Printer.FilePrinter;
 
 public class PatternUserDefinedMessage implements Pattern {
@@ -11,7 +12,7 @@ public class PatternUserDefinedMessage implements Pattern {
 	@Override
 	public String formatText(String s) {
 		//es el mensaje en si, por lo atnto solo lo deuvelve
-		return s + FilePrinter.message;
+		return s + Logger.message;
 	}
 
 }
