@@ -1,24 +1,20 @@
 package tp1_7510.grupo8.Patterns;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PatternDate implements Pattern {
 	
-	String pattern;
+	SimpleDateFormat m_sdf;
 
 	public PatternDate(String p) {
-		pattern = p;
-	}
+		m_sdf = new SimpleDateFormat(p);	
+	}	
 	
-	public PatternDate() {
-		pattern = "%d{dd/mm/aaaa}";
-	}
-	
-	
-	public void configurePattern(String p) {
-		pattern = p;
-	}
-	
-	public String getPattern(){
-		return this.pattern;
+	@Override //concatena la fecha
+	public String formatText(String s) {
+		String fecha = m_sdf.format(new Date());
+		return s + fecha; 
 	}
 
 }

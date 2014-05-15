@@ -2,23 +2,15 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternFilename implements Pattern {
 
-	String pattern;
+	String m_fileName;
 
 	public PatternFilename(String p) {
-		pattern = p;
+		m_fileName = p;
 	}
 	
-	public PatternFilename() {
-		pattern = "%F";
-	}
-	
-	
-	public void configurePattern(String p) {
-		pattern = p;
-	}
-	
-	public String getPattern(){
-		return this.pattern;
+	@Override //imprime el nombre de la consola o archivo sobre el cual se esta logueando
+	public String formatText(String s) {
+		return  s + m_fileName;
 	}
 
 }

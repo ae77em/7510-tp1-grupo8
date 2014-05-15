@@ -2,23 +2,15 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternLevel implements Pattern {
 
-	String pattern;
+	String m_level;
 
 	public PatternLevel(String p) {
-		pattern = p;
+		m_level = p;
 	}
 	
-	public PatternLevel() {
-		pattern = "%p";
-	}
-	
-	
-	public void configurePattern(String p) {
-		pattern = p;
-	}
-	
-	public String getPattern(){
-		return this.pattern;
+	@Override //se imprime nivel de level
+	public String formatText(String s) {
+		return s + m_level;
 	}
 
 }

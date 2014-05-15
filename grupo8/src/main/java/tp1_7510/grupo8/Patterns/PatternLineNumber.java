@@ -2,23 +2,20 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternLineNumber implements Pattern {
 
-	String pattern;
+	int m_numberLine;
 
-	public PatternLineNumber(String p) {
-		pattern = p;
-	}
-	
 	public PatternLineNumber() {
-		pattern = "%L";
+		m_numberLine=1;
 	}
 	
-	
-	public void configurePattern(String p) {
-		pattern = p;
+	@Override //se imprime nro de linea de logueo
+	public String formatText(String s) {
+		String message = s + Integer.toString(m_numberLine);
+
+		m_numberLine++;
+		
+		return message;
 	}
-	
-	public String getPattern(){
-		return this.pattern;
-	}
+
 
 }
