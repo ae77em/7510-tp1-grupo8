@@ -15,8 +15,6 @@ public class Logger {
 		m_ConfigurerProperties.loadProperties();
 		
 		//DEBE DE SER UN OBJETO QUE COMO CONSTRUCTOR TOME LA LISTA DE PATTERNS A APLICAR AL MENSAJE
-		ArrayList<MessagePattern> PATTERNS = m_ConfigurerProperties.getPatterns();
-		System.out.println(PATTERNS.size());
 		
 	}
 	

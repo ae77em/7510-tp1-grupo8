@@ -22,13 +22,14 @@ public class Configurer {
 	}
 
 	//-----------------------------------------------
-	private void loadDefaultProperties(){
-		prop.setProperty("separator", "-");
-		prop.setProperty("logLevel", "DEBUG");
-		prop.setProperty("formatDate", "%d{HH:mm:ss}");
-		prop.setProperty("format", "%d{HH:mm:ss}-%p-%t-%m");
+	public void loadDefaultProperties(){
+		prop.setProperty("printers","console");	
+		prop.setProperty("console-separator", "-");
+		prop.setProperty("console-logLevel", "DEBUG");
+		prop.setProperty("console-formatDate", "%d{HH:mm:ss}");
+		prop.setProperty("console-format", "%d{HH:mm:ss}-%p-%t-%m");
 	}
-
+	
 	/**************SETTERS*************************/
 	public void setFormatDate(String formatDate){
 		prop.setProperty("formatDate", formatDate);
@@ -47,6 +48,10 @@ public class Configurer {
 	}
 	
 	/**************GETTERS*************************/
+	public Properties getProperties(){
+		return prop;
+	}
+	
 	public String getFormatDate(){
 		return prop.getProperty("formatDate");
 	}
