@@ -61,7 +61,6 @@ public  class Printer {
 	}
 
 	public Boolean verifyLogLevel(LogLevel level){
-		System.out.println("COMPARANDO "+level+" CON "+m_levelLog);
 		return (level.ordinal() <= m_levelLog.ordinal());
 	}
 	

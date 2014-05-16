@@ -27,7 +27,7 @@ public class FilePrinter extends Printer{
 	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
 		super(dataConfiguration);
 		
-		m_Writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
+		m_Writter = new PrintWriter(new FileOutputStream("log/"+new File(dataConfiguration.get("name"))));
 	}
 	
 	/*

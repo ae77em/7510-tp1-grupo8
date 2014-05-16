@@ -1,6 +1,9 @@
 package tp1_7510.grupo8;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
@@ -13,12 +16,18 @@ public class Logger {
 	public static String message = ""; //variable que contendra el mensaje del logueo
 	
 	private ArrayList<Printer> m_Printers = new ArrayList<Printer>(); //lista que contendra todas las clases que impriman mensajes
-	
+	private PrintWriter m_ErrorLog;
 	/*
 	 * El constructor toma un hash con las consolas y los archivos a donde loguear los mensajes
 	 * cada item de las lista contiene un hash que tiene la configuracion de cada LOG
 	 * */
 	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
+		try {
+			m_ErrorLog = new PrintWriter(new FileOutputStream("error.dat"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		m_Printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
 
@@ -71,7 +80,12 @@ public class Logger {
         	if(aPrinter.verifyLogLevel(levelLog)){
         		aPrinter.print( aMessage );
         	}else{
-        		System.out.println("NO SE PUEDO ESCRIBIR EL LOG.");
+        		 
+        		String errorMessage ="Error in Printer: "+aPrinter.getPrinterName();
+        		String detailError ="levelPrinter: "+aPrinter.getLogLevel();
+        		detailError +=  " levelMessage " + levelLog ;
+        		
+        		m_ErrorLog.println(errorMessage + detailError);
         	}
         }
 	}
@@ -82,6 +96,7 @@ public class Logger {
 	public void close() {
 		for (int i = 0; i < m_Printers.size(); i++){
           	m_Printers.get(i).close();
-        }	
+        }
+		m_ErrorLog.close();
 	}
 }
