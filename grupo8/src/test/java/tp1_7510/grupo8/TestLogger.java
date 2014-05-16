@@ -39,7 +39,7 @@ public class TestLogger extends TestCase {
 
 	//se configura la impresora para imprimir mensajes de nivel FATAL, pero se intenta logear un DEBUG
 	public void testErrorLogMessage(){ //a causa de nivel de mensaje
-		String messageError = "Error in Printer: file4.txt levelPrinter: FATAL levelMessage DEBUG";
+		String messageError = "Error in Printer: file4.txtlevelPrinter: FATAL levelMessage DEBUG";
 		String lineaArchivo = "";
 		Configurer configurer = new Configurer();
 
