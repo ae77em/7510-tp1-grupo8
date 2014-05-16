@@ -21,8 +21,5 @@ public class TestPrint extends TestCase {
 		System.out.println(p.getLogLevel());
 		
 		assertEquals(LogLevel.OFF, p.getLogLevel());
-		/*assertEquals("??", patternSeparatorUD.getText());
-		assertEquals("=-", patternSeparator.addText("="));
-		assertEquals("AAA??", patternSeparatorUD.addText("AAA"));*/
 	}
 }
