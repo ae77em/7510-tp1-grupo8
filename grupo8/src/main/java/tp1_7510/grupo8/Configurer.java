@@ -167,7 +167,7 @@ public class Configurer {
 		dataConfiguration.put("formatDate", prop.getProperty(aPrinter+"-formatDate"));
 		dataConfiguration.put("format", prop.getProperty(aPrinter+"-format"));
 				
-		return dataConfiguration;
+		return dataConfiguration;/**/
 	}
 	
 	public Hashtable<String,ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){

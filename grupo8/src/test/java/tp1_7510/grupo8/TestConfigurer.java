@@ -79,5 +79,18 @@ public class TestConfigurer
 
 		assertTrue(true);
 	}
+	
+	public void testLogConsoles(){
+		
+		configurer.createPrinter("consoles","aConsole");
+		configurer.setFormatDate("aConsole", "%d{HH:mm}");
+		configurer.setLogLevel("aConsole","INFO");
+		configurer.setSeparator("aConsole","*");
+		
+		Logger logger = new Logger( configurer.getPrintersConfiguration() );			
+
+		assertTrue(logger.log("mensaje1 de prueba",LogLevel.INFO));		
+		assertFalse(logger.log("mensaje2 de prueba",LogLevel.ERROR));		
+	}
 
 }

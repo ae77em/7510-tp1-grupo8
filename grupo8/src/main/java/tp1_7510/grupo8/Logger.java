@@ -62,7 +62,7 @@ public class Logger {
 	 *toma el mensaje a loguer y se lo pasa a cada printer para que aplique su respectivo formato y lo vuelque
 	 *a su respectiva salida 
 	 */
-	public void log(String aMessage,LogLevel levelLog) {
+	public boolean log(String aMessage,LogLevel levelLog) {
 		message = aMessage;
 		
         for (int i = 0; i < m_Printers.size(); i++){
@@ -70,10 +70,10 @@ public class Logger {
         	
         	if(aPrinter.verifyLogLevel(levelLog)){
         		aPrinter.print( aMessage );
-        	}else{
-        		System.out.println("NO SE PUEDO ESCRIBIR EL LOG.");
+        		return true;
         	}
         }
+        return false;
 	}
 
 	/*
