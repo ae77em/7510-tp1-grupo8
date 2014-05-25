@@ -18,7 +18,7 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
 public class FilePrinter extends Printer{
 
-	private PrintWriter m_Writter;
+	private PrintWriter writter;
 	
 	/*
 	 * recibe la configuracion de un archivo, lo crea y le pasa las reglas a la clase
@@ -27,7 +27,7 @@ public class FilePrinter extends Printer{
 	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
 		super(dataConfiguration);
 		
-		m_Writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
+		writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
 	}
 	
 	/*
@@ -36,17 +36,17 @@ public class FilePrinter extends Printer{
 	public void print(String aMessage){		
 		String messageFormated = "";
 
-		for(Pattern aPattern : m_messagePatterns){
+		for(Pattern aPattern : messagePatterns){
 			messageFormated = aPattern.addText(messageFormated);
 		}
 		
-		m_Writter.println(messageFormated);
+		writter.println(messageFormated);
 	}
 	
 	/*
 	 * cierra el archivo
 	 */
 	public void close() {
-		m_Writter.close();
+		writter.close();
 	}
 }

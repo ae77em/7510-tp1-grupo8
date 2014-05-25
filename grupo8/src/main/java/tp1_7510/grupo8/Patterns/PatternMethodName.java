@@ -6,9 +6,9 @@ public class PatternMethodName implements Pattern {
 		
 	}
 	
-	@Override //imprime el nombre dle metodo invocante
+	@Override 
 	public String addText(String s) {
-		//NI IDEA SI ANDA
+		/* imprime el nombre dle metodo invocante */
 		return  s + new Object(){}.getClass().getEnclosingMethod().getName();
 	}
 

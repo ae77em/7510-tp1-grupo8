@@ -10,9 +10,9 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
-	public static String message = ""; //variable que contendra el mensaje del logueo
+	public static String message = "";
 	
-	private ArrayList<Printer> m_Printers = new ArrayList<Printer>(); //lista que contendra todas las clases que impriman mensajes
+	private ArrayList<Printer> printers = new ArrayList<Printer>(); //lista que contendra todas las clases que impriman mensajes
 	
 	/*
 	 * El constructor toma un hash con las consolas y los archivos a donde loguear los mensajes
@@ -20,9 +20,9 @@ public class Logger {
 	 * */
 	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
 		
-		m_Printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
+		printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
 
-		m_Printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
+		printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
 	}
 	
 	/*
@@ -62,26 +62,48 @@ public class Logger {
 	 *toma el mensaje a loguer y se lo pasa a cada printer para que aplique su respectivo formato y lo vuelque
 	 *a su respectiva salida 
 	 */
-	public boolean log(String aMessage,LogLevel levelLog) {
+	private boolean log(String aMessage,LogLevel logLevel) {
 		message = aMessage;
 		
-        for (int i = 0; i < m_Printers.size(); i++){
-        	Printer aPrinter = m_Printers.get(i);
-        	
-        	if(aPrinter.verifyLogLevel(levelLog)){
-        		aPrinter.print( aMessage );
+		for (Printer printer : printers){        	        	
+        	if(printer.verifyLogLevel(logLevel)){
+        		printer.print( aMessage );
         		return true;
         	}
         }
         return false;
 	}
+	
+	public boolean logOff(String message){
+		return log(message,LogLevel.OFF);
+	}
+	
+	public boolean logFatal(String message){
+		return log(message,LogLevel.FATAL);
+	}
+	
+	public boolean logError(String message){
+		return log(message,LogLevel.ERROR);
+	}
+	
+	public boolean logWarn(String message){
+		return log(message,LogLevel.WARN);
+	}
+	
+	public boolean logInfo(String message){
+		return log(message,LogLevel.INFO);
+	}
+	
+	public boolean logDebug(String message){
+		return log(message,LogLevel.DEBUG);
+	}   
 
 	/*
 	 * cierra todos los archivos, en el caso de las consolas llama al metodo close, pero no hace nada
 	 */
 	public void close() {
-		for (int i = 0; i < m_Printers.size(); i++){
-          	m_Printers.get(i).close();
+		for (Printer printer : printers){
+          	printer.close();
         }	
 	}
 }

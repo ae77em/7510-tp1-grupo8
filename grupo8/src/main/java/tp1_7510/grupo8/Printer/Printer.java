@@ -9,46 +9,45 @@ import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternLevel;
 import tp1_7510.grupo8.Patterns.PatternThread;
 
-//interface que usan las clases que imprimen los mensajes de log
 public  class Printer {
 	
-	protected ArrayList<Pattern> m_messagePatterns;//contendra los patrones a aplicar al mensaje
-	protected FactoryPatterns m_factoryPatterns;//fabrica los patrones a aplicar al mensaje
-	LogLevel m_levelLog;
+	protected ArrayList<Pattern> messagePatterns;
+	protected FactoryPatterns factoryPatterns;
+	LogLevel logLevel;
 	
 	public Printer(Hashtable<String,String> dataConfiguration){
 		
-		m_factoryPatterns = new FactoryPatterns(dataConfiguration);
+		factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
-		m_messagePatterns = m_factoryPatterns.createListOfPatterns();
+		messagePatterns = factoryPatterns.createListOfPatterns();
 		
 		setLogLevel(dataConfiguration.get("logLevel"));
 	}
 	
 	public LogLevel getLogLevel(){
-		return m_levelLog;
+		return logLevel;
 	}
 	
 	private void setLogLevel(String levelString){
 				
         switch(levelString){
 		 case "OFF": 
-			 m_levelLog = LogLevel.OFF;
+			 logLevel = LogLevel.OFF;
 		     break;
 		 case "FATAL": 
-			 m_levelLog = LogLevel.FATAL;
+			 logLevel = LogLevel.FATAL;
 		     break;
 		 case "ERROR": 
-			 m_levelLog = LogLevel.ERROR;
+			 logLevel = LogLevel.ERROR;
 			 break;
 		 case "WARN": 
-			 m_levelLog = LogLevel.WARN;
+			 logLevel = LogLevel.WARN;
 		     break;
 		 case "INFO": 
-			 m_levelLog = LogLevel.INFO;
+			 logLevel = LogLevel.INFO;
 		     break;
 		 default: 
-			 m_levelLog = LogLevel.DEBUG;
+			 logLevel = LogLevel.DEBUG;
 			 break;
 		}
 	}
@@ -62,6 +61,6 @@ public  class Printer {
 	}
 	
 	public Boolean verifyLogLevel(LogLevel level){
-		return (level.ordinal() >= m_levelLog.ordinal());
+		return (level.ordinal() >= logLevel.ordinal());
 	}
 }

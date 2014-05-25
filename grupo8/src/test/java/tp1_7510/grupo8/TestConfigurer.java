@@ -89,8 +89,8 @@ public class TestConfigurer
 		
 		Logger logger = new Logger( configurer.getPrintersConfiguration() );			
 
-		assertTrue(logger.log("mensaje1 de prueba",LogLevel.INFO));
-		assertFalse(logger.log("mensaje2 de prueba",LogLevel.ERROR));		
+		assertTrue(logger.logInfo("mensaje1 de prueba"));
+		assertFalse(logger.logError("mensaje2 de prueba"));		
 	}
 
 }

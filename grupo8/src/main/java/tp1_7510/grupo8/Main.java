@@ -26,7 +26,8 @@ public class Main{
 		
 		Logger loguer = new Logger( configurer.getPrintersConfiguration() );
         		
-        loguer.log("Mensaje1",LogLevel.ERROR);
+        loguer.logError("Mensaje1");
+        loguer.logWarn("Mensaje1");
      
         loguer.close();
 	}

@@ -12,7 +12,7 @@ public class PatternSimpleMessage implements Pattern {
 		m_simpleText = text;
 	}
 	
-	@Override //imprime el mensaje, el mismo estomado de una variable estatico en la clase LOGGER
+	@Override
 	public String addText(String s) {
 		return s + m_simpleText;
 	}
