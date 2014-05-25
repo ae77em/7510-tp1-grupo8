@@ -2,9 +2,7 @@ package tp1_7510.grupo8;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Hashtable;
-import java.util.logging.Level;
 
 import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.FilePrinter;
@@ -68,7 +66,7 @@ public class Logger {
 		Level level = new Level(logLevel);
 		
 		for (Printer printer : printers){        	        	
-        	if(level.isGreaterOrEqual(logLevel)){
+        	if(level.isLowerOrEqual(logLevel)){
         		printer.print( aMessage );
         		return true;
         	}

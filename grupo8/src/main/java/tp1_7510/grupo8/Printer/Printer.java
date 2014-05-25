@@ -5,9 +5,6 @@ import java.util.Hashtable;
 
 import tp1_7510.grupo8.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
-import tp1_7510.grupo8.Patterns.PatternDate;
-import tp1_7510.grupo8.Patterns.PatternLevel;
-import tp1_7510.grupo8.Patterns.PatternThread;
 
 public  class Printer {
 	

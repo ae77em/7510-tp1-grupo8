@@ -3,9 +3,7 @@ package tp1_7510.grupo8;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 public class TestConfigurer 
     extends TestCase{

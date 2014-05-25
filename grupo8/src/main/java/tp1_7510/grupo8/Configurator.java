@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
-import tp1_7510.grupo8.Patterns.*;
-
 public class Configurator {
  	 	
 	private Properties properties;

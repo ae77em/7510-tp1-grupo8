@@ -4,7 +4,7 @@ public class Level {
 	
 	LogLevel logLevel;
 	
-	Level(LogLevel ll){
+	public Level(LogLevel ll){
 		logLevel = ll;
 	}
 	
