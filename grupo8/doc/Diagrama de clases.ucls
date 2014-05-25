@@ -110,8 +110,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="tp1_7510.grupo8.Configurer" project="grupo8" 
-    file="/grupo8/src/main/java/tp1_7510/grupo8/Configurer.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="tp1_7510.grupo8.Configurator" project="grupo8" 
+    file="/grupo8/src/main/java/tp1_7510/grupo8/Configurator.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2375" y="317"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
@@ -128,16 +128,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="15" language="java" name="tp1_7510.grupo8.LogLevel" project="grupo8" 
-    file="/grupo8/src/main/java/tp1_7510/grupo8/LogLevel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1615" y="487"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </enumeration>  
-  <class id="16" language="java" name="tp1_7510.grupo8.Printer.Printer" project="grupo8" 
+  <class id="15" language="java" name="tp1_7510.grupo8.Printer.Printer" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/Printer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="532" y="1070"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -146,7 +137,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="tp1_7510.grupo8.Printer.FactoryPatterns" project="grupo8" 
+  <class id="16" language="java" name="tp1_7510.grupo8.Printer.FactoryPatterns" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/FactoryPatterns.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1912" y="912"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -155,7 +146,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="tp1_7510.grupo8.Printer.ConsolePrinter" project="grupo8" 
+  <class id="17" language="java" name="tp1_7510.grupo8.Printer.ConsolePrinter" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/ConsolePrinter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="567" y="703"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -164,7 +155,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="tp1_7510.grupo8.Printer.FilePrinter" project="grupo8" 
+  <class id="18" language="java" name="tp1_7510.grupo8.Printer.FilePrinter" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/FilePrinter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="128" y="744"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
@@ -173,169 +164,149 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="20">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="19">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="21">    
-    <end type="SOURCE" refId="19"/>    
+  <dependency id="20">    
+    <end type="SOURCE" refId="18"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <realization id="22">    
+  <realization id="21">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="16"/>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="15"/>  
   </generalization>  
-  <realization id="24">    
+  <realization id="23">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <dependency id="25">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="24">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="26">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="25">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="1"/>  
   </dependency>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="26">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="7"/>  
   </dependency>  
-  <dependency id="28">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <realization id="29">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="30">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="31">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="32">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="34">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="35">    
+  <dependency id="27">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="18"/>  
   </dependency>  
-  <dependency id="36">    
+  <realization id="28">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <dependency id="29">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="30">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="31">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="32">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="33">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="34">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="35">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="12"/>  
   </dependency>  
-  <realization id="37">    
+  <realization id="36">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <realization id="38">    
+  <realization id="37">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <realization id="39">    
+  <realization id="38">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="18"/>    
+  <dependency id="39">    
+    <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="41">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="40">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <dependency id="42">    
+  <dependency id="41">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="12"/>  
   </dependency>  
-  <association id="43">    
+  <association id="42">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="44" name="printers"/>      
-      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="46">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <realization id="47">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="48">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <realization id="49">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="50">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="51" name="messagePatterns"/>      
-      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="53">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="54" name="factoryPatterns"/>      
-      <multiplicity id="55" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="56">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="57" name="logLevel"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
+      <attribute id="43" name="printers"/>      
+      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="59">    
+  <realization id="45">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <realization id="46">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="47">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="48" name="messagePatterns"/>      
+      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="51" name="factoryPatterns"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="53">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <dependency id="60">    
+  <dependency id="54">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="13"/>  
   </dependency>  
-  <dependency id="61">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="55">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <dependency id="62">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="56">    
+    <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="9"/>  
   </dependency>  
-  <dependency id="63">    
-    <end type="SOURCE" refId="1"/>    
+  <generalization id="57">    
+    <end type="SOURCE" refId="18"/>    
     <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <generalization id="64">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="16"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     accessors="true" visibility="true">    

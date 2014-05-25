@@ -24,10 +24,10 @@ public class FilePrinter extends Printer{
 	 * recibe la configuracion de un archivo, lo crea y le pasa las reglas a la clase
 	 * factoryPattern para que las instancie
 	 */
-	public FilePrinter(Hashtable<String,String> dataConfiguration) throws FileNotFoundException{
+	public FilePrinter(Hashtable<String, Object> dataConfiguration) throws FileNotFoundException{
 		super(dataConfiguration);
 		
-		writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
+		writter = new PrintWriter(new FileOutputStream(new File((String) dataConfiguration.get("name"))));
 	}
 	
 	/*
@@ -43,9 +43,6 @@ public class FilePrinter extends Printer{
 		writter.println(messageFormated);
 	}
 	
-	/*
-	 * cierra el archivo
-	 */
 	public void close() {
 		writter.close();
 	}

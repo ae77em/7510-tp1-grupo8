@@ -9,18 +9,15 @@ public class TestPrint extends TestCase {
 
 	public void testPrinter(){
 		
-		Hashtable<String,String> prop = new Hashtable<String,String>();
-		prop.put("logLevel", "OFF");
+		Hashtable<String,Object> prop = new Hashtable<String,Object>();
+		prop.put("logLevel", LogLevel.ERROR);
 		prop.put("separator", ";");
 		prop.put("formatDate", "yyyy/MM/dd");
 		prop.put("name", "prueba");
 		prop.put("format","%L-%n-%d{HH:mm:ss}-%n-%p-%n-%m");
 		
 		Printer p = new Printer(prop);
-		
-		System.out.println(p.getLogLevel());
-		
-		assertEquals(LogLevel.OFF, p.getLogLevel());
-		
+				
+		assertEquals(LogLevel.ERROR, p.getLogLevel());				
 	}
 }

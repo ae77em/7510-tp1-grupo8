@@ -11,12 +11,12 @@ import java.util.Properties;
 
 import tp1_7510.grupo8.Patterns.*;
 
-public class Configurer {
+public class Configurator {
  	 	
 	private Properties properties;
 	
 	//-----------------------------------------------
-	Configurer(){
+	Configurator(){
 		properties = new Properties();
 		
 		loadDefaultProperties();
@@ -71,8 +71,8 @@ public class Configurer {
 		properties.setProperty(aPrinter+"-format", formatMessage);
 	}
 	
-	public void setLogLevel(String aPrinter, String logLevel){
-		properties.setProperty(aPrinter+"-logLevel", logLevel);
+	public void setLogLevel(String aPrinter, LogLevel ll){
+		properties.setProperty(aPrinter+"-logLevel", ll.toString());
 	}
 	
 	public void setSeparator(String aPrinter, String separator){
@@ -125,7 +125,6 @@ public class Configurer {
 	 
 		try {
 			input = new FileInputStream("src/main/java/tp1_7510/grupo8/Properties/logger.properties");	 
-			// load a properties file
 			properties.load(input);
 	 	 
 		} catch (IOException ex) {
@@ -133,8 +132,8 @@ public class Configurer {
 		}
 	}
 	
-	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
-		ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
+	public ArrayList<Hashtable<String, Object>> getPrintersConfiguration(String printer) {
+		ArrayList<Hashtable<String, Object>> printersConfiguration = new ArrayList<Hashtable<String, Object>>();
 		
 		String printers = properties.getProperty(printer);
 		
@@ -151,8 +150,8 @@ public class Configurer {
 		return printersConfiguration;
 	}
 
-	public Hashtable<String, String> getPrinterConfiguration(String aPrinter) {
-		Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
+	public Hashtable<String, Object> getPrinterConfiguration(String aPrinter) {
+		Hashtable<String, Object> dataConfiguration = new Hashtable<String, Object>();
 		
 		dataConfiguration.put("name", aPrinter);
 		dataConfiguration.put("separator", properties.getProperty(aPrinter+"-separator"));
@@ -163,8 +162,8 @@ public class Configurer {
 		return dataConfiguration;/**/
 	}
 	
-	public Hashtable<String,ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
-		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
+	public Hashtable<String, ArrayList<Hashtable<String, Object>>> getPrintersConfiguration(){
+		Hashtable<String, ArrayList<Hashtable<String, Object>>> printers = new Hashtable<String, ArrayList<Hashtable<String, Object>>>();
 		
 		printers.put("FILES", getPrintersConfiguration("files"));
 		printers.put("CONSOLES", getPrintersConfiguration("consoles"));

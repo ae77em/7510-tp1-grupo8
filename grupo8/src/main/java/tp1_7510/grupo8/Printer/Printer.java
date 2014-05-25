@@ -15,41 +15,21 @@ public  class Printer {
 	protected FactoryPatterns factoryPatterns;
 	LogLevel logLevel;
 	
-	public Printer(Hashtable<String,String> dataConfiguration){
+	public Printer(Hashtable<String, Object> dataConfiguration){
 		
 		factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
 		messagePatterns = factoryPatterns.createListOfPatterns();
 		
-		setLogLevel(dataConfiguration.get("logLevel"));
+		setLogLevel((LogLevel)dataConfiguration.get("logLevel"));
 	}
 	
 	public LogLevel getLogLevel(){
 		return logLevel;
 	}
 	
-	private void setLogLevel(String levelString){
-				
-        switch(levelString){
-		 case "OFF": 
-			 logLevel = LogLevel.OFF;
-		     break;
-		 case "FATAL": 
-			 logLevel = LogLevel.FATAL;
-		     break;
-		 case "ERROR": 
-			 logLevel = LogLevel.ERROR;
-			 break;
-		 case "WARN": 
-			 logLevel = LogLevel.WARN;
-		     break;
-		 case "INFO": 
-			 logLevel = LogLevel.INFO;
-		     break;
-		 default: 
-			 logLevel = LogLevel.DEBUG;
-			 break;
-		}
+	private void setLogLevel(LogLevel logLevel){
+        this.logLevel = logLevel;
 	}
 
 	public void print(String s){
@@ -60,7 +40,5 @@ public  class Printer {
 		
 	}
 	
-	public Boolean verifyLogLevel(LogLevel level){
-		return (level.ordinal() >= logLevel.ordinal());
-	}
+
 }

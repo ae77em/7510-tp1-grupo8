@@ -12,27 +12,27 @@ import tp1_7510.grupo8.Printer.Printer;
 public class Logger {
 	public static String message = "";
 	
-	private ArrayList<Printer> printers = new ArrayList<Printer>(); //lista que contendra todas las clases que impriman mensajes
+	private ArrayList<Printer> printers = new ArrayList<Printer>();
 	
 	/*
 	 * El constructor toma un hash con las consolas y los archivos a donde loguear los mensajes
 	 * cada item de las lista contiene un hash que tiene la configuracion de cada LOG
 	 * */
-	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
+	Logger(Hashtable<String, ArrayList<Hashtable<String, Object>>> dataConfiguration){
 		
 		printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
 
 		printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
 	}
 	
-	/*
+		/*
 	 * recorre la lista de FILES a donde loguear y lanza una instancia por cada archivo
 	 * 
 	 */
-	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,String>> printersFiles) {
+	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,Object>> printersFiles) {
 		ArrayList<Printer> printers = new ArrayList<Printer>();
 		
-		for(Hashtable<String, String> aFilePrinter : printersFiles){
+		for(Hashtable<String, Object> aFilePrinter : printersFiles){
 		    try {
 				printers.add( new FilePrinter(aFilePrinter) );
 			} catch (FileNotFoundException e) {
@@ -48,10 +48,10 @@ public class Logger {
 	 * recorre la lista de CONSOLAS a donde loguear y lanza una instancia por cada consolas
 	 * 
 	 */
-	private ArrayList<Printer> createPrintersConsole(ArrayList<Hashtable<String, String>> printersConsole) {
+	private ArrayList<Printer> createPrintersConsole(ArrayList<Hashtable<String, Object>> printersConsole) {
 		ArrayList<Printer> printers = new ArrayList<Printer>();
 		
-		for(Hashtable<String, String> aConsolePrinter : printersConsole){
+		for(Hashtable<String, Object> aConsolePrinter : printersConsole){
 			printers.add( new ConsolePrinter(aConsolePrinter) );
 		}
 		
@@ -64,9 +64,10 @@ public class Logger {
 	 */
 	private boolean log(String aMessage,LogLevel logLevel) {
 		message = aMessage;
+		Level level = new Level(logLevel);
 		
 		for (Printer printer : printers){        	        	
-        	if(printer.verifyLogLevel(logLevel)){
+        	if(level.isGreaterOrEqual(logLevel)){
         		printer.print( aMessage );
         		return true;
         	}

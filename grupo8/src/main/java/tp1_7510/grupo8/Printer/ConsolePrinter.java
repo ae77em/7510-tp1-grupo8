@@ -24,7 +24,7 @@ public class ConsolePrinter extends Printer {
 	/*
 	 * recibe un hash con la configuracion de la salida a loguear
 	 */
-	public ConsolePrinter(Hashtable<String, String> dataConfiguration){
+	public ConsolePrinter(Hashtable<String, Object> dataConfiguration){
 		super(dataConfiguration);
 	}
 	

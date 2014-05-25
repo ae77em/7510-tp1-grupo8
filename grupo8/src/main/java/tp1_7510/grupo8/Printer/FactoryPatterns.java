@@ -3,6 +3,7 @@ package tp1_7510.grupo8.Printer;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import tp1_7510.grupo8.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
@@ -16,25 +17,28 @@ import tp1_7510.grupo8.Patterns.PatternThread;
 import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 
 public class FactoryPatterns {
-	private String logLevel;
+	private LogLevel logLevel;
 	private String separator; 
 	private String formatDate; 
 	private String nameFile;
 	private String[] formatMessage; 
 	
-	public FactoryPatterns(Hashtable<String, String> dataConfiguration){
-		logLevel = dataConfiguration.get("logLevel");
-		separator = dataConfiguration.get("separator");
-		formatDate = dataConfiguration.get("formatDate");
-		nameFile = dataConfiguration.get("name");
-		formatMessage = dataConfiguration.get("format").split("-");
+	public FactoryPatterns(Hashtable<String, Object> dataConfiguration){
+		setLogLevel((LogLevel)dataConfiguration.get("logLevel"));
+		separator = (String) dataConfiguration.get("separator");
+		formatDate = (String) dataConfiguration.get("formatDate");
+		nameFile = (String) dataConfiguration.get("name");
+		formatMessage = ((String) dataConfiguration.get("format")).split("-");
+	}
+	
+	public void setLogLevel(LogLevel ll){
+		this.logLevel = ll;
 	}
 	
 	public ArrayList<Pattern> createListOfPatterns(){
 		
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		//recorro el vector de patterns y por cada uno creo una instancia
-		//de la clase que lo representa
+
 		for( String fm : formatMessage ){
 			patterns.add( createPattern(fm) );
 		}
@@ -61,16 +65,13 @@ public class FactoryPatterns {
 			     break;
 			 case "%%": 
 				 patternCreated = new PatternEscape();
-			     break;
-			     
+			     break;			     
 			 case "%n": 
 				 patternCreated = new PatternSeparator(separator);
-			     break;
-			     
+			     break;			     
 			 case "%L": 
 				 patternCreated = new PatternLineNumber();
-			     break;
-			     
+			     break;			     
 			 case "%F": 
 				 patternCreated = new PatternFilename(nameFile);
 			     break;

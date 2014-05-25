@@ -2,24 +2,24 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternSeparator implements Pattern {
 
-	String m_separator;
+	String separator;
 	
 	public PatternSeparator() {
-		m_separator = "-";
+		separator = "-";
 	}
 
 	public PatternSeparator(String p) {
-		m_separator = p;
+		separator = p;
 	}
 	
-	@Override //imprime un separador
+	@Override
 	public String addText(String s) {
-		return s + m_separator;
+		return s + separator;
 	}
 
 	@Override
 	public String getText() {
-		return m_separator;
+		return separator;
 	}
 
 }
