@@ -19,12 +19,13 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 public class FactoryPatterns {
 	private LogLevel logLevel;
 	private String separator; 
+	@SuppressWarnings("unused")
 	private String formatDate; 
 	private String nameFile;
 	private String[] formatMessage; 
 	
-	public FactoryPatterns(Hashtable<String, Object> dataConfiguration){
-		setLogLevel((LogLevel)dataConfiguration.get("logLevel"));
+	public FactoryPatterns(Hashtable<String, String> dataConfiguration){
+		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
 		separator = (String) dataConfiguration.get("separator");
 		formatDate = (String) dataConfiguration.get("formatDate");
 		nameFile = (String) dataConfiguration.get("name");

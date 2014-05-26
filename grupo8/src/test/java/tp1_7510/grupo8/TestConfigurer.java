@@ -29,7 +29,7 @@ public class TestConfigurer
 		
 		assertEquals(configurator.getFormatDate("file3"),"%d{HH:mm:ss}");
 		assertEquals(configurator.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
-		assertEquals(configurator.getLogLevel("file3"),"DEBUG");
+		assertEquals(configurator.getLogLevel("file3"),LogLevel.DEBUG);
 		assertEquals(configurator.getSeparator("file3"),"-");
 	}
 	
@@ -43,7 +43,7 @@ public class TestConfigurer
 		
 		assertEquals(configurator.getFormatDate("file4"),"%d{yyyyy-mm-dd hh:mm:ss}");
 		assertEquals(configurator.getFormatMessage("file4"),"%d{HH:mm:ss}-%t-%p-%T-%m");
-		assertEquals(configurator.getLogLevel("file4"),"ERROR");
+		assertEquals(configurator.getLogLevel("file4"),LogLevel.ERROR);
 		assertEquals(configurator.getSeparator("file4"),"*");	
 	}
 	
@@ -53,7 +53,7 @@ public class TestConfigurer
 		hashAux.put("format","%d{HH:mm:ss}-%p-%t-%m");
 		hashAux.put("name","file5");
 		hashAux.put("formatDate","%d{HH:mm:ss}");
-		hashAux.put("logLevel","DEBUG");
+		hashAux.put("logLevel",LogLevel.DEBUG.toString());
 		
 		configurator.createPrinter("files","file5");
 			
@@ -70,7 +70,7 @@ public class TestConfigurer
 		configurator.createPrinter("consoles","console6");
 		configurator.createPrinter("consoles","console7");
 		
-		Hashtable<String,ArrayList<Hashtable<String, Object>>> printers = new Hashtable<String,ArrayList<Hashtable<String, Object>>>();
+		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
 		
 		printers.put("FILES", configurator.getPrintersConfiguration("files"));
 		printers.put("CONSOLES", configurator.getPrintersConfiguration("consoles"));
@@ -87,8 +87,12 @@ public class TestConfigurer
 		
 		Logger logger = new Logger( configurator.getPrintersConfiguration() );			
 
-		assertTrue(logger.logInfo("mensaje1 de prueba"));
-		//assertFalse(logger.logError("mensaje2 de prueba"));		
+		/* verifico que me devuelva mensajes en caso de tener el mismo nivel de logueo */
+		assertEquals("mensaje1 de prueba",logger.logInfo("mensaje1 de prueba"));
+		/* verifico que me devuelva mensajes en caso de un nivel menor de logueo */
+		assertEquals("mensaje2 de prueba",logger.logDebug("mensaje2 de prueba"));	
+		/* verifico que no me devuelva mensajes en caso de un nivel mayor de logueo */
+		//assertEquals("",logger.logError("mensaje3 de prueba"));
 	}
 
 }

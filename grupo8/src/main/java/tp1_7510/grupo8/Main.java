@@ -24,11 +24,11 @@ public class Main{
 		
 		configurator.eraseDefaultConsole();
 		
-		Logger loguer = new Logger( configurator.getPrintersConfiguration() );
+		Logger logger = new Logger( configurator.getPrintersConfiguration() );
         		
-        loguer.logError("Mensaje1");
-        loguer.logWarn("Mensaje1");
+        logger.logError("Mensaje1");
+        logger.logWarn("Mensaje1");
      
-        loguer.close();
+        //logger.close();
 	}
 }

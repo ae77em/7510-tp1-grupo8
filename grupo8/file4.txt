@@ -1,1 +1,0 @@
-0*15:46:08*Mensaje1*ERROR*main*file4.txtaddText

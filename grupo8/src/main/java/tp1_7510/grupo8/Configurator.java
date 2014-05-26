@@ -26,7 +26,7 @@ public class Configurator {
 		properties.setProperty("files","");
 		properties.setProperty("consoles","consoleDefault,");	
 		properties.setProperty("consoleDefault-separator", "-");
-		properties.setProperty("consoleDefault-logLevel", "DEBUG");
+		properties.setProperty("consoleDefault-logLevel", LogLevel.DEBUG.toString());
 		properties.setProperty("consoleDefault-formatDate", "%d{HH:mm:ss}");
 		properties.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%n-%p-%n-%m");
 	}
@@ -96,8 +96,8 @@ public class Configurator {
 		return properties.getProperty(aPrinter+"-format");
 	}
 	
-	public String getLogLevel(String aPrinter){
-		return properties.getProperty(aPrinter+"-logLevel");
+	public LogLevel getLogLevel(String aPrinter){
+		return LogLevel.valueOf(properties.getProperty(aPrinter+"-logLevel"));
 	}
 	
 	public String getSeparator(String aPrinter){
@@ -130,8 +130,8 @@ public class Configurator {
 		}
 	}
 	
-	public ArrayList<Hashtable<String, Object>> getPrintersConfiguration(String printer) {
-		ArrayList<Hashtable<String, Object>> printersConfiguration = new ArrayList<Hashtable<String, Object>>();
+	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
+		ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
 		
 		String printers = properties.getProperty(printer);
 		
@@ -148,8 +148,8 @@ public class Configurator {
 		return printersConfiguration;
 	}
 
-	public Hashtable<String, Object> getPrinterConfiguration(String aPrinter) {
-		Hashtable<String, Object> dataConfiguration = new Hashtable<String, Object>();
+	public Hashtable<String, String> getPrinterConfiguration(String aPrinter) {
+		Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
 		
 		dataConfiguration.put("name", aPrinter);
 		dataConfiguration.put("separator", properties.getProperty(aPrinter+"-separator"));
@@ -157,11 +157,11 @@ public class Configurator {
 		dataConfiguration.put("formatDate", properties.getProperty(aPrinter+"-formatDate"));
 		dataConfiguration.put("format", properties.getProperty(aPrinter+"-format"));
 				
-		return dataConfiguration;/**/
+		return dataConfiguration;
 	}
 	
-	public Hashtable<String, ArrayList<Hashtable<String, Object>>> getPrintersConfiguration(){
-		Hashtable<String, ArrayList<Hashtable<String, Object>>> printers = new Hashtable<String, ArrayList<Hashtable<String, Object>>>();
+	public Hashtable<String, ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
+		Hashtable<String, ArrayList<Hashtable<String, String>>> printers = new Hashtable<String, ArrayList<Hashtable<String, String>>>();
 		
 		printers.put("FILES", getPrintersConfiguration("files"));
 		printers.put("CONSOLES", getPrintersConfiguration("consoles"));
