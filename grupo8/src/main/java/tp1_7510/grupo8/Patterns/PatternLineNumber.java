@@ -2,17 +2,17 @@ package tp1_7510.grupo8.Patterns;
 
 public class PatternLineNumber implements Pattern {
 
-	int m_numberLine;
+	int numberLine;
 
 	public PatternLineNumber() {
-		m_numberLine=0;
+		numberLine=0;
 	}
 	
-	@Override //se imprime nro de linea de logueo
+	@Override 
 	public String addText(String s) {
-		String message = s + Integer.toString(m_numberLine);
+		String message = s + Integer.toString(numberLine);
 
-		m_numberLine++;
+		numberLine++;
 		
 		return message;
 	}
@@ -20,7 +20,7 @@ public class PatternLineNumber implements Pattern {
 	@Override
 	public String getText() {
 		// TODO Auto-generated method stub
-		return Integer.toString(m_numberLine);
+		return Integer.toString(numberLine);
 	}
 
 	

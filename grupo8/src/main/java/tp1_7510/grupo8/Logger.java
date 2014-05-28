@@ -1,11 +1,7 @@
 package tp1_7510.grupo8;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Hashtable;
 
 import tp1_7510.grupo8.Printer.ConsolePrinter;
@@ -13,31 +9,15 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
-	public static String message = ""; //variable que contendra el mensaje del logueo
+	public static String message = "";
+	private ArrayList<Printer> printers = new ArrayList<Printer>();
 	
-	private ArrayList<Printer> m_Printers = new ArrayList<Printer>(); //lista que contendra todas las clases que impriman mensajes
-	private PrintWriter m_ErrorLog;
-	/*
-	 * El constructor toma un hash con las consolas y los archivos a donde loguear los mensajes
-	 * cada item de las lista contiene un hash que tiene la configuracion de cada LOG
-	 * */
 	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
-		try {
-			m_ErrorLog = new PrintWriter(new FileOutputStream("error.dat"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		m_Printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
-
-		m_Printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
+		printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
+		printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
 	}
 	
-	/*
-	 * recorre la lista de FILES a donde loguear y lanza una instancia por cada archivo
-	 * 
-	 */
 	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,String>> printersFiles) {
 		ArrayList<Printer> printers = new ArrayList<Printer>();
 		
@@ -48,15 +28,10 @@ public class Logger {
 				e.printStackTrace();
 				System.out.println("NO SE PUEDO CREAR ARCHIVO.");
 			}
-		}
-		
+		}		
 		return printers;
 	}
 	
-	/*
-	 * recorre la lista de CONSOLAS a donde loguear y lanza una instancia por cada consolas
-	 * 
-	 */
 	private ArrayList<Printer> createPrintersConsole(ArrayList<Hashtable<String, String>> printersConsole) {
 		ArrayList<Printer> printers = new ArrayList<Printer>();
 		
@@ -67,36 +42,46 @@ public class Logger {
 		return printers;
 	}
 	
-	/*
-	 *toma el mensaje a loguer y se lo pasa a cada printer para que aplique su respectivo formato y lo vuelque
-	 *a su respectiva salida 
-	 */
-	public void log(String aMessage,LogLevel levelLog) {
+	private String log(String aMessage,LogLevel logLevel) {
 		message = aMessage;
+		Level level = new Level(logLevel);
 		
-        for (int i = 0; i < m_Printers.size(); i++){
-        	Printer aPrinter = m_Printers.get(i);
-        	
-        	if(aPrinter.verifyLogLevel(levelLog)){
-        		aPrinter.print( aMessage );
-        	}else{
-        		 
-        		String errorMessage ="Error in Printer: "+aPrinter.getPrinterName();
-        		String detailError ="levelPrinter: "+aPrinter.getLogLevel();
-        		detailError +=  " levelMessage " + levelLog ;
-        		
-        		m_ErrorLog.println(errorMessage + detailError);
+		for (Printer printer : printers){        	        	
+        	if(level.isLowerOrEqual(printer.getLogLevel())){
+        		printer.print( aMessage );
+        		return aMessage;
         	}
         }
+        return "";
 	}
+	
+	public String logOff(String message){
+		return log(message,LogLevel.OFF);
+	}
+	
+	public String logFatal(String message){
+		return log(message,LogLevel.FATAL);
+	}
+	
+	public String logError(String message){
+		return log(message,LogLevel.ERROR);
+	}
+	
+	public String logWarn(String message){
+		return log(message,LogLevel.WARN);
+	}
+	
+	public String logInfo(String message){
+		return log(message,LogLevel.INFO);
+	}
+	
+	public String logDebug(String message){
+		return log(message,LogLevel.DEBUG);
+	}   
 
-	/*
-	 * cierra todos los archivos, en el caso de las consolas llama al metodo close, pero no hace nada
-	 */
-	public void close() {
-		for (int i = 0; i < m_Printers.size(); i++){
-          	m_Printers.get(i).close();
-        }
-		m_ErrorLog.close();
-	}
+	/*public void close() {
+		for (Printer printer : printers){
+          	printer.close();
+        }	
+	}*/
 }

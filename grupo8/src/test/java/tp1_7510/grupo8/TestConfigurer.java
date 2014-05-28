@@ -3,50 +3,48 @@ package tp1_7510.grupo8;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 public class TestConfigurer 
     extends TestCase{
 	
-	private Configurer configurer = new Configurer();
+	private Configurator configurator = new Configurator();
 		
 	public void testCreateConsolesConfigurer(){
-		configurer.createPrinter("consoles","console1");
-		configurer.createPrinter("consoles","console2");
+		configurator.createPrinter("consoles","console1");
+		configurator.createPrinter("consoles","console2");
 		
-		assertEquals("consoleDefault,console1,console2,", configurer.getConsoles());
+		assertEquals("consoleDefault,console1,console2,", configurator.getConsoles());
 	}
 	
 	public void testCreateFilesConfigurer(){
-		configurer.createPrinter("files","file1");
-		configurer.createPrinter("files","file2");
+		configurator.createPrinter("files","file1");
+		configurator.createPrinter("files","file2");
 		
-		assertEquals("file1,file2,", configurer.getFiles());
+		assertEquals("file1,file2,", configurator.getFiles());
 	}
 	
 	public void testDefaultSettingsFile(){
-		configurer.createPrinter("files","file3");
+		configurator.createPrinter("files","file3");
 		
-		assertEquals(configurer.getFormatDate("file3"),"%d{HH:mm:ss}");
-		assertEquals(configurer.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
-		assertEquals(configurer.getLogLevel("file3"),"DEBUG");
-		assertEquals(configurer.getSeparator("file3"),"-");
+		assertEquals(configurator.getFormatDate("file3"),"%d{HH:mm:ss}");
+		assertEquals(configurator.getFormatMessage("file3"),"%d{HH:mm:ss}-%p-%t-%m");
+		assertEquals(configurator.getLogLevel("file3"),LogLevel.DEBUG);
+		assertEquals(configurator.getSeparator("file3"),"-");
 	}
 	
 	public void testChangeDefaultSettingsFile(){
-		configurer.createPrinter("files","file4");
+		configurator.createPrinter("files","file4");
 		
-		configurer.setFormatDate("file4","%d{yyyyy-mm-dd hh:mm:ss}");
-		configurer.setFormatMessage("file4","%d{HH:mm:ss}-%t-%p-%T-%m");
-		configurer.setLogLevel("file4","ERROR");
-		configurer.setSeparator("file4","*");
+		configurator.setFormatDate("file4","%d{yyyyy-mm-dd hh:mm:ss}");
+		configurator.setFormatMessage("file4","%d{HH:mm:ss}-%t-%p-%T-%m");
+		configurator.setLogLevel("file4",LogLevel.ERROR);
+		configurator.setSeparator("file4","*");
 		
-		assertEquals(configurer.getFormatDate("file4"),"%d{yyyyy-mm-dd hh:mm:ss}");
-		assertEquals(configurer.getFormatMessage("file4"),"%d{HH:mm:ss}-%t-%p-%T-%m");
-		assertEquals(configurer.getLogLevel("file4"),"ERROR");
-		assertEquals(configurer.getSeparator("file4"),"*");	
+		assertEquals(configurator.getFormatDate("file4"),"%d{yyyyy-mm-dd hh:mm:ss}");
+		assertEquals(configurator.getFormatMessage("file4"),"%d{HH:mm:ss}-%t-%p-%T-%m");
+		assertEquals(configurator.getLogLevel("file4"),LogLevel.ERROR);
+		assertEquals(configurator.getSeparator("file4"),"*");	
 	}
 	
 	public void testGetFileConfiguration(){
@@ -55,29 +53,46 @@ public class TestConfigurer
 		hashAux.put("format","%d{HH:mm:ss}-%p-%t-%m");
 		hashAux.put("name","file5");
 		hashAux.put("formatDate","%d{HH:mm:ss}");
-		hashAux.put("logLevel","DEBUG");
+		hashAux.put("logLevel",LogLevel.DEBUG.toString());
 		
-		configurer.createPrinter("files","file5");
+		configurator.createPrinter("files","file5");
 			
-		assertEquals(configurer.getPrinterConfiguration("file5"),hashAux);		
+		assertEquals(configurator.getPrinterConfiguration("file5"),hashAux);		
 	}
 
 	
 	public void testGetConfigurationPrinters(){
-		configurer.createPrinter("files","file5");
-		configurer.createPrinter("files","file6");
-		configurer.createPrinter("files","file7");
+		configurator.createPrinter("files","file5");
+		configurator.createPrinter("files","file6");
+		configurator.createPrinter("files","file7");
 		
-		configurer.createPrinter("consoles","console5");
-		configurer.createPrinter("consoles","console6");
-		configurer.createPrinter("consoles","console7");
+		configurator.createPrinter("consoles","console5");
+		configurator.createPrinter("consoles","console6");
+		configurator.createPrinter("consoles","console7");
 		
 		Hashtable<String,ArrayList<Hashtable<String, String>>> printers = new Hashtable<String,ArrayList<Hashtable<String, String>>>();
 		
-		printers.put("FILES", configurer.getPrintersConfiguration("files"));
-		printers.put("CONSOLES", configurer.getPrintersConfiguration("consoles"));
+		printers.put("FILES", configurator.getPrintersConfiguration("files"));
+		printers.put("CONSOLES", configurator.getPrintersConfiguration("consoles"));
 
 		assertTrue(true);
+	}
+	
+	public void testLogConsoles(){
+		
+		configurator.createPrinter("consoles","aConsole");
+		configurator.setFormatDate("aConsole", "%d{HH:mm}");
+		configurator.setLogLevel("aConsole",LogLevel.INFO);
+		configurator.setSeparator("aConsole","*");
+		
+		Logger logger = new Logger( configurator.getPrintersConfiguration() );			
+
+		/* verifico que me devuelva mensajes en caso de tener el mismo nivel de logueo */
+		assertEquals("mensaje1 de prueba",logger.logInfo("mensaje1 de prueba"));
+		/* verifico que me devuelva mensajes en caso de un nivel menor de logueo */
+		assertEquals("mensaje2 de prueba",logger.logDebug("mensaje2 de prueba"));	
+		/* verifico que no me devuelva mensajes en caso de un nivel mayor de logueo */
+		//assertEquals("",logger.logError("mensaje3 de prueba"));
 	}
 
 }

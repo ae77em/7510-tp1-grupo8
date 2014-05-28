@@ -4,24 +4,24 @@ import tp1_7510.grupo8.*;
 
 public class PatternLevel implements Pattern {
 
-	String m_level;
+	LogLevel level;
 	
 	public PatternLevel() {
-		m_level = LogLevel.DEBUG.toString();
+		level = LogLevel.DEBUG;
 	}
 
-	public PatternLevel(String p) {
-		m_level = p;
+	public PatternLevel(LogLevel p) {
+		level = p;
 	}
 	
-	@Override //se imprime nivel de level
+	@Override 
 	public String addText(String s) {
-		return s + m_level;
+		return s + level.toString();
 	}
 
 	@Override
 	public String getText() {		
-		return m_level;
+		return level.toString();
 	}
 
 }

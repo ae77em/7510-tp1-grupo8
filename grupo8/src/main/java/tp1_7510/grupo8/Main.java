@@ -3,20 +3,32 @@ package tp1_7510.grupo8;
 public class Main{
 
 	public static void main(String[] args) {
-		Configurer configurer = new Configurer();
+		Configurator configurator = new Configurator();
 		
-		configurer.createPrinter("files","file4.txt");
-		configurer.createPrinter("files","file2.txt");
+		configurator.createPrinter("files","file4.txt");
+		configurator.createPrinter("files","file2.txt");
 		
-		configurer.setLogLevel("file4.txt","ERROR");
-		configurer.setLogLevel("file2.txt","FATAL");
+		configurator.setFormatDate("file4.txt","%d{yyyyy-mm-dd hh:mm:ss}");
+		configurator.setFormatMessage("file4.txt","%L-%n-%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M");
+		configurator.setLogLevel("file4.txt",LogLevel.ERROR);
+		configurator.setSeparator("file4.txt","*");
 		
-		configurer.eraseDefaultConsole();
+		configurator.setFormatDate("file2.txt","%d{hh:mm:ss}");
+		configurator.setFormatMessage("file2.txt","%d{hh:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-MENSAJEFEO");
+		configurator.setLogLevel("file2.txt",LogLevel.FATAL);
 		
-		Logger loguer = new Logger( configurer.getPrintersConfiguration() );
+		configurator.createPrinter("consoles","SUPER_CONSOLA");
+		configurator.setLogLevel("SUPER_CONSOLA",LogLevel.FATAL);
+		configurator.setFormatMessage("consoleDefault","	-%n-%p-%n-%t-%n-%F-%M-%t");
+		//configurer.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola");
+		
+		configurator.eraseDefaultConsole();
+		
+		Logger logger = new Logger( configurator.getPrintersConfiguration() );
         		
-        loguer.log("SOY UN MENSAJE NUEVO",LogLevel.ERROR);
+        logger.logError("Mensaje1");
+        logger.logWarn("Mensaje1");
      
-        loguer.close();
+        //logger.close();
 	}
 }

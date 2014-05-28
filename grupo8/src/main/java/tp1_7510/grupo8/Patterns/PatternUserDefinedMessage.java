@@ -1,7 +1,6 @@
 package tp1_7510.grupo8.Patterns;
 
 import tp1_7510.grupo8.Logger;
-import tp1_7510.grupo8.Printer.FilePrinter;
 
 public class PatternUserDefinedMessage implements Pattern {
 
@@ -9,9 +8,8 @@ public class PatternUserDefinedMessage implements Pattern {
 		
 	}
 	
-	@Override //imprime algun mensaje que el usuario setee en el formato del mensaje
+	@Override 
 	public String addText(String s) {
-		//es el mensaje en si, por lo atnto solo lo deuvelve
 		return s + Logger.message;
 	}
 
