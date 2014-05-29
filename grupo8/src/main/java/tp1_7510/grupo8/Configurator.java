@@ -16,66 +16,10 @@ public class Configurator {
 	Configurator(){
 		properties = new Properties();
 		
-		loadDefaultProperties();
 		loadProperties();
 	}
 
-	public void loadDefaultProperties(){
-		properties.setProperty("files","");
-		properties.setProperty("consoles","consoleDefault,");	
-		properties.setProperty("consoleDefault-separator", "-");
-		properties.setProperty("consoleDefault-logLevel", LogLevel.DEBUG.toString());
-		properties.setProperty("consoleDefault-formatDate", "%d{HH:mm:ss}");
-		properties.setProperty("consoleDefault-format", "%d{HH:mm:ss}-%n-%p-%n-%m");
-	}
-	
-	public void createPrinter(String printer,String name){
-		String consoles = properties.getProperty(printer);
-		
-		consoles += name + ","; 
-		
-		properties.setProperty(printer,consoles);
-		
-		createDefaultsSetting(name);
-	}
-		
-	private void createDefaultsSetting(String aPrinter) {
-		properties.setProperty(aPrinter+"-separator", "-");
-		properties.setProperty(aPrinter+"-logLevel", "DEBUG");
-		properties.setProperty(aPrinter+"-formatDate", "%d{HH:mm:ss}");
-		properties.setProperty(aPrinter+"-format", "%d{HH:mm:ss}-%p-%t-%m");
-	}
-
-	public void eraseDefaultConsole() {		
-		String consoles = properties.getProperty("consoles");
-		
-		consoles = consoles.replace("consoleDefault,","");
-		
-		properties.setProperty("consoles",consoles);
-		
-		properties.remove("consoleDefault-separator");
-		properties.remove("consoleDefault-logLevel");
-		properties.remove("consoleDefault-formatDate");
-		properties.remove("consoleDefault-format");
-	}
-
-	public void setFormatDate(String aPrinter, String formatDate){
-		properties.setProperty(aPrinter+"-formatDate", formatDate);
-	}
-	
-	public void setFormatMessage(String aPrinter, String formatMessage){
-		properties.setProperty(aPrinter+"-format", formatMessage);
-	}
-	
-	public void setLogLevel(String aPrinter, LogLevel ll){
-		properties.setProperty(aPrinter+"-logLevel", ll.toString());
-	}
-	
-	public void setSeparator(String aPrinter, String separator){
-		properties.setProperty(aPrinter+"-separator", separator);
-	}
-	
-		public String getFiles() {
+	public String getFiles() {
 		return properties.getProperty("files");
 	}
 	public String getConsoles() {
@@ -84,35 +28,6 @@ public class Configurator {
 	
 	public Properties getProperties(){
 		return properties;
-	}
-	
-	public String getFormatDate(String aPrinter){
-		return properties.getProperty(aPrinter+"-formatDate");
-	}
-	
-	public String getFormatMessage(String aPrinter){
-		return properties.getProperty(aPrinter+"-format");
-	}
-	
-	public LogLevel getLogLevel(String aPrinter){
-		return LogLevel.valueOf(properties.getProperty(aPrinter+"-logLevel"));
-	}
-	
-	public String getSeparator(String aPrinter){
-		return properties.getProperty(aPrinter+"-separator");
-	}
-	
-	public void saveProperties(){
-		OutputStream output = null;
-	 
-		try {
-			output = new FileOutputStream("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
-			 
-			properties.store(output, null);
-	 
-		} catch (IOException io) {
-			io.printStackTrace();
-		}
 	}
 	
 	private void loadProperties(){
@@ -125,6 +40,13 @@ public class Configurator {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+		
+		try {
+			input.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
@@ -132,11 +54,11 @@ public class Configurator {
 		
 		String printers = properties.getProperty(printer);
 		
-		if(printers.length()<=1){
+		if(printers.length()<=1){ //si no hay impresoras del tipo seleccionado,CONSOLE O PRINTER
 			return printersConfiguration;
 		}
 
-		String[] aPrinters = printers.split(",");
+		String[] aPrinters = printers.split(","); 
 		
 		for(int i=0; i<aPrinters.length;i++){
 			printersConfiguration.add( getPrinterConfiguration(aPrinters[i]));
@@ -153,7 +75,7 @@ public class Configurator {
 		dataConfiguration.put("logLevel", properties.getProperty(aPrinter+"-logLevel"));
 		dataConfiguration.put("formatDate", properties.getProperty(aPrinter+"-formatDate"));
 		dataConfiguration.put("format", properties.getProperty(aPrinter+"-format"));
-				
+						
 		return dataConfiguration;
 	}
 	
