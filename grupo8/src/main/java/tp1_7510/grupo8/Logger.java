@@ -1,6 +1,8 @@
 package tp1_7510.grupo8;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -9,10 +11,18 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
+	PrintWriter printWriter;
 	public static String message = "";
 	private ArrayList<Printer> printers = new ArrayList<Printer>();
 	
 	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
+		
+		try {
+			printWriter = new PrintWriter( new File ("error.dat" ) );
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
 		printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
@@ -44,13 +54,17 @@ public class Logger {
 	
 	private void log(String aMessage,LogLevel logLevel) {
 		message = aMessage;
+		
 		Level level = new Level(logLevel);
 		
 		for (Printer printer : printers){        	        	
         	if(level.isLowerOrEqual(printer.getLogLevel())){
         		printer.print( aMessage );
         	}else{
-        		System.out.println("ERROR EN MENSAJE "+message+" NIVEL: "+printer.getLogLevel());
+        		String errorMessage = "Error Level en mensaje: "+message;
+        		errorMessage += " LevelPrinter: "+printer.getLogLevel();
+        		errorMessage += " LevelMessage: "+logLevel;
+        		printWriter.println (errorMessage);
         	}
         }
 	}
@@ -82,6 +96,7 @@ public class Logger {
 	public void close() {
 		for (Printer printer : printers){
           	printer.close();
-        }	
+        }
+		printWriter.close ();
 	}
 }

@@ -1,1 +1,1 @@
-05:35:40-MensajeERROR-FATAL-main-file2.txtMENSAJEFEO
+0-19:19:14-MensajeERROR-ERROR-main-file2.txtaddText
