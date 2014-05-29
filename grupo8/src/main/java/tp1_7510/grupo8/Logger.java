@@ -64,6 +64,7 @@ public class Logger {
         		String errorMessage = "Error Level en mensaje: "+message;
         		errorMessage += " LevelPrinter: "+printer.getLogLevel();
         		errorMessage += " LevelMessage: "+logLevel;
+
         		printWriter.println (errorMessage);
         	}
         }

@@ -33,40 +33,37 @@ public class Configurator {
 	}
 
 	public String getFiles() {
-		return properties.getProperty(LogOutput.FILES.toString());
+		return properties.getProperty("files");
 	}
 	public String getConsoles() {
-		return properties.getProperty(LogOutput.CONSOLES.toString());
+		return properties.getProperty("consoles");
 	}
 	
 	public Properties getProperties(){
 		return properties;
 	}
 	
-	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(LogOutput logOutput) {
-		
+	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
 		ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
-		String printersFromProperties = properties.getProperty(logOutput.toString());
-		String[] printers;
 		
-		if(printersFromProperties.length()<=1){ 
+		String printers = properties.getProperty(printer);
+		
+		if(printers.length()<=1){ //si no hay impresoras del tipo seleccionado,CONSOLE O PRINTER
 			return printersConfiguration;
 		}
 
-		printers = printersFromProperties.split(","); 
+		String[] aPrinters = printers.split(","); 
 		
-		for(String printer : printers){
-			printersConfiguration.add( getPrinterConfiguration(LogOutput.valueOf(printer)));
+		for(int i=0; i<aPrinters.length;i++){
+			printersConfiguration.add( getPrinterConfiguration(aPrinters[i]));
 		}
 
 		return printersConfiguration;
 	}
 
-	public Hashtable<String, String> getPrinterConfiguration(LogOutput logOutput) {
-		
-		String aPrinter = logOutput.toString();
-		
+	public Hashtable<String, String> getPrinterConfiguration(String aPrinter) {
 		Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
+		
 		dataConfiguration.put("name", aPrinter);
 		dataConfiguration.put("separator", properties.getProperty(aPrinter+"-separator"));
 		dataConfiguration.put("logLevel", properties.getProperty(aPrinter+"-logLevel"));
@@ -79,8 +76,8 @@ public class Configurator {
 	public Hashtable<String, ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
 		Hashtable<String, ArrayList<Hashtable<String, String>>> printers = new Hashtable<String, ArrayList<Hashtable<String, String>>>();
 		
-		printers.put(LogOutput.FILES.toString(), getPrintersConfiguration(LogOutput.FILES));
-		printers.put(LogOutput.CONSOLES.toString(), getPrintersConfiguration(LogOutput.CONSOLES));
+		printers.put("FILES", getPrintersConfiguration("files"));
+		printers.put("CONSOLES", getPrintersConfiguration("consoles"));
 		
 		return printers;
 	}
