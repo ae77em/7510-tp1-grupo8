@@ -47,7 +47,6 @@ public class FactoryPatterns {
 		return patterns;
 	}
 		
-	//-----------------------------------------------
 	private Pattern createPattern(String aPattern) {	
 		Pattern patternCreated = null;
 		

@@ -19,16 +19,14 @@ public class Main{
 		
 		configurator.createPrinter("consoles","SUPER_CONSOLA");
 		configurator.setLogLevel("SUPER_CONSOLA",LogLevel.FATAL);
-		configurator.setFormatMessage("consoleDefault","	-%n-%p-%n-%t-%n-%F-%M-%t");
-		//configurer.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola");
+		configurator.setFormatMessage("SUPER_CONSOLA","%d{HH:mm:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola");
 		
 		configurator.eraseDefaultConsole();
 		
 		Logger logger = new Logger( configurator.getPrintersConfiguration() );
         		
-        logger.logError("Mensaje1");
-        logger.logWarn("Mensaje1");
-     
-        //logger.close();
+        logger.logFatal("MensajeERROR");
+        
+        logger.close();
 	}
 }

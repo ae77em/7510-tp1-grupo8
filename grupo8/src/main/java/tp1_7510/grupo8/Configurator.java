@@ -13,7 +13,6 @@ public class Configurator {
  	 	
 	private Properties properties;
 	
-	//-----------------------------------------------
 	Configurator(){
 		properties = new Properties();
 		
@@ -21,7 +20,6 @@ public class Configurator {
 		loadProperties();
 	}
 
-	//-----------------------------------------------
 	public void loadDefaultProperties(){
 		properties.setProperty("files","");
 		properties.setProperty("consoles","consoleDefault,");	
@@ -117,7 +115,6 @@ public class Configurator {
 		}
 	}
 	
-	//-----------------------------------------------
 	private void loadProperties(){
 		InputStream input = null;
 	 

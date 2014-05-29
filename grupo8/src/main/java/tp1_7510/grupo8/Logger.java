@@ -42,46 +42,46 @@ public class Logger {
 		return printers;
 	}
 	
-	private String log(String aMessage,LogLevel logLevel) {
+	private void log(String aMessage,LogLevel logLevel) {
 		message = aMessage;
 		Level level = new Level(logLevel);
 		
 		for (Printer printer : printers){        	        	
         	if(level.isLowerOrEqual(printer.getLogLevel())){
         		printer.print( aMessage );
-        		return aMessage;
+        	}else{
+        		System.out.println("ERROR EN MENSAJE "+message+" NIVEL: "+printer.getLogLevel());
         	}
         }
-        return "";
 	}
 	
-	public String logOff(String message){
-		return log(message,LogLevel.OFF);
+	public void logOff(String message){
+		log(message,LogLevel.OFF);
 	}
 	
-	public String logFatal(String message){
-		return log(message,LogLevel.FATAL);
+	public void logFatal(String message){
+		log(message,LogLevel.FATAL);
 	}
 	
-	public String logError(String message){
-		return log(message,LogLevel.ERROR);
+	public void logError(String message){
+		log(message,LogLevel.ERROR);
 	}
 	
-	public String logWarn(String message){
-		return log(message,LogLevel.WARN);
+	public void logWarn(String message){
+		log(message,LogLevel.WARN);
 	}
 	
-	public String logInfo(String message){
-		return log(message,LogLevel.INFO);
+	public void logInfo(String message){
+		log(message,LogLevel.INFO);
 	}
 	
-	public String logDebug(String message){
-		return log(message,LogLevel.DEBUG);
+	public void logDebug(String message){
+		log(message,LogLevel.DEBUG);
 	}   
 
-	/*public void close() {
+	public void close() {
 		for (Printer printer : printers){
           	printer.close();
         }	
-	}*/
+	}
 }

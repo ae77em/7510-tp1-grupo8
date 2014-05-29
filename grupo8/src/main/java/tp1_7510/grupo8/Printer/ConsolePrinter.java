@@ -18,4 +18,8 @@ public class ConsolePrinter extends Printer {
 		
 		System.out.println(messageFormated);
 	}
+
+	public void close() {
+		//metodo forzado a implementarse porque se hereda abstracto, no cierra nada ya que es la consola
+	}
 }

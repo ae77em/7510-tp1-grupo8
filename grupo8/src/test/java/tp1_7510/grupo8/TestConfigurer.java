@@ -78,7 +78,7 @@ public class TestConfigurer
 		assertTrue(true);
 	}
 	
-	public void testLogConsoles(){
+/*	public void testLogConsoles(){
 		
 		configurator.createPrinter("consoles","aConsole");
 		configurator.setFormatDate("aConsole", "%d{HH:mm}");
@@ -87,12 +87,12 @@ public class TestConfigurer
 		
 		Logger logger = new Logger( configurator.getPrintersConfiguration() );			
 
-		/* verifico que me devuelva mensajes en caso de tener el mismo nivel de logueo */
+		/* verifico que me devuelva mensajes en caso de tener el mismo nivel de logueo 
 		assertEquals("mensaje1 de prueba",logger.logInfo("mensaje1 de prueba"));
-		/* verifico que me devuelva mensajes en caso de un nivel menor de logueo */
+		/* verifico que me devuelva mensajes en caso de un nivel menor de logueo 
 		assertEquals("mensaje2 de prueba",logger.logDebug("mensaje2 de prueba"));	
-		/* verifico que no me devuelva mensajes en caso de un nivel mayor de logueo */
+		/* verifico que no me devuelva mensajes en caso de un nivel mayor de logueo 
 		//assertEquals("",logger.logError("mensaje3 de prueba"));
 	}
-
+*/
 }
