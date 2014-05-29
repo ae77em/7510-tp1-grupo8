@@ -5,8 +5,7 @@ import java.util.Hashtable;
 
 import junit.framework.TestCase;
 
-public class TestConfigurer 
-    extends TestCase{
+public class TestConfigurator extends TestCase{
 	
 	private Configurator configurator = new Configurator();
 		
