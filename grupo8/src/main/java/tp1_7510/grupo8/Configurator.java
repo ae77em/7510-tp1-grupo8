@@ -12,29 +12,14 @@ import java.util.Properties;
 public class Configurator {
  	 	
 	private Properties properties;
-	
-	Configurator(){
+
+	Configurator(String pathProperties){
 		properties = new Properties();
 		
-		loadProperties();
-	}
-
-	public String getFiles() {
-		return properties.getProperty("files");
-	}
-	public String getConsoles() {
-		return properties.getProperty("consoles");
-	}
-	
-	public Properties getProperties(){
-		return properties;
-	}
-	
-	private void loadProperties(){
 		InputStream input = null;
-	 
+		 
 		try {
-			input = new FileInputStream("src/main/java/tp1_7510/grupo8/Properties/logger.properties");	 
+			input = new FileInputStream(pathProperties);	 
 			properties.load(input);
 	 	 
 		} catch (IOException ex) {
@@ -47,6 +32,17 @@ public class Configurator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public String getFiles() {
+		return properties.getProperty("files");
+	}
+	public String getConsoles() {
+		return properties.getProperty("consoles");
+	}
+	
+	public Properties getProperties(){
+		return properties;
 	}
 	
 	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
