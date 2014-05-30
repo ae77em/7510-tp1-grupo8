@@ -50,9 +50,9 @@ public class FactoryPatterns {
 	private Pattern createPattern(String aPattern) {	
 		Pattern patternCreated = null;
 		
-		switch(aPattern.substring(0,2)){
-			 case "%d":
-			     patternCreated = new PatternDate(aPattern.substring(3,aPattern.length()-1));
+		switch(aPattern){
+			 case "%d":					
+			     patternCreated = new PatternDate(formatDate.substring(1,formatDate.length()-1));
 			     break;
 			 case "%p": 
 				 patternCreated = new PatternLevel(logLevel);

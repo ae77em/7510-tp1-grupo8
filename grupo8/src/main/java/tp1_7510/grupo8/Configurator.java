@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
-public class Configurator {
- 	 	
+public class Configurator { 	 	
 	private Properties properties;
 
 	Configurator(String pathProperties){

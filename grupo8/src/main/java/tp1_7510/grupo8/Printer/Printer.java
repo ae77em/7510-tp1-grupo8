@@ -13,8 +13,8 @@ public abstract class Printer {
 	LogLevel logLevel;
 	
 	public Printer(Hashtable<String, String> dataConfiguration){
+		factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
-		factoryPatterns = new FactoryPatterns(dataConfiguration);		
 		messagePatterns = factoryPatterns.createListOfPatterns();
 		
 		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
