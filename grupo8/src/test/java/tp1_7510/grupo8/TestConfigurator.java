@@ -7,23 +7,15 @@ import junit.framework.TestCase;
 
 public class TestConfigurator extends TestCase{
 	
-	//private Configurator configurator = new Configurator();
+	Configurator configurator = new Configurator("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
 			
-/*	public void testLogConsoles(){
-		
-		configurator.createPrinter("consoles","aConsole");
-		configurator.setFormatDate("aConsole", "%d{HH:mm}");
-		configurator.setLogLevel("aConsole",LogLevel.INFO);
-		configurator.setSeparator("aConsole","*");
-		
-		Logger logger = new Logger( configurator.getPrintersConfiguration() );			
-
-		/* verifico que me devuelva mensajes en caso de tener el mismo nivel de logueo 
-		assertEquals("mensaje1 de prueba",logger.logInfo("mensaje1 de prueba"));
-		/* verifico que me devuelva mensajes en caso de un nivel menor de logueo 
-		assertEquals("mensaje2 de prueba",logger.logDebug("mensaje2 de prueba"));	
-		/* verifico que no me devuelva mensajes en caso de un nivel mayor de logueo 
-		//assertEquals("",logger.logError("mensaje3 de prueba"));
+	public void testGetFiles(){
+		String files = configurator.getFiles();
+		assertEquals("file2.txt,",files);
 	}
-*/
+
+	public void testGetConsoles(){		
+		String consoles = configurator.getConsoles();
+		assertEquals("SUPER_CONSOLA,",consoles);
+	}
 }
