@@ -1,316 +1,326 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.5" icons="true" automaticImage="JPEG" always-add-relationships="true" generalizations="true" 
-  realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
-  <class id="1" language="java" name="tp1_7510.grupo8.Patterns.PatternLevel" project="grupo8" 
+<class-diagram version="1.1.5" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" language="java" name="tp1_7510.grupo8.Logger" project="grupo8" 
+    file="/grupo8/src/main/java/tp1_7510/grupo8/Logger.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="725" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="tp1_7510.grupo8.Level" project="grupo8" 
+    file="/grupo8/src/main/java/tp1_7510/grupo8/Level.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1432" y="190"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="tp1_7510.grupo8.Configurator" project="grupo8" 
+    file="/grupo8/src/main/java/tp1_7510/grupo8/Configurator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2798" y="1265"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="4" language="java" name="tp1_7510.grupo8.LogOutput" project="grupo8" 
+    file="/grupo8/src/main/java/tp1_7510/grupo8/LogOutput.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1181" y="225"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="5" language="java" name="tp1_7510.grupo8.LogLevel" project="grupo8" 
+    file="/grupo8/src/main/java/tp1_7510/grupo8/LogLevel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1271" y="510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="6" language="java" name="tp1_7510.grupo8.Patterns.PatternLevel" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternLevel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1384" y="1327"/>    
+    <position height="-1" width="-1" x="1643" y="259"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="tp1_7510.grupo8.Patterns.PatternFilename" project="grupo8" 
+  <class id="7" language="java" name="tp1_7510.grupo8.Patterns.PatternFilename" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternFilename.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1200" y="1327"/>    
+    <position height="-1" width="-1" x="2064" y="255"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="tp1_7510.grupo8.Patterns.PatternLineNumber" project="grupo8" 
+  <class id="8" language="java" name="tp1_7510.grupo8.Patterns.PatternLineNumber" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternLineNumber.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1568" y="1327"/>    
+    <position height="-1" width="-1" x="2332" y="247"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="4" language="java" name="tp1_7510.grupo8.Patterns.Pattern" project="grupo8" 
+  <interface id="9" language="java" name="tp1_7510.grupo8.Patterns.Pattern" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/Pattern.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1063" y="1832"/>    
+    <position height="-1" width="-1" x="2123" y="652"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="5" language="java" name="tp1_7510.grupo8.Patterns.PatternThread" project="grupo8" 
+  <class id="10" language="java" name="tp1_7510.grupo8.Patterns.PatternThread" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternThread.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2127" y="1318"/>    
+    <position height="-1" width="-1" x="3164" y="346"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="tp1_7510.grupo8.Patterns.PatternEscape" project="grupo8" 
+  <class id="11" language="java" name="tp1_7510.grupo8.Patterns.PatternEscape" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternEscape.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1943" y="1318"/>    
+    <position height="-1" width="-1" x="2953" y="242"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="tp1_7510.grupo8.Patterns.PatternDate" project="grupo8" 
+  <class id="12" language="java" name="tp1_7510.grupo8.Patterns.PatternDate" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternDate.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1755" y="1327"/>    
+    <position height="-1" width="-1" x="2604" y="244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="tp1_7510.grupo8.Patterns.PatternUserDefinedMessage" project="grupo8" 
+  <class id="13" language="java" name="tp1_7510.grupo8.Patterns.PatternUserDefinedMessage" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternUserDefinedMessage.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="970" y="1330"/>    
+    <position height="-1" width="-1" x="2333" y="914"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="tp1_7510.grupo8.Patterns.PatternMethodName" project="grupo8" 
+  <class id="14" language="java" name="tp1_7510.grupo8.Patterns.PatternMethodName" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternMethodName.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2313" y="1318"/>    
+    <position height="-1" width="-1" x="3219" y="518"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="tp1_7510.grupo8.Patterns.PatternSimpleMessage" project="grupo8" 
+  <class id="15" language="java" name="tp1_7510.grupo8.Patterns.PatternSimpleMessage" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternSimpleMessage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2724" y="1319"/>    
+    <position height="-1" width="-1" x="3241" y="888"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="tp1_7510.grupo8.Patterns.PatternSeparator" project="grupo8" 
+  <class id="16" language="java" name="tp1_7510.grupo8.Patterns.PatternSeparator" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Patterns/PatternSeparator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2513" y="1323"/>    
+    <position height="-1" width="-1" x="3258" y="696"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="tp1_7510.grupo8.Logger" project="grupo8" 
-    file="/grupo8/src/main/java/tp1_7510/grupo8/Logger.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="969" y="306"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="tp1_7510.grupo8.Configurator" project="grupo8" 
-    file="/grupo8/src/main/java/tp1_7510/grupo8/Configurator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2375" y="317"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="tp1_7510.grupo8.Main" project="grupo8" 
-    file="/grupo8/src/main/java/tp1_7510/grupo8/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1583" y="196"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="tp1_7510.grupo8.Printer.Printer" project="grupo8" 
+  <class id="17" language="java" name="tp1_7510.grupo8.Printer.Printer" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/Printer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="532" y="1070"/>    
+    <position height="-1" width="-1" x="611" y="682"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="tp1_7510.grupo8.Printer.FactoryPatterns" project="grupo8" 
+  <class id="18" language="java" name="tp1_7510.grupo8.Printer.FactoryPatterns" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/FactoryPatterns.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1912" y="912"/>    
+    <position height="-1" width="-1" x="336" y="1060"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="tp1_7510.grupo8.Printer.ConsolePrinter" project="grupo8" 
+  <class id="19" language="java" name="tp1_7510.grupo8.Printer.ConsolePrinter" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/ConsolePrinter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="567" y="703"/>    
+    <position height="-1" width="-1" x="1099" y="1131"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="tp1_7510.grupo8.Printer.FilePrinter" project="grupo8" 
+  <class id="20" language="java" name="tp1_7510.grupo8.Printer.FilePrinter" project="grupo8" 
     file="/grupo8/src/main/java/tp1_7510/grupo8/Printer/FilePrinter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="128" y="744"/>    
+    <position height="-1" width="-1" x="1760" y="1220"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="19">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
-  <dependency id="20">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <realization id="21">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <realization id="22">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="23">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <realization id="24">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="25">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="26">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="28">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <association id="29">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="30" name="printers"/>      
-      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+  <generalization id="21">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="22">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="23" name="level"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="32">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <realization id="33">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="34">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <realization id="35">    
+  <association id="25">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="26" name="printers"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="28">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
-  </realization>  
-  <realization id="36">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="37">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <association id="39">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="40" name="factoryPatterns"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <dependency id="43">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="18"/>  
-  </dependency>  
-  <association id="44">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="45" name="messagePatterns"/>      
-      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="47">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <dependency id="48">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="49">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="50">    
-    <end type="SOURCE" refId="16"/>    
+  <dependency id="29">    
+    <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="51">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <realization id="52">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
+  <association id="30">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="31" name="messagePatterns"/>      
+      <multiplicity id="32" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="33">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
-  <realization id="53">    
+  <dependency id="34">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="35">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="36">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="37">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <realization id="38">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
-  <dependency id="54">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <generalization id="55">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <dependency id="56">    
+  <realization id="39">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="40">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="41" name="logLevel"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="43">    
     <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="13"/>  
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <realization id="44">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <dependency id="45">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="57">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="4"/>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <dependency id="47">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="19"/>  
   </dependency>  
-  <realization id="58">    
+  <association id="48">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="49" name="factoryPatterns"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="51">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <realization id="52">    
     <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="53">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="54" name="logLevel"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="56">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="57">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="58" name="logLevel"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="60">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <dependency id="61">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <realization id="62">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     accessors="true" visibility="true">    
