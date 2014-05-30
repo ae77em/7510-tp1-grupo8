@@ -70,6 +70,7 @@ public class TestLogger extends TestCase{
 		    }
 		}
 	    
+		System.out.println(line);
 		assertEquals(line,"Error Level en mensaje: MensajeDEBUG LevelPrinter: FATAL LevelMessage: DEBUG");
 	}
 	

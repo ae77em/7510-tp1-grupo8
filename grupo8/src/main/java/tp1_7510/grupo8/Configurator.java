@@ -7,78 +7,82 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
-public class Configurator { 	 	
-	private Properties properties;
+public class Configurator {
+                
+        private Properties properties;
 
-	Configurator(String pathProperties){
-		properties = new Properties();
-		
-		InputStream input = null;
-		 
-		try {
-			input = new FileInputStream(pathProperties);	 
-			properties.load(input);
-	 	 
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		
-		try {
-			input.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+        Configurator(String pathProperties){
+                
+                properties = new Properties();
+                
+                InputStream input = null;
+                 
+                try {
+                        input = new FileInputStream(pathProperties);     
+                        properties.load(input);
+                 
+                } catch (IOException ex) {
+                        ex.printStackTrace();
+                }
+                
+                try {
+                        input.close();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+        }
 
-	public String getFiles() {
-		return properties.getProperty("files");
-	}
-	public String getConsoles() {
-		return properties.getProperty("consoles");
-	}
-	
-	public Properties getProperties(){
-		return properties;
-	}
-	
-	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(String printer) {
-		ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
-		
-		String printers = properties.getProperty(printer);
-		
-		if(printers.length()<=1){ //si no hay impresoras del tipo seleccionado,CONSOLE O PRINTER
-			return printersConfiguration;
-		}
+        public String getFiles() {
+                return properties.getProperty(LogOutput.FILES.toString());
+        }
+        public String getConsoles() {
+                return properties.getProperty(LogOutput.CONSOLES.toString());
+        }
+        
+        public Properties getProperties(){
+                return properties;
+        }
+        
+        public ArrayList<Hashtable<String, String>> getPrintersConfiguration(LogOutput logOutput) {
+                
+                ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
+                String printersFromProperties = "";
+                String[] printers;
+                
+                printersFromProperties += properties.getProperty(logOutput.toString());
+                                
+                if ( printersFromProperties.equals("null")){ 
+                        return printersConfiguration;
+                }
 
-		String[] aPrinters = printers.split(","); 
-		
-		for(int i=0; i<aPrinters.length;i++){
-			printersConfiguration.add( getPrinterConfiguration(aPrinters[i]));
-		}
+                printers = printersFromProperties.split(","); 
+                
+                for(String printer : printers){
+            	    printersConfiguration.add( getPrinterConfiguration(printer));
+                }
 
-		return printersConfiguration;
-	}
+                return printersConfiguration;
+        }
 
-	public Hashtable<String, String> getPrinterConfiguration(String aPrinter) {
-		Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
-		
-		dataConfiguration.put("name", aPrinter);
-		dataConfiguration.put("separator", properties.getProperty(aPrinter+"-separator"));
-		dataConfiguration.put("logLevel", properties.getProperty(aPrinter+"-logLevel"));
-		dataConfiguration.put("formatDate", properties.getProperty(aPrinter+"-formatDate"));
-		dataConfiguration.put("format", properties.getProperty(aPrinter+"-format"));
-						
-		return dataConfiguration;
-	}
-	
-	public Hashtable<String, ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
-		Hashtable<String, ArrayList<Hashtable<String, String>>> printers = new Hashtable<String, ArrayList<Hashtable<String, String>>>();
-		
-		printers.put("FILES", getPrintersConfiguration("files"));
-		printers.put("CONSOLES", getPrintersConfiguration("consoles"));
-		
-		return printers;
-	}
+        public Hashtable<String, String> getPrinterConfiguration(String namePrinter) {
+                
+                Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
+                dataConfiguration.put("name", namePrinter);
+                dataConfiguration.put("separator", properties.getProperty(namePrinter+"-separator"));
+                dataConfiguration.put("logLevel", properties.getProperty(namePrinter+"-logLevel"));
+                dataConfiguration.put("formatDate", properties.getProperty(namePrinter+"-formatDate"));
+                dataConfiguration.put("format", properties.getProperty(namePrinter+"-format"));
+                                                
+                return dataConfiguration;
+        }
+        
+        public Hashtable<String, ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
+                Hashtable<String, ArrayList<Hashtable<String, String>>> printers = new Hashtable<String, ArrayList<Hashtable<String, String>>>();
+                
+                printers.put(LogOutput.FILES.toString(), getPrintersConfiguration(LogOutput.FILES));
+                printers.put(LogOutput.CONSOLES.toString(), getPrintersConfiguration(LogOutput.CONSOLES));
+                
+                return printers;
+        }
 }
-

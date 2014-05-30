@@ -24,8 +24,8 @@ public class Logger {
 			e.printStackTrace();
 		}
 		
-		printers.addAll( createPrintersConsole(dataConfiguration.get("CONSOLES")));
-		printers.addAll( createPrintersFile(dataConfiguration.get("FILES")));
+		printers.addAll( createPrintersConsole(dataConfiguration.get(LogOutput.CONSOLES.toString())));
+		printers.addAll( createPrintersFile(dataConfiguration.get(LogOutput.FILES.toString())));
 	}
 	
 	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,String>> printersFiles) {
