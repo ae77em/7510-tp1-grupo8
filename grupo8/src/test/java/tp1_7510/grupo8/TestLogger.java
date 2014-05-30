@@ -11,15 +11,15 @@ import junit.framework.TestCase;
 
 public class TestLogger extends TestCase{
 	
-	Configurator configurator = null; 
-	Logger logger = null;
+	Configurator configurator = new Configurator("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
+
+	Logger 	logger = new Logger( configurator.getPrintersConfiguration() );
+
 	BufferedReader reader = null;
 	
 	public void testOkLogLevel(){
 		//el archivo de prueba posee seteado como salida el archivo file2.txt para loguear
 		//el formato de mensaje es %L-%n-%m-%n-%p-%n-%t
-		configurator = new Configurator("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
-		logger = new Logger( configurator.getPrintersConfiguration() );
 		
         logger.logError("MensajeError");
         
@@ -44,61 +44,5 @@ public class TestLogger extends TestCase{
 	    
 		assertEquals(line,"0-MensajeError-ERROR-main");
 	}
-	
-	public void testErrorLogLevelConsole(){
-		configurator = new Configurator("src/main/java/tp1_7510/grupo8/Properties/testLoggerConsole.properties");
-		logger = new Logger( configurator.getPrintersConfiguration() );
-		
-        logger.logDebug("MensajeDEBUG");
-        
-        logger.close();
-        
-        String line = "";
-		
-		try {
-		    reader = new BufferedReader(new FileReader( new File("error.dat") ) );
-		    line = reader.readLine();
-		    
-		} catch (IOException e) {
-		    e.printStackTrace();
-		    System.out.println("No se pudo abrir archivo para controlar testErrorLevelCONSOLE");
-		} finally {
-		    try {
-		        reader.close();
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
-		}
-	    
-		System.out.println(line);
-		assertEquals(line,"Error Level en mensaje: MensajeDEBUG LevelPrinter: FATAL LevelMessage: DEBUG");
-	}
-	
-	public void testErrorLogLevelFile(){
-		configurator = new Configurator("src/main/java/tp1_7510/grupo8/Properties/testLoggerFile.properties");
-		logger = new Logger( configurator.getPrintersConfiguration() );
-		
-        logger.logDebug("MensajeDEBUG");
-        
-        logger.close();
-        
-        String line = "";
-		
-		try {
-		    reader = new BufferedReader(new FileReader( new File("error.dat") ) );
-		    line = reader.readLine();
-		    
-		} catch (IOException e) {
-		    e.printStackTrace();
-		    System.out.println("No se pudo abrir archivo para controlar testErrorLevelFILE");
-		} finally {
-		    try {
-		        reader.close();
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
-		}
-	    System.out.println(line);
-		assertEquals(line,"Error Level en mensaje: MensajeDEBUG LevelPrinter: INFO LevelMessage: DEBUG");
-	}
+
 }

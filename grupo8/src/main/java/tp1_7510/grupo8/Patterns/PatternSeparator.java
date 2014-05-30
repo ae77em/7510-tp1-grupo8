@@ -12,12 +12,10 @@ public class PatternSeparator implements Pattern {
 		separator = p;
 	}
 	
-	@Override
 	public String addText(String s) {
 		return s + separator;
 	}
 
-	@Override
 	public String getText() {
 		return separator;
 	}

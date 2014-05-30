@@ -8,12 +8,10 @@ public class PatternFilename implements Pattern {
 		fileName = p;
 	}
 	
-	@Override //imprime el nombre de la consola o archivo sobre el cual se esta logueando
 	public String addText(String s) {
 		return  s + fileName;
 	}
 
-	@Override
 	public String getText() {
 		return fileName;
 	}

@@ -13,13 +13,11 @@ public class PatternLevel implements Pattern {
 	public PatternLevel(LogLevel p) {
 		level = p;
 	}
-	
-	@Override 
+	 
 	public String addText(String s) {
 		return s + level.toString();
 	}
 
-	@Override
 	public String getText() {		
 		return level.toString();
 	}

@@ -8,7 +8,6 @@ public class PatternLineNumber implements Pattern {
 		numberLine=0;
 	}
 	
-	@Override 
 	public String addText(String s) {
 		String message = s + Integer.toString(numberLine);
 
@@ -17,7 +16,6 @@ public class PatternLineNumber implements Pattern {
 		return message;
 	}
 
-	@Override
 	public String getText() {
 		// TODO Auto-generated method stub
 		return Integer.toString(numberLine);

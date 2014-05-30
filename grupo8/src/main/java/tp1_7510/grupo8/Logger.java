@@ -11,14 +11,16 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
-	PrintWriter printWriter;
+	PrintWriter errorWriter;
+	
 	public static String message = "";
+	
 	private ArrayList<Printer> printers = new ArrayList<Printer>();
 	
 	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
 		
 		try {
-			printWriter = new PrintWriter( new File ("error.dat" ) );
+			errorWriter = new PrintWriter( new File ("error.dat" ) );
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,7 +38,7 @@ public class Logger {
 				printers.add( new FilePrinter(aFilePrinter) );
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
-				System.out.println("NO SE PUEDO CREAR ARCHIVO.");
+				System.out.println("NO SE PUEDO CREAR IMPRESORA.");
 			}
 		}		
 		return printers;
@@ -52,10 +54,10 @@ public class Logger {
 		return printers;
 	}
 	
-	private void log(String aMessage,LogLevel logLevel) {
+	private void log(String aMessage,LogLevel aLogLevel) {
 		message = aMessage;
 		
-		Level level = new Level(logLevel);
+		Level level = new Level(aLogLevel);
 		
 		for (Printer printer : printers){        	        	
         	if(level.isLowerOrEqual(printer.getLogLevel())){
@@ -63,9 +65,9 @@ public class Logger {
         	}else{
         		String errorMessage = "Error Level en mensaje: "+message;
         		errorMessage += " LevelPrinter: "+printer.getLogLevel();
-        		errorMessage += " LevelMessage: "+logLevel;
+        		errorMessage += " LevelMessage: "+aLogLevel.toString();
 
-        		printWriter.println (errorMessage);
+        		errorWriter.println (errorMessage);
         	}
         }
 	}
@@ -98,6 +100,6 @@ public class Logger {
 		for (Printer printer : printers){
           	printer.close();
         }
-		printWriter.close ();
+		errorWriter.close ();
 	}
 }

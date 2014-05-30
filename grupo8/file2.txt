@@ -1,1 +1,2 @@
-21:27:14-MensajeError-ERROR-main
+0-MensajeERROR-ERROR-main
+1-Mensaje2ERROR-ERROR-main

@@ -8,12 +8,10 @@ public class PatternUserDefinedMessage implements Pattern {
 		
 	}
 	
-	@Override 
 	public String addText(String s) {
 		return s + Logger.message;
 	}
 
-	@Override
 	public String getText() {
 		return Logger.message;
 	}

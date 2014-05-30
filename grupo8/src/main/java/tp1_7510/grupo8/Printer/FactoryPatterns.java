@@ -19,7 +19,6 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 public class FactoryPatterns {
 	private LogLevel logLevel;
 	private String separator; 
-	@SuppressWarnings("unused")
 	private String formatDate; 
 	private String nameFile;
 	private String[] formatMessage; 

@@ -12,11 +12,10 @@ public class PatternSimpleMessage implements Pattern {
 		simpleText = text;
 	}
 	
-	@Override
 	public String addText(String s) {
 		return s + simpleText;
 	}
-	@Override
+
 	public String getText() {		
 		return simpleText;
 	}

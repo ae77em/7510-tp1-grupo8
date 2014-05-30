@@ -6,12 +6,10 @@ public class PatternEscape implements Pattern {
 		
 	}
 
-	@Override //imprime un caracter de escape
 	public String addText(String s) {
 		return s + "%";
 	}
 
-	@Override
 	public String getText() {
 		return "%";
 	}
