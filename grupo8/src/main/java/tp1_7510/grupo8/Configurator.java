@@ -12,11 +12,13 @@ public class Configurator {
 	private Properties properties;
 
 	Configurator(String pathProperties){
+		
 		properties = new Properties();
 		
 		InputStream input = null;
 		 
 		try {
+			System.out.println("voy a levantar el archivo");
 			input = new FileInputStream(pathProperties);	 
 			properties.load(input);
 	 	 
@@ -46,10 +48,12 @@ public class Configurator {
 	public ArrayList<Hashtable<String, String>> getPrintersConfiguration(LogOutput logOutput) {
 		
 		ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
-		String printersFromProperties = properties.getProperty(logOutput.toString());
+		String printersFromProperties = "";
 		String[] printers;
 		
-		if(printersFromProperties.length()<=1){ 
+		printersFromProperties += properties.getProperty(logOutput.toString());
+				
+		if ( printersFromProperties.equals("null")){ 
 			return printersConfiguration;
 		}
 
