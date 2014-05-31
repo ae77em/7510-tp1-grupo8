@@ -7,10 +7,11 @@ import tp1_7510.grupo8.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
-import tp1_7510.grupo8.Patterns.PatternFilename;
+import tp1_7510.grupo8.Patterns.PatternNamePrinter;
 import tp1_7510.grupo8.Patterns.PatternLevel;
 import tp1_7510.grupo8.Patterns.PatternLineNumber;
 import tp1_7510.grupo8.Patterns.PatternMethodName;
+import tp1_7510.grupo8.Patterns.PatternNamePrinter;
 import tp1_7510.grupo8.Patterns.PatternSeparator;
 import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
 import tp1_7510.grupo8.Patterns.PatternThread;
@@ -19,6 +20,7 @@ import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 public class FactoryPatterns {
 	private LogLevel logLevel;
 	private String separator; 
+	private String namePrinter;
 	private String formatDate; 
 	private String nameFile;
 	private String[] formatMessage; 
@@ -29,6 +31,7 @@ public class FactoryPatterns {
 		formatDate = (String) dataConfiguration.get("formatDate");
 		nameFile = (String) dataConfiguration.get("name");
 		formatMessage = ((String) dataConfiguration.get("format")).split("-");
+		namePrinter = (String) dataConfiguration.get("namePrinter");
 	}
 	
 	public void setLogLevel(LogLevel ll){
@@ -50,6 +53,9 @@ public class FactoryPatterns {
 		Pattern patternCreated = null;
 		
 		switch(aPattern){
+			 case "%g":					
+		     patternCreated = new PatternNamePrinter(namePrinter);
+		     break;
 			 case "%d":					
 			     patternCreated = new PatternDate(formatDate.substring(1,formatDate.length()-1));
 			     break;
@@ -72,7 +78,7 @@ public class FactoryPatterns {
 				 patternCreated = new PatternLineNumber();
 			     break;			     
 			 case "%F": 
-				 patternCreated = new PatternFilename(nameFile);
+				 patternCreated = new PatternNamePrinter(nameFile);
 			     break;
 			 case "%M": 
 				 patternCreated = new PatternMethodName();
