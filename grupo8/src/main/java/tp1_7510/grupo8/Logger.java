@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.lang.Exception;
 
 import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.FilePrinter;
@@ -94,12 +95,73 @@ public class Logger {
 	
 	public void logDebug(String message){
 		log(message,LogLevel.DEBUG);
-	}   
+	}
+	
+	public void logTrace(String message){
+		log(message,LogLevel.TRACE);
+	}	
+	
+	public void logOff(String message, Exception ex){
+		try {
+			log(message,LogLevel.OFF);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+	
+	public void logFatal(String message, Exception ex){
+		try {
+			log(message,LogLevel.FATAL);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public void logError(String message, Exception ex){
+		try {
+			log(message,LogLevel.ERROR);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public void logWarn(String message, Exception ex){
+		try {
+			log(message,LogLevel.WARN);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public void logInfo(String message, Exception ex){
+		try {
+			log(message,LogLevel.INFO);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public void logDebug(String message, Exception ex){
+		try {
+			log(message,LogLevel.DEBUG);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public void logTrace(String message, Exception ex){
+		try {
+			log(message,LogLevel.TRACE);
+		} catch (Exception e) {
+			System.out.println(ex.getMessage());
+		}
+	}
 
 	public void close() {
 		for (Printer printer : printers){
           	printer.close();
         }
 		errorWriter.close ();
-	}
+	}	
 }
