@@ -4,18 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 import tp1_7510.grupo8.LogLevel;
-import tp1_7510.grupo8.Patterns.Pattern;
-import tp1_7510.grupo8.Patterns.PatternDate;
-import tp1_7510.grupo8.Patterns.PatternEscape;
-import tp1_7510.grupo8.Patterns.PatternNamePrinter;
-import tp1_7510.grupo8.Patterns.PatternLevel;
-import tp1_7510.grupo8.Patterns.PatternLineNumber;
-import tp1_7510.grupo8.Patterns.PatternMethodName;
-import tp1_7510.grupo8.Patterns.PatternNamePrinter;
-import tp1_7510.grupo8.Patterns.PatternSeparator;
-import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
-import tp1_7510.grupo8.Patterns.PatternThread;
-import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
+import tp1_7510.grupo8.Patterns.*;
 
 public class FactoryPatterns {
 	private LogLevel logLevel;
@@ -54,8 +43,8 @@ public class FactoryPatterns {
 		
 		switch(aPattern){
 			 case "%g":					
-		     patternCreated = new PatternNamePrinter(namePrinter);
-		     break;
+			     patternCreated = new PatternNamePrinter(namePrinter);
+			     break;
 			 case "%d":					
 			     patternCreated = new PatternDate(formatDate.substring(1,formatDate.length()-1));
 			     break;
