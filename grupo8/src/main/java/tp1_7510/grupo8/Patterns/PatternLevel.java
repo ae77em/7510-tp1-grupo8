@@ -21,5 +21,9 @@ public class PatternLevel implements Pattern {
 	public String getText() {		
 		return level.toString();
 	}
+	
+	public String toString(){
+		return "logLevel";
+	}
 
 }

@@ -1,10 +1,10 @@
 package tp1_7510.grupo8.Patterns;
 
-public class PatternNamePrinter implements Pattern {
+public class PatternPrinterName implements Pattern {
 
 	String fileName;
 
-	public PatternNamePrinter(String p) {
+	public PatternPrinterName(String p) {
 		fileName = p;
 	}
 	
@@ -15,5 +15,9 @@ public class PatternNamePrinter implements Pattern {
 	public String getText() {
 		return fileName;
 	}
-
+	
+	public String toString(){
+		return "printerName";
+	}
+	
 }

@@ -10,5 +10,9 @@ public class PatternThread implements Pattern {
 		
 		return Thread.currentThread().getName();
 	}
+	
+	public String toString(){
+		return "thread";
+	}
 
 }

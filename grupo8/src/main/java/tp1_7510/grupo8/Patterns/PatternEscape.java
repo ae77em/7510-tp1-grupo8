@@ -13,5 +13,8 @@ public class PatternEscape implements Pattern {
 	public String getText() {
 		return "%";
 	}
-
+	
+	public String toString(){
+		return "escape";
+	}
 }

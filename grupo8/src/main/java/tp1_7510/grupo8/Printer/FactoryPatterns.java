@@ -43,7 +43,7 @@ public class FactoryPatterns {
 		
 		switch(aPattern){
 			 case "%g":					
-			     patternCreated = new PatternNamePrinter(namePrinter);
+			     patternCreated = new PatternPrinterName(namePrinter);
 			     break;
 			 case "%d":					
 			     patternCreated = new PatternDate(formatDate.substring(1,formatDate.length()-1));
@@ -67,7 +67,7 @@ public class FactoryPatterns {
 				 patternCreated = new PatternLineNumber();
 			     break;			     
 			 case "%F": 
-				 patternCreated = new PatternNamePrinter(nameFile);
+				 patternCreated = new PatternPrinterName(nameFile);
 			     break;
 			 case "%M": 
 				 patternCreated = new PatternMethodName();

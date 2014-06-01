@@ -2,7 +2,7 @@ package tp1_7510.grupo8;
 
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
-import tp1_7510.grupo8.Patterns.PatternNamePrinter;
+import tp1_7510.grupo8.Patterns.PatternPrinterName;
 import tp1_7510.grupo8.Patterns.PatternLevel;
 import tp1_7510.grupo8.Patterns.PatternLineNumber;
 import tp1_7510.grupo8.Patterns.PatternMethodName;
@@ -39,7 +39,7 @@ public class TestPatterns extends TestCase {
 	
 	public void testPatternFilenamee(){
 		
-		PatternNamePrinter patternFilename	= new PatternNamePrinter("unArchivo.txt");
+		PatternPrinterName patternFilename	= new PatternPrinterName("unArchivo.txt");
 		
 		assertEquals("unArchivo.txt", patternFilename.addText(""));
 		assertEquals("aaaunArchivo.txt", patternFilename.addText("aaa"));

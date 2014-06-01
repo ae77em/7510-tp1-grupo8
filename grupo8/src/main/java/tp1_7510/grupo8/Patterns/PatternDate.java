@@ -27,5 +27,9 @@ public class PatternDate implements Pattern {
 		
 		return fechaString;
 	}
+	
+	public String toString(){
+		return "datetime";
+	}
 
 }

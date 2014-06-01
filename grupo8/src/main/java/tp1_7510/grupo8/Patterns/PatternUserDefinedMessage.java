@@ -15,5 +15,8 @@ public class PatternUserDefinedMessage implements Pattern {
 	public String getText() {
 		return Logger.message;
 	}
-
+	
+	public String toString(){
+		return "userDefinedMessage";
+	}
 }

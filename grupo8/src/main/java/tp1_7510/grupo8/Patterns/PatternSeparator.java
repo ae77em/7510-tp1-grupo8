@@ -19,5 +19,9 @@ public class PatternSeparator implements Pattern {
 	public String getText() {
 		return separator;
 	}
+	
+	public String toString(){
+		return "separator";
+	}
 
 }

@@ -15,5 +15,9 @@ public class PatternFilename implements Pattern {
 	public String getText() {
 		return fileName;
 	}
-
+	
+	
+	public String toString(){
+		return "filename";
+	}
 }

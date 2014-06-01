@@ -21,6 +21,8 @@ public class PatternLineNumber implements Pattern {
 		return Integer.toString(numberLine);
 	}
 
-	
+	public String toString(){
+		return "lineNumber";
+	}
 
 }

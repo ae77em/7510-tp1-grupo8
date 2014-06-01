@@ -14,5 +14,8 @@ public class PatternMethodName implements Pattern {
 	public String getText() {
 		return new Object(){}.getClass().getEnclosingMethod().getName();
 	}
-
+	
+	public String toString(){
+		return "methodName";
+	}
 }

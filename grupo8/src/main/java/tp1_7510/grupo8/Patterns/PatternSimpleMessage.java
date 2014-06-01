@@ -19,5 +19,9 @@ public class PatternSimpleMessage implements Pattern {
 	public String getText() {		
 		return simpleText;
 	}
-
+	
+	public String toString(){
+		return "simpleMessage";
+	}
+	
 }
