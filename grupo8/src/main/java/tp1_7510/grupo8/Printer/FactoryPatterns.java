@@ -28,7 +28,6 @@ public class FactoryPatterns {
 	}
 	
 	public ArrayList<Pattern> createListOfPatterns(){
-		
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 
 		for( String fm : formatMessage ){

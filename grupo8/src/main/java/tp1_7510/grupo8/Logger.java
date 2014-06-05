@@ -13,7 +13,6 @@ import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
 	PrintWriter errorWriter;
-	ControllerMessage controllerMessage;
 	
 	public static String message = "";
 	
@@ -30,8 +29,6 @@ public class Logger {
 		
 		printers.addAll( createPrintersConsole(dataConfiguration.get(LogOutput.CONSOLES.toString())));
 		printers.addAll( createPrintersFile(dataConfiguration.get(LogOutput.FILES.toString())));
-		
-		controllerMessage = new ControllerMessage(null,"patterExpReg"); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
 	}
 	
 	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,String>> printersFiles) {
@@ -62,10 +59,10 @@ public class Logger {
 		message = aMessage;
 				
 		for (Printer printer : printers){        	        	
-        	if(controllerMessage.isMessageOk(aMessage,aLogLevel)){
+        	if(printer.isMessageOk(aMessage,aLogLevel)){
         		printer.print( aMessage );
         	}else{
-        		errorWriter.println(controllerMessage.getErrorMessage());
+        		errorWriter.println(printer.getErrorMessage());
         	}
         }
 	}
