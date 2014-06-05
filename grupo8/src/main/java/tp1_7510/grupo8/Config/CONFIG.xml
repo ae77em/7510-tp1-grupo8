@@ -12,7 +12,7 @@
 			<customFilter>
 				<valPattern pattern="%L">^\d+$</valPattern>
 				<valPattern pattern="%g">LogParser</valPattern>
-				<valPattern pattern="%m">[a..zA..z]</valPattern>
+				<valPattern pattern="%m">^[A-Za-z]*$</valPattern>
 			</customFilter>			
 		</output>
 	</logger>

@@ -36,7 +36,7 @@ public class TestLogger extends TestCase{
 		    reader = new BufferedReader(new FileReader( new File(PathLogs.PATH_LOG+"parserLog.log") ) );
 		    line = reader.readLine();
 		    
-		} catch (IOException e) {
+		} catch (IOException e){
 		    e.printStackTrace();
 		    System.out.println("No se pudo abrir archivo para controlar testOkLevel");
 		} finally {
@@ -48,6 +48,33 @@ public class TestLogger extends TestCase{
 		}
 	    
 		assertEquals(line,"0-5/6/2014-LogParser-ERROR-MensajeError");
+	}
+
+	public void testErrorLogLevel(){
+		//el archivo de prueba posee seteado como salida el archivo file2.txt para loguear
+		//el formato de mensaje es %L-%n-%m-%n-%p-%n-%t
+        logger.logTrace("MensajeTrace");
+        
+        logger.close();
+        
+        String line = "";
+		
+		try {
+		    reader = new BufferedReader(new FileReader( new File(PathLogs.PATH_ERROR+"error.dat") ) );
+		    line = reader.readLine();
+		    
+		} catch (IOException e){
+		    e.printStackTrace();
+		    System.out.println("No se pudo abrir archivo para controlar testOkLevel");
+		} finally {
+		    try {
+		        reader.close();
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		}
+		
+		assertEquals(line,"ERROR LEVEL, level message is: TRACE level Log is: DEBUG");
 	}
 
 }
