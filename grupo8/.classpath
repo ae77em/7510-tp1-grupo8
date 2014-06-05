@@ -23,6 +23,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/esteban/git/7510-tp1-grupo8/grupo8/lib/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-1.7.7/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
