@@ -1,6 +1,6 @@
 <loggers>
 	<logger>
-		<type>FILES</type>
+		<type>CONSOLES</type>
 		<name>LogParser</name>
 		<output>
 			<fileName>parserLog</fileName>

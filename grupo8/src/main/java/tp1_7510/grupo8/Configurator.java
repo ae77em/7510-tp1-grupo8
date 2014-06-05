@@ -14,13 +14,15 @@ import java.util.Properties;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Element;
 
+import tp1_7510.grupo8.CONSTANTS.PathLogs;
+
 public class Configurator {
                 
         private LoaderConfiguration loaderConfiguration;
         private ParserJsonConfig parserJsonConfig;
 
         public Configurator(){
-        	String path = "src/main/java/tp1_7510/grupo8/Config/config.xml";
+        	String path = PathLogs.PATH_CONFIG + "config.xml";
         	File fichero = new File(path);
         	        	
         	/*if (fichero.exists())//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA

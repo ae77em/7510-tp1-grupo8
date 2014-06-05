@@ -10,6 +10,7 @@ import java.lang.Exception;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
 import tp1_7510.grupo8.Patterns.PatternLevel;
@@ -37,7 +38,7 @@ public class Logger {
 		generatePrinter(jsonConfig);
 		
 		try {
-			errorWriter = new PrintWriter( new File ("error.dat" ) );
+			errorWriter = new PrintWriter( new File (PathLogs.PATH_ERROR + "error.dat" ) );
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,15 +56,15 @@ public class Logger {
 		
 		switch(typePrinter){
 		 case "FILES":
-		     printer = new ConsolePrinter(configPatter,filterCustom);
+		     try {
+				printer = new FilePrinter(configPatter,filterCustom);
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		     break;
 		 case "CONSOLES":					
-			 try {
-				printer = new FilePrinter(configPatter,filterCustom);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			 printer = new ConsolePrinter(configPatter,filterCustom);
 		     break;
 		 case "JSON": //????????????? NI DEA SI QUEDA 
 			 try {
