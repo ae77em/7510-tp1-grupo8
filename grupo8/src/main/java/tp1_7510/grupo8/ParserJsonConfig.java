@@ -56,12 +56,16 @@ public class ParserJsonConfig {
 
 	    Iterator<String> itr = set.iterator();
 	    
-	    while (itr.hasNext()) {
+	    while (itr.hasNext()){
 			JSONObject jsonCustomFilter = new JSONObject();
+			JSONObject patternRegExp = new JSONObject();
 		    String key = itr.next();
 		    String expRegular = hashCustomsFilters.get(key);
 		    
-		    jsonCustomFilter.put(key,expRegular);
+		    patternRegExp.put("pattern", key);
+		    patternRegExp.put("value", expRegular);
+		    
+		    jsonCustomFilter.put("key",patternRegExp);
 		    
 		    jsonArrayCustomFilter.add(jsonCustomFilter);
 		}

@@ -6,14 +6,14 @@
 			<fileName>parserLog</fileName>
 			<levelLog>DEBUG</levelLog>
 			<formatDate>dd-M-yyyy hh:mm:ss</formatDate>
-			<patternMessage>%d%s%l%s</patternMessage>
+			<patternMessage>%L-%n-%d-%n-%g-%n-%p-%n-$m</patternMessage>
 			<separator>-</separator>
 			<regularExpresion>Expresion1</regularExpresion>
 			<customFilter>
-				<valPattern pattern="%d">patter1.1</valPattern>
-				<valPattern pattern="%s">patter1.2</valPattern>
-				<valPattern pattern="%l">patter1.3</valPattern>
-				<valPattern pattern="%T">patter1.4</valPattern>
+				<valPattern pattern="%d">2014</valPattern>
+				<valPattern pattern="%L">*</valPattern>
+				<valPattern pattern="%g">LogParser</valPattern>
+				<valPattern pattern="%m">*patter1.4</valPattern>
 			</customFilter>			
 		</output>
 	</logger>
@@ -24,7 +24,7 @@
 			<fileName>indexerLog</fileName>
 			<levelLog>ERROR</levelLog>
 			<formatDate>yyyy MMM dd</formatDate>
-			<patternMessage>%L%s%d%s%l%s</patternMessage>
+			<patternMessage>%L-%s-%d-%s-%l-%s</patternMessage>
 			<separator>*</separator>
 			<regularExpresion>Expresion2</regularExpresion>
 			<customFilter>

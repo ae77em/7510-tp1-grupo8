@@ -19,14 +19,8 @@ public class FilePrinter extends Printer{
 		writter = new PrintWriter(new FileOutputStream(new File((String) dataConfiguration.get("name"))));
 	}
 	
-	public void print(String aMessage){		
-		String messageFormated = "";
-
-		for(Pattern aPattern : messagePatterns){
-			messageFormated = aPattern.addText(messageFormated);
-		}
-		
-		writter.println(messageFormated);
+	public void print(String aMessage){				
+		writter.println(aMessage);
 	}
 	
 	public void close() {

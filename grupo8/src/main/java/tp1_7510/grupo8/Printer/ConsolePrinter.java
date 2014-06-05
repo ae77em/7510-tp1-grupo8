@@ -13,13 +13,7 @@ public class ConsolePrinter extends Printer {
 	}
 	
 	public void print(String aMessage){		
-		String messageFormated = "";
-
-		for(Pattern aPattern : messagePatterns){
-			messageFormated = aPattern.addText(messageFormated);
-		}
-		
-		System.out.println(messageFormated);
+		System.out.println(aMessage);
 	}
 
 	public void close() {

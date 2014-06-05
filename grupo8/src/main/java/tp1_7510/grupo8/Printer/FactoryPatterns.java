@@ -40,7 +40,7 @@ public class FactoryPatterns {
 			
 			patterns.add( aPattern );
 			
-			filterCustom.put(fm,aPattern);			
+			filterCustom.put(fm,aPattern);	
 		}
 		
 		return patterns;
@@ -64,7 +64,7 @@ public class FactoryPatterns {
 				 break;
 			 case "%m": 
 				 patternCreated = new PatternUserDefinedMessage();
-			     break;
+				 break;
 			 case "%%": 
 				 patternCreated = new PatternEscape();
 			     break;			     
@@ -73,7 +73,7 @@ public class FactoryPatterns {
 			     break;			     
 			 case "%L": 
 				 patternCreated = new PatternLineNumber();
-			     break;			     
+				 break;			     
 			 case "%F": 
 				 patternCreated = new PatternPrinterName(nameFile);
 			     break;

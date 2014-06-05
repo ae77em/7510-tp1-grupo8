@@ -8,11 +8,11 @@ import tp1_7510.grupo8.Patterns.Pattern;
 
 public class ControllerMessage {
 	String errorMessage;
+
 	Level level;
 	MatcherExpresionRegular matcherExpReg;
-	Hashtable<String, String> filterCustom; //lo levante del XML
+	Hashtable<String, String> filterCustom; 
 
-	//debe recibir nivel de log de logger, exp reg, y custom filter
 	public ControllerMessage(LogLevel aLogLevel,String patternExpReg, Hashtable<String, String> aFilterCustom){		
 		level = new Level(aLogLevel);
 		
@@ -55,17 +55,23 @@ public class ControllerMessage {
 	    
 	    while (itr.hasNext()) {
 		      String key = itr.next();
-		      String expRegular = filterCustom.get(key);
-	
-		      MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
-	 
+		      
+		      System.out.print(key+"   ");
+		      /*String expRegular = filterCustom.get(key);
 		      String patternAplicatedMessage = aFiltersCustom.get(key).getText();
 		      
+		      
+		      //System.out.print(patternAplicatedMessage+"   ");
+		      //System.out.println(expRegular);
+	
+		      /*MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
+	 
+		      
+		      
 		      if( !matcherExpRegCustomFilters.checkFormatMessage( patternAplicatedMessage ) )
-		    	  return false;
+		    	  return false;*/
 	    }
 	    
-		// TODO Auto-generated method stub
 		return true;
 	}
 

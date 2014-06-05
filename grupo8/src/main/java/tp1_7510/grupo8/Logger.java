@@ -45,15 +45,16 @@ public class Logger {
 		
 	}
 	
-	private void generatePrinter(JSONObject jsonConfig){	
+	private void generatePrinter(JSONObject jsonConfig){
+		//System.out.println(jsonConfig.toJSONString());
 		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig);//obtenerConfigPatter
 		
 		Hashtable<String,String> filterCustom = getFilterCustom((JSONArray)jsonConfig.get("customFilter"));//obtenerConfigPatter
-				
+			
 		String typePrinter = (String) jsonConfig.get("type");
 		
 		switch(typePrinter){
-		 case "FILES":					
+		 case "FILES":
 		     printer = new ConsolePrinter(configPatter,filterCustom);
 		     break;
 		 case "CONSOLES":					
@@ -80,7 +81,9 @@ public class Logger {
 		
 		for(int i=0; i<jsonArray.size();i++){
 			JSONObject obj = (JSONObject) jsonArray.get(i);
-			obj.
+			JSONObject key = (JSONObject) obj.get("key");
+			
+			hashFilterCustom.put(key.get("pattern").toString(),key.get("value").toString());
 		}
 		
 		return hashFilterCustom;
@@ -89,22 +92,24 @@ public class Logger {
 	private Hashtable<String, String> getConfigPattern(JSONObject jsonConfig) {
 		Hashtable<String,String> configPattern = new Hashtable<String,String>();
 		
-		configPattern.put("logLevel", (String)jsonConfig.get("logLevel"));
+		configPattern.put("logLevel", (String)jsonConfig.get("levelLog"));
 		configPattern.put("separator", (String)jsonConfig.get("separator"));
 		configPattern.put("formatDate", (String)jsonConfig.get("formatDate"));
 		configPattern.put("name", (String)jsonConfig.get("fileName"));
 		configPattern.put("format", (String)jsonConfig.get("patternMessage"));
 		configPattern.put("namePrinter", (String)jsonConfig.get("name"));
 		configPattern.put("regularExpresion", (String)jsonConfig.get("regularExpresion"));
-		
+				
 		return configPattern;
 	}
 
 	private void log(String aMessage,LogLevel aLogLevel) {
 		message = aMessage;
-				
+		
+		String messageFormated = printer.formatMessage();
+		
 		if(printer.isMessageOk(aMessage,aLogLevel)){
-    		printer.print( aMessage );
+    		printer.print( messageFormated );
     	}else{
         	errorWriter.println(printer.getErrorMessage());
     	}
