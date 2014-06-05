@@ -23,6 +23,7 @@ public class Configurator {
 
         public Configurator(){
         	String path = PathLogs.PATH_CONFIG + "config.xml";
+        	System.out.println(path);
         	File fichero = new File(path);
         	        	
         	/*if (fichero.exists())//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
