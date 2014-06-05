@@ -15,7 +15,9 @@ public class ControllerMessage {
 	//debe recibir nivel de log de logger, exp reg, y custom filter
 	public ControllerMessage(LogLevel aLogLevel,String patternExpReg, Hashtable<String, String> aFilterCustom){		
 		level = new Level(aLogLevel);
+		
 		matcherExpReg = new MatcherExpresionRegular(patternExpReg);
+		
 		filterCustom = aFilterCustom;
 	}
 	
