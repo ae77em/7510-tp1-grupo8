@@ -13,7 +13,6 @@ public abstract class Printer {
 	protected Hashtable<String,Pattern> filtersCustom;
 	protected FactoryPatterns factoryPatterns;
 	
-	LogLevel logLevel;
 	ControllerMessage controllerMessage;
 	
 	public Printer(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom){
@@ -24,26 +23,11 @@ public abstract class Printer {
 		messagePatterns = factoryPatterns.getListOfPatterns();
 		
 		filtersCustom = factoryPatterns.getFilterCustomOfPatterns();
-		
-		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
-		
-		//TOMAR DE DATA-CONFIGURATION UN HASH O JSON QUE CONTENGA EL FILTER CUSTOM DEL XML Y PASARSELO A CONTROLLER MESSAGE
-		
-		Hashtable<String, String> aFilterCustom = new Hashtable<String, String>();
-		aFilterCustom.put("%p", "DEBUG");
-		aFilterCustom.put("%L", "1");
-		
-		controllerMessage = new ControllerMessage(null,"patterExpReg",aFilterCustom); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
+				
+		controllerMessage = new ControllerMessage(LogLevel.valueOf((String) dataConfiguration.get("logLevel"))
+				,dataConfiguration.get(),filterCustom); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
 	}
 	
-	public LogLevel getLogLevel(){
-		return logLevel;
-	}
-	
-	private void setLogLevel(LogLevel logLevel){
-        this.logLevel = logLevel;
-	}
-
 	public abstract void print(String s);
 
 	public abstract void close();

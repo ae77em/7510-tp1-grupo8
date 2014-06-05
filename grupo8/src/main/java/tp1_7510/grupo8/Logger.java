@@ -73,9 +73,6 @@ public class Logger {
 			}
 		     break;
 		 }
-	
-		
-		System.out.println(jsonConfig.toJSONString());
 	}
 
 	private Hashtable<String, String> getFilterCustom(JSONArray jsonArray) {
@@ -83,7 +80,7 @@ public class Logger {
 		
 		for(int i=0; i<jsonArray.size();i++){
 			JSONObject obj = (JSONObject) jsonArray.get(i);
-			//obj.
+			obj.
 		}
 		
 		return hashFilterCustom;
