@@ -1,11 +1,33 @@
 package tp1_7510.grupo8;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Hashtable;
+import java.util.Properties;
 
 public class LoaderPropertiesConfiguration implements LoaderConfiguration{
 	
+	private Object properties;
+
 	public LoaderPropertiesConfiguration(String pathConfig){
-		
+		properties = new Properties();
+        
+        InputStream input = null;
+         
+        try {
+               // input = new FileInputStream(pathProperties);     
+                ((Properties) properties).load(input);
+         
+        } catch (IOException ex) {
+                ex.printStackTrace();
+        }
+        
+        try {
+                input.close();
+        } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
 	}
 
 	@Override

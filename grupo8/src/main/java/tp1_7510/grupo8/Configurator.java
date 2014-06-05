@@ -37,38 +37,12 @@ public class Configurator {
 
 
 		
-		private void loadPropertiesConfig() {
-			/*properties = new Properties();
-            
-            InputStream input = null;
-             
-            try {
-                   // input = new FileInputStream(pathProperties);     
-                    properties.load(input);
-             
-            } catch (IOException ex) {
-                    ex.printStackTrace();
-            }
-            
-            try {
-                    input.close();
-            } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-            }
-*/
-			
-		}
-
+	
 		public String getFiles() {
                 return "";//properties.getProperty(LogOutput.FILES.toString());
         }
         public String getConsoles() {
                 return "";//properties.getProperty(LogOutput.CONSOLES.toString());
-        }
-        
-        public Properties getProperties(){
-                return null;//properties;
         }
         
         public ArrayList<Hashtable<String, String>> getPrintersConfiguration(LogOutput logOutput) {

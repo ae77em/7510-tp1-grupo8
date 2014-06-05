@@ -11,61 +11,60 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 	@Override
 	public int getLenghtLoggers() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public String getNameLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return "CONSOLA";
 	}
 
 	@Override
 	public String getTypeLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return LogOutput.CONSOLES.toString(); 
 	}
 
 	@Override
 	public String getFileNameLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
 	public String getLevelLogLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return LogLevel.TRACE.toString();
 	}
 
 	@Override
 	public String getFormatDateLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return "dd-M-yyyy hh:mm:ss";
 	}
 
 	@Override
 	public String getPatternMessageLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return "%L%n%d%n%p%n%m";
 	}
 
 	@Override
 	public String getSeparatorLogger(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return "-";
 	}
 
 	@Override
 	public String getRegularExpresionLogger(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		return "*";
 	}
 
 	@Override
 	public Hashtable<String, String> getCustomFilterLogger(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		//por default no lleva ningun filtro custom
+		return new Hashtable<String, String>();
 	}
 
 }
