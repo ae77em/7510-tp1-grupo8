@@ -6,6 +6,10 @@ import org.slf4j.Logger;
 import java.util.HashMap;
 import java.util.Map;
  
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 182d580d09306fc55b99266574cfc791e1af152f
 public class LoggerFactory implements ILoggerFactory {
     private Map<String, LoggerAdapter> loggerMap;
  
