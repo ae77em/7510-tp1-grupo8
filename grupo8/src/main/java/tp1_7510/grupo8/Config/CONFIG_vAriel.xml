@@ -1,5 +1,5 @@
 <loggers>
-	<logger>
+	<printer>
 		<type>FILES</type>
 		<name>aName</name>
 		<output>
@@ -16,8 +16,8 @@
 				<valPattern pattern="%T">"ALGO"</valPattern>
 			</customFilter>			
 		</output>
-	</logger>
-	<logger>
+	</printer>
+	<printer>
 		<type>FILES</type>
 		<name>aName</name>
 		<output>
@@ -34,8 +34,8 @@
 				<valPattern pattern="%T">"ALGO"</valPattern>
 			</customFilter>
 		</output>		
-	</logger>
-	<logger>
+	</printer>
+	<printer>
 		<type>CONSOLE</type>
 		<output>
 			<fileName>aConsoleName</fileName>
@@ -51,5 +51,5 @@
 				<valPattern pattern="%T">"ALGO"</valPattern>
 			</customFilter>
 		</output>	
-	</logger>
+	</printer>
 </loggers>
