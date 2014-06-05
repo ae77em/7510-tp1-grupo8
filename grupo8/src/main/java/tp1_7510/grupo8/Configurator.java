@@ -22,19 +22,21 @@ public class Configurator {
         private ParserJsonConfig parserJsonConfig;
 
         public Configurator(){
-        	String path = PathLogs.PATH_CONFIG + "config.xml";
-        	System.out.println(path);
-        	File fichero = new File(path);
+        	String pathProperties = PathLogs.PATH_CONFIG + "config.properties";
+        	String pathXml = PathLogs.PATH_CONFIG + "config.xml";
+        	
+        	File ficheroProperties = new File(pathProperties);
+        	File ficheroXml = new File(pathXml);
         	        	
-        	/*if (fichero.exists())//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
-        		loaderConfiguration = new LoaderPropertiesConfiguration(path);
-            else
-            	System.out.println("el fichero no existe");*/
-        	
-        	//loaderConfiguration = new LoaderPropertiesConfiguration(path);
-        	loaderConfiguration = new LoaderXmlConfiguration(path);
-        	//loaderConfiguration = new LoaderDefaultConfiguration();
-        	
+        	if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
+        		loaderConfiguration = new LoaderPropertiesConfiguration(pathProperties);
+        	}
+            else if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
+            	loaderConfiguration = new LoaderXmlConfiguration(pathXml);
+        	}else{
+            	loaderConfiguration = new LoaderDefaultConfiguration();        		
+        	}         
+        	        	
         	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
         }	
         
