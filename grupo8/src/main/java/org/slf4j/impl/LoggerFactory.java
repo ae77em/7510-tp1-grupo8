@@ -10,6 +10,8 @@ public class LoggerFactory implements ILoggerFactory {
     private Map<String, LoggerAdapter> loggerMap;
  
     public LoggerFactory() {
+    	
+    	
         loggerMap = new HashMap<String, LoggerAdapter>();
     }
  
