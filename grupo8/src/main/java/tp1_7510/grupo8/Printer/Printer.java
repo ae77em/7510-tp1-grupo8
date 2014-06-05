@@ -10,6 +10,7 @@ import tp1_7510.grupo8.Patterns.Pattern;
 public abstract class Printer {
 	
 	protected ArrayList<Pattern> messagePatterns;
+	protected Hashtable<String,Pattern> filtersCustom;
 	protected FactoryPatterns factoryPatterns;
 	
 	LogLevel logLevel;
@@ -18,7 +19,11 @@ public abstract class Printer {
 	public Printer(Hashtable<String, String> dataConfiguration){
 		factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
-		messagePatterns = factoryPatterns.createListOfPatterns();
+		factoryPatterns.buildPatterns();
+		
+		messagePatterns = factoryPatterns.getListOfPatterns();
+		
+		filtersCustom = factoryPatterns.getFilterCustomOfPatterns();
 		
 		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
 		

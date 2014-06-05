@@ -12,7 +12,10 @@ public class FactoryPatterns {
 	private String namePrinter;
 	private String formatDate; 
 	private String nameFile;
-	private String[] formatMessage; 
+	private String[] formatMessage;
+	
+	ArrayList<Pattern> patterns;
+	Hashtable<String, Pattern> filterCustom;
 	
 	public FactoryPatterns(Hashtable<String, String> dataConfiguration){
 		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
@@ -21,17 +24,23 @@ public class FactoryPatterns {
 		nameFile = (String) dataConfiguration.get("name");
 		formatMessage = ((String) dataConfiguration.get("format")).split("-");
 		namePrinter = (String) dataConfiguration.get("namePrinter");
+		
+		patterns = new ArrayList<Pattern>();
+		filterCustom = new Hashtable<String,Pattern>();
 	}
 	
 	public void setLogLevel(LogLevel ll){
 		this.logLevel = ll;
 	}
 	
-	public ArrayList<Pattern> createListOfPatterns(){
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-
+	public ArrayList<Pattern> buildPatterns(){
+		
 		for( String fm : formatMessage ){
-			patterns.add( createPattern(fm) );
+			Pattern aPattern = createPattern(fm);
+			
+			patterns.add( aPattern );
+			
+			filterCustom.put(fm,aPattern);			
 		}
 		
 		return patterns;
@@ -77,6 +86,16 @@ public class FactoryPatterns {
 			}
 		
 		return patternCreated;
+	}
+
+	public ArrayList<Pattern> getListOfPatterns() {
+		// TODO Auto-generated method stub
+		return patterns;
+	}
+
+	public Hashtable<String, Pattern> getFilterCustomOfPatterns() {
+		// TODO Auto-generated method stub
+		return filterCustom;
 	}
 
 }
