@@ -34,9 +34,6 @@ public class Configurator {
         	
         	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
         }	
-
-
-		
 	
 		public String getFiles() {
                 return "";//properties.getProperty(LogOutput.FILES.toString());

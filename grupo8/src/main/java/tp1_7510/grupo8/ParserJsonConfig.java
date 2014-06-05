@@ -30,9 +30,17 @@ public class ParserJsonConfig {
 	}
 
 	private Object getConfigurationLogger(int i) {
+		//la estructura es un vector NOMBRELOGGER : { JsonCaracteristicas }
 		JSONObject configALogger = new JSONObject();
 		
-		configALogger.put("name",loaderConfiguration.getNameLogger(i));
+		configALogger.put(loaderConfiguration.getNameLogger(i), getCaracteristicasLogger(i) );
+		
+		return configALogger;
+	}
+
+	private JSONObject getCaracteristicasLogger(int i) {
+		JSONObject configALogger = new JSONObject();
+		
 		configALogger.put("type",loaderConfiguration.getTypeLogger(i));
 		configALogger.put("fileName",loaderConfiguration.getFileNameLogger(i));
 		configALogger.put("formatDate",loaderConfiguration.getFormatDateLogger(i));
