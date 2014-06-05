@@ -1,12 +1,15 @@
 package tp1_7510.grupo8.Printer;
 
 import java.util.Hashtable;
+
+import org.json.simple.JSONObject;
+
 import tp1_7510.grupo8.Patterns.Pattern;
 
 public class ConsolePrinter extends Printer {
 
-	public ConsolePrinter(Hashtable<String, String> dataConfiguration){
-		super(dataConfiguration);
+	public ConsolePrinter(JSONObject jsonConfig){
+		super(jsonConfig);
 	}
 	
 	public void print(String aMessage){		

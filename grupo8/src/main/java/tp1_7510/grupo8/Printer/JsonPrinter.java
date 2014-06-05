@@ -16,7 +16,7 @@ public class JsonPrinter extends Printer {
 	private PrintWriter writter;
 	private JSONObject 	jsonObject;
 		
-	public JsonPrinter(Hashtable<String, String> dataConfiguration) throws FileNotFoundException {
+	public JsonPrinter(JSONObject dataConfiguration) throws FileNotFoundException {
 		super(dataConfiguration);
 		
 		writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));

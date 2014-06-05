@@ -19,11 +19,11 @@ public class Configurator {
         private LoaderConfiguration loaderConfiguration;
         private ParserJsonConfig parserJsonConfig;
 
-        Configurator(String pathConfig){
+        public Configurator(){
         	String path = "src/main/java/tp1_7510/grupo8/Config/config.xml";
         	File fichero = new File(path);
         	        	
-        	/*if (fichero.exists())
+        	/*if (fichero.exists())//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
         		loaderConfiguration = new LoaderPropertiesConfiguration(path);
             else
             	System.out.println("el fichero no existe");*/
@@ -34,6 +34,10 @@ public class Configurator {
         	
         	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
         }	
+        
+        public JSONObject getConfigurationLogger(){
+        	return parserJsonConfig.getConfigLoggers();
+        }
 	
 		public String getFiles() {
                 return "";//properties.getProperty(LogOutput.FILES.toString());

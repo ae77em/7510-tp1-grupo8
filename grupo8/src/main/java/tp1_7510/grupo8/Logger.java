@@ -7,8 +7,21 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.lang.Exception;
 
+import org.json.simple.JSONObject;
+
+import tp1_7510.grupo8.Patterns.PatternDate;
+import tp1_7510.grupo8.Patterns.PatternEscape;
+import tp1_7510.grupo8.Patterns.PatternLevel;
+import tp1_7510.grupo8.Patterns.PatternLineNumber;
+import tp1_7510.grupo8.Patterns.PatternMethodName;
+import tp1_7510.grupo8.Patterns.PatternPrinterName;
+import tp1_7510.grupo8.Patterns.PatternSeparator;
+import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
+import tp1_7510.grupo8.Patterns.PatternThread;
+import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.FilePrinter;
+import tp1_7510.grupo8.Printer.JsonPrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
@@ -16,9 +29,11 @@ public class Logger {
 	
 	public static String message = "";
 	
-	private ArrayList<Printer> printers = new ArrayList<Printer>();
+	private Printer printer;
 	
-	Logger(Hashtable<String, ArrayList<Hashtable<String, String>>> dataConfiguration){
+	Logger(JSONObject jsonConfig){
+		
+		generatePrinter(jsonConfig);
 		
 		try {
 			errorWriter = new PrintWriter( new File ("error.dat" ) );
@@ -27,44 +42,38 @@ public class Logger {
 			e.printStackTrace();
 		}
 		
-		printers.addAll( createPrintersConsole(dataConfiguration.get(LogOutput.CONSOLES.toString())));
-		printers.addAll( createPrintersFile(dataConfiguration.get(LogOutput.FILES.toString())));
 	}
 	
-	private ArrayList<Printer> createPrintersFile(ArrayList<Hashtable<String,String>> printersFiles) {
-		ArrayList<Printer> printers = new ArrayList<Printer>();
+	private void generatePrinter(JSONObject jsonConfig) {
+		String typePrinter = (String) jsonConfig.get("type");
 		
-		for(Hashtable<String, String> aFilePrinter : printersFiles){
-		    try {
-				printers.add( new FilePrinter(aFilePrinter) );
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				System.out.println("NO SE PUEDO CREAR IMPRESORA.");
-			}
-		}		
-		return printers;
-	}
+		//obtenerConfigPatter
+		//obtenerConfigControleMessage
+		
+		switch(typePrinter){
+		 case "FILES":					
+		     printer = new ConsolePrinter(jsonConfig);
+		     break;
+		 case "CONSOLES":					
+			 printer = new FilePrinter(jsonConfig);
+		     break;
+		 case "JSON": //????????????? NI DEA SI QUEDA 
+			 printer = new JsonPrinter(jsonConfig);
+		     break;
+		 }
 	
-	private ArrayList<Printer> createPrintersConsole(ArrayList<Hashtable<String, String>> printersConsole) {
-		ArrayList<Printer> printers = new ArrayList<Printer>();
 		
-		for(Hashtable<String, String> aConsolePrinter : printersConsole){
-			printers.add( new ConsolePrinter(aConsolePrinter) );
-		}
-		
-		return printers;
+		System.out.println(jsonConfig.toJSONString());
 	}
-	
+
 	private void log(String aMessage,LogLevel aLogLevel) {
 		message = aMessage;
 				
-		for (Printer printer : printers){        	        	
-        	if(printer.isMessageOk(aMessage,aLogLevel)){
-        		printer.print( aMessage );
-        	}else{
-        		errorWriter.println(printer.getErrorMessage());
-        	}
-        }
+		if(printer.isMessageOk(aMessage,aLogLevel)){
+    		printer.print( aMessage );
+    	}else{
+        	errorWriter.println(printer.getErrorMessage());
+    	}
 	}
 	
 	public void logOff(String message){
@@ -153,9 +162,8 @@ public class Logger {
 	}
 
 	public void close() {
-		for (Printer printer : printers){
-          	printer.close();
-        }
-		errorWriter.close ();
+		printer.close();
+
+		errorWriter.close();
 	}	
 }

@@ -4,13 +4,18 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
+import org.json.simple.JSONObject;
+
 import junit.framework.TestCase;
 
 public class TestLogger extends TestCase{
 	
-	Configurator configurator = new Configurator("src/main/java/tp1_7510/grupo8/Properties/logger.properties");
-
-	Logger 	logger = new Logger( configurator.getPrintersConfiguration() );
+	Configurator configurator = new Configurator();
+	
+	JSONObject configLoggers = configurator.getConfigurationLogger();
+	
+	Logger 	logger = new Logger( (JSONObject) configLoggers.get("LogIndexer") );
 
 	BufferedReader reader = null;
 	

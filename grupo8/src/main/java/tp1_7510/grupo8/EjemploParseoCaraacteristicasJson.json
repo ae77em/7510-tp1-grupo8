@@ -1,7 +1,5 @@
 {
 	"loggers":[
-				{
-					"LogParser":
 								{
 									"formatDate":"dd-M-yyyy hh:mm:ss",
 									 "customFilter":[{"%T":"patter1.4"},{"%s":"patter1.2"},{"%d":"patter1.1"},{"%l":"patter1.3"}],
@@ -9,11 +7,10 @@
 									 "regularExpresion":"Expresion1",
 									 "type":"FILES",
 									 "separator":"-",
-									 "patternMessage":"%d%s%l%s"
+									 "patternMessage":"%d%s%l%s",
+									 "name":"LogParser"
 								}
-				},
-				{
-				 	"LogIndexer":				
+				,
 								 {
 								 	"formatDate":"yyyy MMM dd",
 								 	"customFilter":[{"%T":"patter2.1"},{"%g":"patter2.4"},{"%L":"patter2.2"},{"%l":"patter2.3"}],
@@ -21,8 +18,9 @@
 								 	"regularExpresion":"Expresion2",
 								 	"type":"CONSOLES",
 								 	"separator":"*",
-								 	"patternMessage":"%L%s%d%s%l%s"
+								 	"patternMessage":"%L%s%d%s%l%s",
+									 "name":"LogParser"								 
 								 }
-				}
+				
 				]
 }
