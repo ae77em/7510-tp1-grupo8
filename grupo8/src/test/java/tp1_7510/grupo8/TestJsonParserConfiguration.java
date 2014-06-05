@@ -1,6 +1,5 @@
 package tp1_7510.grupo8;
 
-import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,9 +7,10 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 import junit.framework.TestCase;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 import org.json.simple.JSONObject;
-import org.junit.Test;
 
 public class TestJsonParserConfiguration extends TestCase{
 

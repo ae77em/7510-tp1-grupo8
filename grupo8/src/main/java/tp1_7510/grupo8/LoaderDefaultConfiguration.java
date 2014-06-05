@@ -58,7 +58,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 
 	@Override
 	public String getRegularExpresionLogger(int i) {
-		return "*";
+		return "";
 	}
 
 	@Override
@@ -66,5 +66,4 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 		//por default no lleva ningun filtro custom
 		return new Hashtable<String, String>();
 	}
-
 }

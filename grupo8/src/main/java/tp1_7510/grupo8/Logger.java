@@ -113,8 +113,6 @@ public class Logger {
 		if(printer.isMessageOk(aMessage,aLogLevel)){
     		printer.print( messageFormated );
     	}else{
-			System.out.println("ESTA TODO MAL"+printer.getErrorMessage());
-
         	errorWriter.println(printer.getErrorMessage());
     	}
 	}

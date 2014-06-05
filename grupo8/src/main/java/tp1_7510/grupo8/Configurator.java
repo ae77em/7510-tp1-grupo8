@@ -31,7 +31,7 @@ public class Configurator {
         	if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
         		loaderConfiguration = new LoaderPropertiesConfiguration(pathProperties);
         	}
-            else if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
+            else if (ficheroXml.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
             	loaderConfiguration = new LoaderXmlConfiguration(pathXml);
         	}else{
             	loaderConfiguration = new LoaderDefaultConfiguration();        		
@@ -42,54 +42,5 @@ public class Configurator {
         
         public JSONObject getConfigurationLogger(){
         	return parserJsonConfig.getConfigLoggers();
-        }
-	
-		public String getFiles() {
-                return "";//properties.getProperty(LogOutput.FILES.toString());
-        }
-        public String getConsoles() {
-                return "";//properties.getProperty(LogOutput.CONSOLES.toString());
-        }
-        
-        public ArrayList<Hashtable<String, String>> getPrintersConfiguration(LogOutput logOutput) {
-                
-                ArrayList<Hashtable<String, String>> printersConfiguration = new ArrayList<Hashtable<String, String>>();
-        /*        String printersFromProperties = "";
-                String[] printers;
-                
-                printersFromProperties += properties.getProperty(logOutput.toString());
-                                
-                if ( printersFromProperties.equals("null")){ 
-                        return printersConfiguration;
-                }
-
-                printers = printersFromProperties.split(","); 
-                
-                for(String printer : printers){
-            	    printersConfiguration.add( getPrinterConfiguration(printer));
-                }
-*/
-                return printersConfiguration;
-        }
-
-        public Hashtable<String, String> getPrinterConfiguration(String namePrinter) {
-                
-                Hashtable<String, String> dataConfiguration = new Hashtable<String, String>();
-  /*              dataConfiguration.put("name", namePrinter);
-                dataConfiguration.put("separator", properties.getProperty(namePrinter+"-separator"));
-                dataConfiguration.put("logLevel", properties.getProperty(namePrinter+"-logLevel"));
-                dataConfiguration.put("formatDate", properties.getProperty(namePrinter+"-formatDate"));
-                dataConfiguration.put("format", properties.getProperty(namePrinter+"-format"));
-    */                                            
-                return dataConfiguration;
-        }
-        
-        public Hashtable<String, ArrayList<Hashtable<String, String>>> getPrintersConfiguration(){
-                Hashtable<String, ArrayList<Hashtable<String, String>>> printers = new Hashtable<String, ArrayList<Hashtable<String, String>>>();
-                
-                printers.put(LogOutput.FILES.toString(), getPrintersConfiguration(LogOutput.FILES));
-                printers.put(LogOutput.CONSOLES.toString(), getPrintersConfiguration(LogOutput.CONSOLES));
-                
-                return printers;
         }
 }

@@ -28,17 +28,17 @@ public class ControllerMessage {
 		if(!level.isLowerOrEqual(aLogLevel)){
 			statusMessage = false;
 			
-			errorMessage += "ERROR DE LEVEL "; //DESPUES MEJORAR			
+			errorMessage += "ERROR LEVEL, level message is: "+aLogLevel.toString() + " level Log is: "+level.getLogLevel().toString(); 			
 		}
 		
 		if(!matcherExpReg.checkFormatMessage(aMessage)){
 			statusMessage = false;
 			
-			errorMessage += "ERROR DE EXP REG "; //DESPUES MEJORAR			
+			errorMessage += "ERROR IN EXP REG "; //DESPUES MEJORAR			
 		}
 		
 		if(!filtersCustomIsOk(filtersCustom)){
-			errorMessage += "ERROR EN FILTER CUSTOM";
+			errorMessage += "ERROR IN FILTER CUSTOM";
 			
 			statusMessage = false;
 		}
