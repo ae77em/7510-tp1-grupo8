@@ -28,7 +28,7 @@ import tp1_7510.grupo8.Printer.Printer;
 public class Logger {
 	PrintWriter errorWriter;
 	
-	public static String message = "";
+	public static String message = "", level = "";
 	
 	private Printer printer;
 	
@@ -105,12 +105,15 @@ public class Logger {
 
 	private void log(String aMessage,LogLevel aLogLevel) {
 		message = aMessage;
+		level = aLogLevel.toString();
 		
 		String messageFormated = printer.formatMessage();
 		
 		if(printer.isMessageOk(aMessage,aLogLevel)){
     		printer.print( messageFormated );
     	}else{
+			System.out.println("ESTA TODO MAL"+printer.getErrorMessage());
+
         	errorWriter.println(printer.getErrorMessage());
     	}
 	}

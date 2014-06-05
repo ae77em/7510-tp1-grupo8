@@ -15,11 +15,11 @@ public class PatternLevel implements Pattern {
 	}
 	 
 	public String addText(String s) {
-		return s + level.toString();
+		return s + Logger.level;
 	}
 
 	public String getText() {		
-		return level.toString();
+		return Logger.level;
 	}
 	
 	public String toString(){

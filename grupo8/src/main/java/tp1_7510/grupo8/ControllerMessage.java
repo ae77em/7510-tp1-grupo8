@@ -43,12 +43,10 @@ public class ControllerMessage {
 			statusMessage = false;
 		}
 			
-		
 		return statusMessage;
 	}
 
 	private boolean filtersCustomIsOk(Hashtable<String, Pattern> aFiltersCustom) {
-		
 		Set<String> set = filterCustom.keySet(); //obtengo los cod de pattern
 
 	    Iterator<String> itr = set.iterator();
@@ -57,19 +55,19 @@ public class ControllerMessage {
 		      String key = itr.next();
 		      
 		      String expRegular = filterCustom.get(key);
+		   
 		      String patternAplicatedMessage = aFiltersCustom.get(key).getText();
 
 		      MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
 	 	      
 		      if( !matcherExpRegCustomFilters.checkFormatMessage( patternAplicatedMessage ) ){
-		    	  System.out.print("NO ANDUVOCON   ");
+		    	  System.out.print("NO ANDUVO CON   ");
 		    	  System.out.print(key+"   ");
 			      System.out.print(patternAplicatedMessage+"   ");
 			      System.out.println(expRegular);
-		    	  //return false;
+		    	  return false;
 		      }
 	    }
-	    
 		return true;
 	}
 

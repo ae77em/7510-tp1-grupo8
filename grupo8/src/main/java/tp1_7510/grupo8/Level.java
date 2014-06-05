@@ -9,7 +9,7 @@ public class Level {
 	}
 	
 	public Boolean isLowerOrEqual(LogLevel ll){
-		return ll.ordinal() >= logLevel.ordinal();				
+		return ll.ordinal() <= logLevel.ordinal();				
 	}
 	
 	public void setLogLevel(LogLevel ll){
