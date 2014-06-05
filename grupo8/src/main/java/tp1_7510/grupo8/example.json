@@ -1,28 +1,21 @@
 {
-	"loggers" : [
+	"loggers" : 
 				 	{
 				 		"name" : "aNameLogger",
 				 		"files" : [
 				 					{
 				 						"fileName":"aFileName",
 				 						"separator":"-",
-				 						"IDEM":"para los demas",
+				 						"IDEM demas atributos del printer":"para los demas",
 				 						"customFilter":[{"%d":"--"},{"%p":"--"},{"%t":"--"}]
-				 					}
-				 				  ],
-				 		"console":"ACA LA CONFIG DE CONSOLAS"
-				 	},
-				 	{
-				 		"name" : "aNameLogger2",
-				 		"files" : [
+				 					},
 				 					{
 				 						"fileName":"aFileName2",
-				 						"separator":"-2",
-				 						"IDEM":"para los demas",
+				 						"separator":"-",
+				 						"IDEM demas atributos del printer":"para los demas",
 				 						"customFilter":[{"%d":"--"},{"%p":"--"},{"%t":"--"}]
 				 					}
 				 				  ],
-				 		"console":"NONE"
+				 		"console":"ACA LA CONFIG DE CONSOLAS UNA SOLA CONSOLA POR LOGGER"
 				 	}
-				]
 }
