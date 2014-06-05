@@ -8,8 +8,8 @@ import tp1_7510.grupo8.Patterns.Pattern;
 
 public class ConsolePrinter extends Printer {
 
-	public ConsolePrinter(JSONObject jsonConfig){
-		super(jsonConfig);
+	public ConsolePrinter(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom){
+		super(dataConfiguration,filterCustom);
 	}
 	
 	public void print(String aMessage){		

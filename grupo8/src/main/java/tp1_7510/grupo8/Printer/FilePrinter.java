@@ -12,11 +12,11 @@ public class FilePrinter extends Printer{
 
 	private PrintWriter writter;
 
-	public FilePrinter(JSONObject jsonConfig) throws FileNotFoundException{
+	public FilePrinter(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom) throws FileNotFoundException{
 		
-		super(jsonConfig);
+		super(dataConfiguration,filterCustom);
 		
-		writter = new PrintWriter(new FileOutputStream(new File((String) jsonConfig.get("name"))));
+		writter = new PrintWriter(new FileOutputStream(new File((String) dataConfiguration.get("name"))));
 	}
 	
 	public void print(String aMessage){		

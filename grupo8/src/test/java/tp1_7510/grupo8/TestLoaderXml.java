@@ -67,4 +67,9 @@ public class TestLoaderXml extends TestCase{
 
 		assertEquals(hashCustomsFilters,loaderXmlConfiguration.getCustomFilterLogger(0));
 	}
+	
+	public void testLogLevelLoggers(){
+		assertEquals("DEBUG",loaderXmlConfiguration.getLevelLogLogger(0));
+		assertEquals("ERROR",loaderXmlConfiguration.getLevelLogLogger(1));
+	}
 }

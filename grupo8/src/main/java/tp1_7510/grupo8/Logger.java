@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.lang.Exception;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import tp1_7510.grupo8.Patterns.PatternDate;
@@ -44,26 +45,62 @@ public class Logger {
 		
 	}
 	
-	private void generatePrinter(JSONObject jsonConfig) {
-		String typePrinter = (String) jsonConfig.get("type");
+	private void generatePrinter(JSONObject jsonConfig){	
+		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig);//obtenerConfigPatter
 		
-		//obtenerConfigPatter
-		//obtenerConfigControleMessage
+		Hashtable<String,String> filterCustom = getFilterCustom((JSONArray)jsonConfig.get("customFilter"));//obtenerConfigPatter
+				
+		String typePrinter = (String) jsonConfig.get("type");
 		
 		switch(typePrinter){
 		 case "FILES":					
-		     printer = new ConsolePrinter(jsonConfig);
+		     printer = new ConsolePrinter(configPatter,filterCustom);
 		     break;
 		 case "CONSOLES":					
-			 printer = new FilePrinter(jsonConfig);
+			 try {
+				printer = new FilePrinter(configPatter,filterCustom);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		     break;
 		 case "JSON": //????????????? NI DEA SI QUEDA 
-			 printer = new JsonPrinter(jsonConfig);
+			 try {
+				printer = new JsonPrinter(configPatter,filterCustom);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		     break;
 		 }
 	
 		
 		System.out.println(jsonConfig.toJSONString());
+	}
+
+	private Hashtable<String, String> getFilterCustom(JSONArray jsonArray) {
+		Hashtable<String,String> hashFilterCustom = new Hashtable<String,String>();
+		
+		for(int i=0; i<jsonArray.size();i++){
+			JSONObject obj = (JSONObject) jsonArray.get(i);
+			//obj.
+		}
+		
+		return hashFilterCustom;
+	}
+
+	private Hashtable<String, String> getConfigPattern(JSONObject jsonConfig) {
+		Hashtable<String,String> configPattern = new Hashtable<String,String>();
+		
+		configPattern.put("logLevel", (String)jsonConfig.get("logLevel"));
+		configPattern.put("separator", (String)jsonConfig.get("separator"));
+		configPattern.put("formatDate", (String)jsonConfig.get("formatDate"));
+		configPattern.put("name", (String)jsonConfig.get("fileName"));
+		configPattern.put("format", (String)jsonConfig.get("patternMessage"));
+		configPattern.put("namePrinter", (String)jsonConfig.get("name"));
+		configPattern.put("regularExpresion", (String)jsonConfig.get("regularExpresion"));
+		
+		return configPattern;
 	}
 
 	private void log(String aMessage,LogLevel aLogLevel) {

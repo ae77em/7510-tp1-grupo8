@@ -16,7 +16,7 @@ public abstract class Printer {
 	LogLevel logLevel;
 	ControllerMessage controllerMessage;
 	
-	public Printer(Hashtable<String, String> dataConfiguration){
+	public Printer(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom){
 		factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
 		factoryPatterns.buildPatterns();
