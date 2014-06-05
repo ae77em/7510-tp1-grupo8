@@ -1,55 +1,112 @@
 <loggers>
-	<printer>
-		<type>FILES</type>
-		<name>aName</name>
-		<output>
-			<fileName>aFileName</fileName>
-			<levelLog>aLevelLog</levelLog>
-			<formatDate>dd/mm/aa</formatDate>
-			<patternMessage>%d%s%l%s</patternMessage>
-			<separator>-</separator>
-			<regularExpresion>ALGO</regularExpresion>
-			<customFilter>
-				<valPattern pattern="%d">"ALGO"</valPattern>
-				<valPattern pattern="%s">"ALGO"</valPattern>
-				<valPattern pattern="%l">"ALGO"</valPattern>
-				<valPattern pattern="%T">"ALGO"</valPattern>
-			</customFilter>			
-		</output>
-	</printer>
-	<printer>
-		<type>FILES</type>
-		<name>aName</name>
-		<output>
-			<fileName>aFileName2</fileName>
-			<levelLog>aLevelLog2</levelLog>
-			<formatDate>dd/mm/aa</formatDate>
-			<patternMessage>%d%s%l%s</patternMessage>
-			<separator>*</separator>
-			<regularExpresion>ALGO</regularExpresion>
-			<customFilter>
-				<valPattern pattern="%d">"ALGO"</valPattern>
-				<valPattern pattern="%s">"ALGO"</valPattern>
-				<valPattern pattern="%l">"ALGO"</valPattern>
-				<valPattern pattern="%T">"ALGO"</valPattern>
-			</customFilter>
-		</output>		
-	</printer>
-	<printer>
-		<type>CONSOLE</type>
-		<output>
-			<fileName>aConsoleName</fileName>
-			<levelLog>aLevelLog</levelLog>
-			<formatDate>dd/mm/aa</formatDate>
-			<patternMessage>%d%s%l%s</patternMessage>
-			<separator>-</separator>
-			<regularExpresion>ALGO</regularExpresion>
-			<customFilter>
-				<valPattern pattern="%d">"ALGO"</valPattern>
-				<valPattern pattern="%s">"ALGO"</valPattern>
-				<valPattern pattern="%l">"ALGO"</valPattern>
-				<valPattern pattern="%T">"ALGO"</valPattern>
-			</customFilter>
-		</output>	
-	</printer>
+	<logger>
+		<printer>
+			<type>FILES</type>
+			<name>aName</name>
+			<output>
+				<fileName>aFileName</fileName>
+				<levelLog>aLevelLog</levelLog>
+				<formatDate>dd/mm/aa</formatDate>
+				<patternMessage>%d%s%l%s</patternMessage>
+				<separator>-</separator>
+				<regularExpresion>ALGO</regularExpresion>
+				<customFilter>
+					<valPattern pattern="%d">"ALGO"</valPattern>
+					<valPattern pattern="%s">"ALGO"</valPattern>
+					<valPattern pattern="%l">"ALGO"</valPattern>
+					<valPattern pattern="%T">"ALGO"</valPattern>
+				</customFilter>			
+			</output>
+		</printer>
+		<printer>
+			<type>FILES</type>
+			<name>aName</name>
+			<output>
+				<fileName>aFileName2</fileName>
+				<levelLog>aLevelLog2</levelLog>
+				<formatDate>dd/mm/aa</formatDate>
+				<patternMessage>%d%s%l%s</patternMessage>
+				<separator>*</separator>
+				<regularExpresion>ALGO</regularExpresion>
+				<customFilter>
+					<valPattern pattern="%d">"ALGO"</valPattern>
+					<valPattern pattern="%s">"ALGO"</valPattern>
+					<valPattern pattern="%l">"ALGO"</valPattern>
+					<valPattern pattern="%T">"ALGO"</valPattern>
+				</customFilter>
+			</output>		
+		</printer>
+		<printer>
+			<type>CONSOLE</type>
+			<output>
+				<fileName>aConsoleName</fileName>
+				<levelLog>aLevelLog</levelLog>
+				<formatDate>dd/mm/aa</formatDate>
+				<patternMessage>%d%s%l%s</patternMessage>
+				<separator>-</separator>
+				<regularExpresion>ALGO</regularExpresion>
+				<customFilter>
+					<valPattern pattern="%d">"ALGO"</valPattern>
+					<valPattern pattern="%s">"ALGO"</valPattern>
+					<valPattern pattern="%l">"ALGO"</valPattern>
+					<valPattern pattern="%T">"ALGO"</valPattern>
+				</customFilter>
+			</output>	
+		</printer>
+	</logger>
+	<logger>
+		<printer>
+			<type>FILES</type>
+			<name>aName</name>
+			<output>
+				<fileName>aFileName</fileName>
+				<levelLog>aLevelLog</levelLog>
+				<formatDate>dd/mm/aa</formatDate>
+				<patternMessage>%d%s%l%s</patternMessage>
+				<separator>-</separator>
+				<regularExpresion>ALGO</regularExpresion>
+				<customFilter>
+					<valPattern pattern="%d">"ALGO"</valPattern>
+					<valPattern pattern="%s">"ALGO"</valPattern>
+					<valPattern pattern="%l">"ALGO"</valPattern>
+					<valPattern pattern="%T">"ALGO"</valPattern>
+				</customFilter>			
+			</output>
+		</printer>
+		<printer>
+			<type>FILES</type>
+			<name>aName</name>
+			<output>
+				<fileName>aFileName2</fileName>
+				<levelLog>aLevelLog2</levelLog>
+				<formatDate>dd/mm/aa</formatDate>
+				<patternMessage>%d%s%l%s</patternMessage>
+				<separator>*</separator>
+				<regularExpresion>ALGO</regularExpresion>
+				<customFilter>
+					<valPattern pattern="%d">"ALGO"</valPattern>
+					<valPattern pattern="%s">"ALGO"</valPattern>
+					<valPattern pattern="%l">"ALGO"</valPattern>
+					<valPattern pattern="%T">"ALGO"</valPattern>
+				</customFilter>
+			</output>		
+		</printer>
+		<printer>
+			<type>CONSOLE</type>
+			<output>
+				<fileName>aConsoleName</fileName>
+				<levelLog>aLevelLog</levelLog>
+				<formatDate>dd/mm/aa</formatDate>
+				<patternMessage>%d%s%l%s</patternMessage>
+				<separator>-</separator>
+				<regularExpresion>ALGO</regularExpresion>
+				<customFilter>
+					<valPattern pattern="%d">"ALGO"</valPattern>
+					<valPattern pattern="%s">"ALGO"</valPattern>
+					<valPattern pattern="%l">"ALGO"</valPattern>
+					<valPattern pattern="%T">"ALGO"</valPattern>
+				</customFilter>
+			</output>	
+		</printer>
+	</logger>
 </loggers>
