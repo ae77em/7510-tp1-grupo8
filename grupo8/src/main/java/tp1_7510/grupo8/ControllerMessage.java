@@ -56,20 +56,18 @@ public class ControllerMessage {
 	    while (itr.hasNext()) {
 		      String key = itr.next();
 		      
-		      System.out.print(key+"   ");
-		      /*String expRegular = filterCustom.get(key);
+		      String expRegular = filterCustom.get(key);
 		      String patternAplicatedMessage = aFiltersCustom.get(key).getText();
-		      
-		      
-		      //System.out.print(patternAplicatedMessage+"   ");
-		      //System.out.println(expRegular);
-	
-		      /*MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
-	 
-		      
-		      
-		      if( !matcherExpRegCustomFilters.checkFormatMessage( patternAplicatedMessage ) )
-		    	  return false;*/
+
+		      MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
+	 	      
+		      if( !matcherExpRegCustomFilters.checkFormatMessage( patternAplicatedMessage ) ){
+		    	  System.out.print("NO ANDUVOCON   ");
+		    	  System.out.print(key+"   ");
+			      System.out.print(patternAplicatedMessage+"   ");
+			      System.out.println(expRegular);
+		    	  //return false;
+		      }
 	    }
 	    
 		return true;

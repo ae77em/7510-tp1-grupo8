@@ -62,7 +62,7 @@ public class FactoryPatterns {
 			 case "%t": 
 				 patternCreated = new PatternThread();
 				 break;
-			 case "%m": 
+			 case "%m":
 				 patternCreated = new PatternUserDefinedMessage();
 				 break;
 			 case "%%": 
@@ -71,7 +71,7 @@ public class FactoryPatterns {
 			 case "%n": 
 				 patternCreated = new PatternSeparator(separator);
 			     break;			     
-			 case "%L": 
+			 case "%L":
 				 patternCreated = new PatternLineNumber();
 				 break;			     
 			 case "%F": 
