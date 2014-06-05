@@ -1,6 +1,9 @@
 package tp1_7510.grupo8;
 
 import static org.junit.Assert.*;
+
+import java.util.Hashtable;
+
 import junit.framework.TestCase;
 
 import org.junit.Test;
@@ -55,10 +58,13 @@ public class TestLoaderXml extends TestCase{
 	}
 	
 	public void testCustomFilterLoggers(){
-		String customPattern1 = "{%T=ALGO, %s=ALGO, %d=ALGO, %l=ALGO}";
-		String customPattern2 = "{%T=ALGO, %g=ALGO, %L=ALGO, %l=ALGO}";
+		Hashtable<String, String> hashCustomsFilters = new Hashtable<String, String>();
+		
+		hashCustomsFilters.put("%d","patter1.1");
+		hashCustomsFilters.put("%s","patter1.2");
+		hashCustomsFilters.put("%l","patter1.3");
+		hashCustomsFilters.put("%T","patter1.4");
 
-		assertEquals(customPattern1,loaderXmlConfiguration.getCustomFilterLogger(0).toString());
-		assertEquals(customPattern2,loaderXmlConfiguration.getCustomFilterLogger(1).toString());
+		assertEquals(hashCustomsFilters,loaderXmlConfiguration.getCustomFilterLogger(0));
 	}
 }

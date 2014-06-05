@@ -10,10 +10,10 @@
 			<separator>-</separator>
 			<regularExpresion>Expresion1</regularExpresion>
 			<customFilter>
-				<valPattern pattern="%d">ALGO</valPattern>
-				<valPattern pattern="%s">ALGO</valPattern>
-				<valPattern pattern="%l">ALGO</valPattern>
-				<valPattern pattern="%T">ALGO</valPattern>
+				<valPattern pattern="%d">patter1.1</valPattern>
+				<valPattern pattern="%s">patter1.2</valPattern>
+				<valPattern pattern="%l">patter1.3</valPattern>
+				<valPattern pattern="%T">patter1.4</valPattern>
 			</customFilter>			
 		</output>
 	</logger>
@@ -28,10 +28,10 @@
 			<separator>*</separator>
 			<regularExpresion>Expresion2</regularExpresion>
 			<customFilter>
-				<valPattern pattern="%T">ALGO</valPattern>
-				<valPattern pattern="%L">ALGO</valPattern>
-				<valPattern pattern="%l">ALGO</valPattern>
-				<valPattern pattern="%g">ALGO</valPattern>
+				<valPattern pattern="%T">patter2.1</valPattern>
+				<valPattern pattern="%L">patter2.2</valPattern>
+				<valPattern pattern="%l">patter2.3</valPattern>
+				<valPattern pattern="%g">patter2.4</valPattern>
 			</customFilter>			
 		</output>
 	</logger>
