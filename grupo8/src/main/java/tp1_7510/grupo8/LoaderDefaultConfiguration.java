@@ -3,6 +3,10 @@ package tp1_7510.grupo8;
 import java.util.Hashtable;
 
 public class LoaderDefaultConfiguration implements LoaderConfiguration {
+	
+	public LoaderDefaultConfiguration(){
+		
+	}
 
 	@Override
 	public int getLenghtLoggers() {
@@ -11,55 +15,55 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 	}
 
 	@Override
-	public String getNameLogger() {
+	public String getNameLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getTypeLogger() {
+	public String getTypeLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getFileNameLogger() {
+	public String getFileNameLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getLevelLogLogger() {
+	public String getLevelLogLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getFormatDateLogger() {
+	public String getFormatDateLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getPatternMessageLogger() {
+	public String getPatternMessageLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getSeparatorLogger() {
+	public String getSeparatorLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getRegularExpresionLogger() {
+	public String getRegularExpresionLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Hashtable<String, String> getCustomFilterLogger() {
+	public Hashtable<String, String> getCustomFilterLogger(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}

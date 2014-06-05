@@ -1,5 +1,6 @@
 package tp1_7510.grupo8;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,47 +8,35 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
+import org.json.simple.JSONObject;
 import org.w3c.dom.Element;
 
 public class Configurator {
                 
         private LoaderConfiguration loaderConfiguration;
+        private ParserJsonConfig parserJsonConfig;
 
-        Configurator(String pathProperties){
-        	//loadPropertiesConfig();
+        Configurator(String pathConfig){
+        	String path = "src/main/java/tp1_7510/grupo8/Config/config.xml";
+        	File fichero = new File(path);
+        	        	
+        	/*if (fichero.exists())
+        		loaderConfiguration = new LoaderPropertiesConfiguration(path);
+            else
+            	System.out.println("el fichero no existe");*/
         	
-        	loadXmlConfing();
+        	//loaderConfiguration = new LoaderPropertiesConfiguration(path);
+        	loaderConfiguration = new LoaderXmlConfiguration(path);
+        	//loaderConfiguration = new LoaderDefaultConfiguration();
         	
-        	//loadDefaultConfig();
+        	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
+        	
+        	loaderConfiguration.getCustomFilterLogger(0);
+        	
         }	
 
-        private void loadDefaultConfig() {
-        				
-		}
 
-		private void loadXmlConfing() {
-			org.w3c.dom.Document dom = null;
-        	javax.xml.parsers.DocumentBuilderFactory dbf;
-        	javax.xml.parsers.DocumentBuilder db;
-
-        	dbf = javax.xml.parsers.DocumentBuilderFactory.newInstance();
-
-        	try
-        	{
-        	  db = dbf.newDocumentBuilder();
-        	  dom = db.parse("src/main/java/tp1_7510/grupo8/Config/config.xml");
-        	}
-        	catch(Exception ex) {
-        		System.out.println("NO PUDE ABRI CONFI XML");
-        	}
-
-        	org.w3c.dom.Element rootElement = dom.getDocumentElement();
-        	org.w3c.dom.NodeList nodeList = rootElement.getElementsByTagName("logger");		
-		    
-        	org.w3c.dom.Element element = (Element) nodeList.item(0);
-		    System.out.println(element.getElementsByTagName("type").item(0).getTextContent());
-		}
-
+		
 		private void loadPropertiesConfig() {
 			/*properties = new Properties();
             

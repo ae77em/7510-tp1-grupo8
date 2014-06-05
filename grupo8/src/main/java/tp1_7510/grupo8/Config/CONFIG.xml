@@ -1,37 +1,37 @@
 <loggers>
 	<logger>
 		<type>FILES</type>
-		<name>aName</name>
+		<name>LogParser</name>
 		<output>
-			<fileName>aFileName</fileName>
-			<levelLog>aLevelLog</levelLog>
-			<formatDate>dd/mm/aa</formatDate>
+			<fileName>parserLog</fileName>
+			<levelLog>DEBUG</levelLog>
+			<formatDate>dd-M-yyyy hh:mm:ss</formatDate>
 			<patternMessage>%d%s%l%s</patternMessage>
 			<separator>-</separator>
-			<regularExpresion>ALGO</regularExpresion>
+			<regularExpresion>Expresion1</regularExpresion>
 			<customFilter>
-				<valPattern pattern="%d">"ALGO"</valPattern>
-				<valPattern pattern="%s">"ALGO"</valPattern>
-				<valPattern pattern="%l">"ALGO"</valPattern>
-				<valPattern pattern="%T">"ALGO"</valPattern>
+				<valPattern pattern="%d">ALGO</valPattern>
+				<valPattern pattern="%s">ALGO</valPattern>
+				<valPattern pattern="%l">ALGO</valPattern>
+				<valPattern pattern="%T">ALGO</valPattern>
 			</customFilter>			
 		</output>
 	</logger>
 	<logger>
-		<type>FILES</type>
-		<name>aName</name>
+		<type>CONSOLES</type>
+		<name>LogIndexer</name>
 		<output>
-			<fileName>aFileName</fileName>
-			<levelLog>aLevelLog</levelLog>
-			<formatDate>dd/mm/aa</formatDate>
-			<patternMessage>%d%s%l%s</patternMessage>
-			<separator>-</separator>
-			<regularExpresion>ALGO</regularExpresion>
+			<fileName>indexerLog</fileName>
+			<levelLog>ERROR</levelLog>
+			<formatDate>yyyy MMM dd</formatDate>
+			<patternMessage>%L%s%d%s%l%s</patternMessage>
+			<separator>*</separator>
+			<regularExpresion>Expresion2</regularExpresion>
 			<customFilter>
-				<valPattern pattern="%d">"ALGO"</valPattern>
-				<valPattern pattern="%s">"ALGO"</valPattern>
-				<valPattern pattern="%l">"ALGO"</valPattern>
-				<valPattern pattern="%T">"ALGO"</valPattern>
+				<valPattern pattern="%T">ALGO</valPattern>
+				<valPattern pattern="%L">ALGO</valPattern>
+				<valPattern pattern="%l">ALGO</valPattern>
+				<valPattern pattern="%g">ALGO</valPattern>
 			</customFilter>			
 		</output>
 	</logger>
