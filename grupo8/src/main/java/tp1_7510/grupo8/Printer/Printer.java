@@ -27,7 +27,13 @@ public abstract class Printer {
 		
 		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
 		
-		controllerMessage = new ControllerMessage(null,"patterExpReg"); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
+		//TOMAR DE DATA-CONFIGURATION UN HASH O JSON QUE CONTENGA EL FILTER CUSTOM DEL XML Y PASARSELO A CONTROLLER MESSAGE
+		
+		Hashtable<String, String> aFilterCustom = new Hashtable<String, String>();
+		aFilterCustom.put("%p", "DEBUG");
+		aFilterCustom.put("%L", "1");
+		
+		controllerMessage = new ControllerMessage(null,"patterExpReg",aFilterCustom); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
 	}
 	
 	public LogLevel getLogLevel(){
@@ -43,7 +49,7 @@ public abstract class Printer {
 	public abstract void close();
 
 	public boolean isMessageOk(String aMessage, LogLevel aLogLevel) {
-		return controllerMessage.isMessageOk(aMessage,aLogLevel);
+		return controllerMessage.isMessageOk(aMessage,aLogLevel,filtersCustom);
 	}
 
 	public String getErrorMessage() {
