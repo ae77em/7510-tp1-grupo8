@@ -1,9 +1,26 @@
 <loggers>
 	<logger>
-		<type>CONSOLES</type>
+		<type>FILES</type>
 		<name>LogParser</name>
 		<output>
-			<fileName>parserLog</fileName>
+			<fileName>parserLog.log</fileName>
+			<levelLog>DEBUG</levelLog>
+			<formatDate>dd/M/yyyy</formatDate>
+			<patternMessage>%L-%n-%d-%n-%g-%n-%p-%n-%m</patternMessage>
+			<separator>-</separator>
+			<regularExpresion>^[a-zA-Z0-9]*$</regularExpresion>
+			<customFilter>
+				<valPattern pattern="%L">^\d+$</valPattern>
+				<valPattern pattern="%g">LogParser</valPattern>
+				<valPattern pattern="%m">[a..zA..z]</valPattern>
+			</customFilter>			
+		</output>
+	</logger>
+	<logger>
+		<type>FILES</type>
+		<name>LogIndexer</name>
+		<output>
+			<fileName>indexerLog.log</fileName>
 			<levelLog>DEBUG</levelLog>
 			<formatDate>dd/M/yyyy</formatDate>
 			<patternMessage>%L-%n-%d-%n-%g-%n-%p-%n-%m</patternMessage>
@@ -13,24 +30,6 @@
 				<valPattern pattern="%L">^\d+$</valPattern>
 				<valPattern pattern="%g">LogParser</valPattern>
 				<valPattern pattern="%m">^*patter14</valPattern>
-			</customFilter>			
-		</output>
-	</logger>
-	<logger>
-		<type>CONSOLES</type>
-		<name>LogIndexer</name>
-		<output>
-			<fileName>indexerLog</fileName>
-			<levelLog>ERROR</levelLog>
-			<formatDate>yyyy MMM dd</formatDate>
-			<patternMessage>%L-%s-%d-%s-%l-%s</patternMessage>
-			<separator>*</separator>
-			<regularExpresion>Expresion2</regularExpresion>
-			<customFilter>
-				<valPattern pattern="%T">patter2.1</valPattern>
-				<valPattern pattern="%L">^\d+$</valPattern>
-				<valPattern pattern="%l">patter2.3</valPattern>
-				<valPattern pattern="%g">patter2.4</valPattern>
 			</customFilter>			
 		</output>
 	</logger>

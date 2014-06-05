@@ -5,24 +5,27 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import junit.framework.TestCase;
 
 public class TestLogger extends TestCase{
 	
 	Configurator configurator = new Configurator();
-	
+
 	JSONObject configLoggers = configurator.getConfigurationLogger();
+
+	JSONArray jsonArrayConfigLoggers = (JSONArray) configLoggers.get("loggers");
 	
-	Logger 	logger = new Logger( (JSONObject) configLoggers.get("LogIndexer") );
+	Logger logger = new Logger( (JSONObject) jsonArrayConfigLoggers.get(0) );
 
 	BufferedReader reader = null;
 	
 	public void testOkLogLevel(){
 		//el archivo de prueba posee seteado como salida el archivo file2.txt para loguear
 		//el formato de mensaje es %L-%n-%m-%n-%p-%n-%t
-		
         logger.logError("MensajeError");
         
         logger.close();
@@ -30,7 +33,7 @@ public class TestLogger extends TestCase{
         String line = "";
 		
 		try {
-		    reader = new BufferedReader(new FileReader( new File("file2.txt") ) );
+		    reader = new BufferedReader(new FileReader( new File(PathLogs.PATH_LOG+"parserLog.log") ) );
 		    line = reader.readLine();
 		    
 		} catch (IOException e) {
@@ -44,7 +47,7 @@ public class TestLogger extends TestCase{
 		    }
 		}
 	    
-		assertEquals(line,"0-MensajeError-ERROR-main");
+		assertEquals(line,"0-5/6/2014-LogParser-ERROR-MensajeError");
 	}
 
 }

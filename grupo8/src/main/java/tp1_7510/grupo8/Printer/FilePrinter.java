@@ -18,8 +18,6 @@ public class FilePrinter extends Printer{
 		super(dataConfiguration,filterCustom);
 		
 		writter = new PrintWriter(new FileOutputStream(new File(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"))));
-		
-		System.out.println(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"));
 	}
 	
 	public void print(String aMessage){				
