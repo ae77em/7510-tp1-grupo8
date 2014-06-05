@@ -1,8 +1,5 @@
 package tp1_7510.grupo8;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-
 import junit.framework.TestCase;
 
 public class TestConfigurator extends TestCase{
