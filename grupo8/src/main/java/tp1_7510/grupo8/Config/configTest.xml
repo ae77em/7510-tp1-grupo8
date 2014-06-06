@@ -1,0 +1,38 @@
+<loggers>
+	<logger>
+		<type>FILES</type>
+		<name>LogParser</name>
+		<output>
+			<fileName>parserLog</fileName>
+			<levelLog>DEBUG</levelLog>
+			<formatDate>dd-M-yyyy hh:mm:ss</formatDate>
+			<patternMessage>%d%s%l%s</patternMessage>
+			<separator>-</separator>
+			<regularExpresion>Expresion1</regularExpresion>
+			<customFilter>
+				<valPattern pattern="%d">patter1.1</valPattern>
+				<valPattern pattern="%s">patter1.2</valPattern>
+				<valPattern pattern="%l">patter1.3</valPattern>
+				<valPattern pattern="%T">patter1.4</valPattern>
+			</customFilter>			
+		</output>
+	</logger>
+	<logger>
+		<type>CONSOLES</type>
+		<name>LogIndexer</name>
+		<output>
+			<fileName>indexerLog</fileName>
+			<levelLog>ERROR</levelLog>
+			<formatDate>yyyy MMM dd</formatDate>
+			<patternMessage>%L%s%d%s%l%s</patternMessage>
+			<separator>*</separator>
+			<regularExpresion>Expresion2</regularExpresion>
+			<customFilter>
+				<valPattern pattern="%T">patter2.1</valPattern>
+				<valPattern pattern="%L">patter2.2</valPattern>
+				<valPattern pattern="%l">patter2.3</valPattern>
+				<valPattern pattern="%g">patter2.4</valPattern>
+			</customFilter>			
+		</output>
+	</logger>
+</loggers>

@@ -1,0 +1,10 @@
+files=file2.txt,
+consoles=SUPER_CONSOLA,
+SUPER_CONSOLA-logLevel=FATAL
+SUPER_CONSOLA-formatDate=%d{HH\:mm\:ss}
+SUPER_CONSOLA-format=%d{HH\:mm\:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M-%t-%%-hola
+SUPER_CONSOLA-separator=-
+file2.txt-separator=-
+file2.txt-formatDate=%d{yyyyy-mm-dd hh\:mm\:ss}
+file2.txt-format=%L-%n-%d{HH\:mm\:ss}-%n-%m-%n-%p-%n-%t-%n-%F-%M
+file2.txt-logLevel=ERROR
