@@ -1,6 +1,7 @@
 package tp1_7510.grupo8.Patterns;
 
 import tp1_7510.grupo8.*;
+import tp1_7510.grupo8.Logger.Logger;
 
 public class PatternLevel implements Pattern {
 

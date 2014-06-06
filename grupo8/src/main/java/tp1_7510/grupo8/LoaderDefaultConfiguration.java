@@ -35,7 +35,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 	@Override
 	public String getLevelLogLogger(int i) {
 		// TODO Auto-generated method stub
-		return LogLevel.INFO.toString();
+		return LogLevel.TRACE.toString();
 	}
 
 	@Override

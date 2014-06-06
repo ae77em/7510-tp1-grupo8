@@ -1,40 +1,26 @@
-package tp1_7510.grupo8;
+package tp1_7510.grupo8.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.lang.Exception;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import tp1_7510.grupo8.LogLevel;
 import tp1_7510.grupo8.CONSTANTS.PathLogs;
-import tp1_7510.grupo8.Patterns.PatternDate;
-import tp1_7510.grupo8.Patterns.PatternEscape;
-import tp1_7510.grupo8.Patterns.PatternLevel;
-import tp1_7510.grupo8.Patterns.PatternLineNumber;
-import tp1_7510.grupo8.Patterns.PatternMethodName;
-import tp1_7510.grupo8.Patterns.PatternPrinterName;
-import tp1_7510.grupo8.Patterns.PatternSeparator;
-import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
-import tp1_7510.grupo8.Patterns.PatternThread;
-import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
 import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.JsonPrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
-/*
- * clase encarga de recibir el mensaje, procesarlo e imprimirlo
- */
 public class Logger {
-	PrintWriter errorWriter;
-	
-	public static String message = "", level = "";
-	
+	PrintWriter errorWriter;	
+	public static String message = "", level = "";	
 	private Printer printer;
+	
 	
 	public Logger(JSONObject jsonConfig){
 		
@@ -43,17 +29,12 @@ public class Logger {
 		try {
 			errorWriter = new PrintWriter( new File (PathLogs.PATH_ERROR + "error.dat" ) );
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 	
-	/*
-	 * instancia un determinado PRINTER, por un lado se obtienen la confifuracion de los distintos patterns
-	 * y por otroa la configuracioon del FILTER CUSTOM
-	 */
 	private void generatePrinter(JSONObject jsonConfig){
+		//System.out.println(jsonConfig.toJSONString());
 		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig);//obtenerConfigPatter
 		
 		Hashtable<String,String> filterCustom = getFilterCustom((JSONArray)jsonConfig.get("customFilter"));//obtenerConfigPatter
@@ -65,20 +46,18 @@ public class Logger {
 		     try {
 				printer = new FilePrinter(configPatter,filterCustom);
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		     break;
 		 case "CONSOLES":					
 			 printer = new ConsolePrinter(configPatter,filterCustom);
 		     break;
-		 case "JSON": //????????????? NI DEA SI QUEDA 
+		 case "JSON":  
 			 try {
 				printer = new JsonPrinter(configPatter,filterCustom);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+			 } catch (FileNotFoundException e) {
 				e.printStackTrace();
-			}
+			 }
 		     break;
 		 }
 	}
@@ -123,90 +102,67 @@ public class Logger {
     	}
 	}
 	
-	public void logOff(String message){
+	private String FormatMessageWithException(String message, Throwable tr) {
+		message += System.getProperty("line.separator") + tr.getMessage();
+		return message;
+	}
+	
+	public void off(String message){
 		log(message,LogLevel.OFF);
 	}
 	
-	public void logFatal(String message){
+	public void fatal(String message){
 		log(message,LogLevel.FATAL);
 	}
 	
-	public void logError(String message){
+	public void error(String message){
 		log(message,LogLevel.ERROR);
 	}
 	
-	public void logWarn(String message){
+	public void warn(String message){
 		log(message,LogLevel.WARN);
 	}
 	
-	public void logInfo(String message){
+	public void info(String message){
 		log(message,LogLevel.INFO);
 	}
 	
-	public void logDebug(String message){
+	public void debug(String message){
 		log(message,LogLevel.DEBUG);
 	}
 	
-	public void logTrace(String message){
+	public void trace(String message){
 		log(message,LogLevel.TRACE);
 	}	
 	
-	public void logOff(String message, Exception ex){
-		try {
-			log(message,LogLevel.OFF);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
+	public void off(String message, Throwable tr){
+		log(FormatMessageWithException(message, tr),LogLevel.OFF);		
+	}
+	
+	public void fatal(String message, Throwable tr){
+		log(FormatMessageWithException(message, tr),LogLevel.FATAL);		
+	}
+	
+	public void error(String message, Throwable tr){
+		log(FormatMessageWithException(message, tr),LogLevel.ERROR);		
+	}
+	
+	public void warn(String message, Throwable tr){
+		log(FormatMessageWithException(message, tr),LogLevel.WARN);		
+	}
+	
+	public void info(String message, Throwable tr){
+		log(FormatMessageWithException(message, tr),LogLevel.INFO);		
+	}
+	
+	public void debug(String message, Throwable tr){
+		log(FormatMessageWithException(message, tr),LogLevel.DEBUG);		
+	}
+	
+	public void trace(String message, Throwable tr){		
+		log(FormatMessageWithException(message, tr),LogLevel.TRACE);
 		
-	}
-	
-	public void logFatal(String message, Exception ex){
-		try {
-			log(message,LogLevel.FATAL);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
-	}
-	
-	public void logError(String message, Exception ex){
-		try {
-			log(message,LogLevel.ERROR);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
-	}
-	
-	public void logWarn(String message, Exception ex){
-		try {
-			log(message,LogLevel.WARN);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
-	}
-	
-	public void logInfo(String message, Exception ex){
-		try {
-			log(message,LogLevel.INFO);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
-	}
-	
-	public void logDebug(String message, Exception ex){
-		try {
-			log(message,LogLevel.DEBUG);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
-	}
-	
-	public void logTrace(String message, Exception ex){
-		try {
-			log(message,LogLevel.TRACE);
-		} catch (Exception e) {
-			System.out.println(ex.getMessage());
-		}
-	}
+	}	
 
 	public void close() {
 		printer.close();

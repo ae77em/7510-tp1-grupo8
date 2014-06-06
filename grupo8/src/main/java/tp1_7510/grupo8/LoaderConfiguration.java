@@ -2,9 +2,6 @@ package tp1_7510.grupo8;
 
 import java.util.Hashtable;
 
-/*
- * interface que implementan las distintas clases encargas de tomar la configuracion desde disco
- */
 public interface LoaderConfiguration {
 	public int getLenghtLoggers();
 	public String getNameLogger(int i);

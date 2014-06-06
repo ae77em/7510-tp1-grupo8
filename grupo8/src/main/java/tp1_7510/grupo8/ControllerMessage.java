@@ -6,10 +6,6 @@ import java.util.Set;
 
 import tp1_7510.grupo8.Patterns.Pattern;
 
-/*
- * clase que se encargar de testear el mensaje a loguear para ver si cumple con las exigencias del logger
- * sean nivel de log, expresiones regulares
- */
 public class ControllerMessage {
 	String errorMessage;
 
@@ -24,10 +20,7 @@ public class ControllerMessage {
 		
 		filterCustom = aFilterCustom;
 	}
-
-	/*
-	 * testea nivel del LOG, REG EXPR sobre el mensaje, y el FilterCustom
-	 */
+	
 	public boolean isMessageOk(String aMessage,LogLevel aLogLevel, Hashtable<String, Pattern> filtersCustom) {
 		boolean statusMessage = true;
 		errorMessage = "";
@@ -53,13 +46,6 @@ public class ControllerMessage {
 		return statusMessage;
 	}
 
-	/*
-	 * el hashTabla por parametro contiene por clave a los pattern aplicados al mensaje y por valor, la clase que aplico el metodo
-	 * dentro hay otro hashtable que por clave tiene los pattens aplicados (%l %m %n) y por valor las expresiones regulares
-	 * del FILTER CUSTOM, se aparean ambos HASHTABLES y se machea cada transformacion  obtenido por cada clase Pattern con la expresio
-	 * regular del FILTER CUSTOM
-	 */
-
 	private boolean filtersCustomIsOk(Hashtable<String, Pattern> aFiltersCustom) {
 		Set<String> set = filterCustom.keySet(); //obtengo los cod de pattern
 
@@ -84,10 +70,6 @@ public class ControllerMessage {
 	    }
 		return true;
 	}
-	
-	/*
-	 * si ocurre algun error, el mismo es almacenaro en el atributo errorMessage
-	 */
 
 	public String getErrorMessage() {
 		// TODO Auto-generated method stub
