@@ -1,132 +1,38 @@
 package org.slf4j.impl;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
-import org.slf4j.helpers.MessageFormatter;
- 
+
 public class LoggerAdapter implements Logger {
+	
+	private tp1_7510.grupo8.Logger.Logger logger;
 
-	public LoggerAdapter(String name) {
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void debug(String arg0) {
-		// TODO Auto-generated method stub
+	public LoggerAdapter(JSONObject jsonObject) {
+		logger = new tp1_7510.grupo8.Logger.Logger(jsonObject);
 		
 	}
 
 	@Override
-	public void debug(String arg0, Object arg1) {
-		// TODO Auto-generated method stub
+	public void debug(String message) {
+		logger.debug(message);		
+	}
+
+	@Override
+	public void debug(String message, Throwable throwable) {
+		logger.debug(message,throwable);
 		
 	}
 
 	@Override
-	public void debug(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
+	public void error(String message) {
+		logger.error(message);
 		
 	}
 
 	@Override
-	public void debug(String arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(Marker arg0, String arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(String arg0, Object arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(Marker arg0, String arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(Marker arg0, String arg1, Object... arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(Marker arg0, String arg1, Throwable arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void debug(Marker arg0, String arg1, Object arg2, Object arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(String arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(String arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(String arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(Marker arg0, String arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(String arg0, Object arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(Marker arg0, String arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(Marker arg0, String arg1, Object... arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(Marker arg0, String arg1, Throwable arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void error(Marker arg0, String arg1, Object arg2, Object arg3) {
-		// TODO Auto-generated method stub
+	public void error(String message, Throwable throwable) {
+		logger.error(message,throwable);
 		
 	}
 
@@ -137,62 +43,14 @@ public class LoggerAdapter implements Logger {
 	}
 
 	@Override
-	public void info(String arg0) {
-		// TODO Auto-generated method stub
+	public void info(String message) {
+		logger.info(message);
 		
 	}
 
 	@Override
-	public void info(String arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(String arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(Marker arg0, String arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(String arg0, Object arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(Marker arg0, String arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(Marker arg0, String arg1, Object... arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(Marker arg0, String arg1, Throwable arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void info(Marker arg0, String arg1, Object arg2, Object arg3) {
-		// TODO Auto-generated method stub
+	public void info(String message, Throwable throwable) {
+		logger.info(message,throwable);
 		
 	}
 
@@ -257,7 +115,167 @@ public class LoggerAdapter implements Logger {
 	}
 
 	@Override
-	public void trace(String arg0) {
+	public void trace(String message) {
+		logger.trace(message);		
+	}
+
+	@Override
+	public void trace(String message, Throwable throwable) {
+		logger.trace(message,throwable);
+		
+	}
+
+	@Override
+	public void warn(String message) {
+		logger.warn(message);		
+	}
+
+	@Override
+	public void warn(String message, Throwable throwable) {
+		logger.warn(message,throwable);
+		
+	}
+	
+	@Override
+	public void debug(String arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(String arg0, Object... arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(Marker arg0, String arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(String arg0, Object arg1, Object arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(Marker arg0, String arg1, Object arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(Marker arg0, String arg1, Object... arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(Marker arg0, String arg1, Throwable arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void debug(Marker arg0, String arg1, Object arg2, Object arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(String arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(String arg0, Object... arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(Marker arg0, String arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(String arg0, Object arg1, Object arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(Marker arg0, String arg1, Object arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(Marker arg0, String arg1, Object... arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(Marker arg0, String arg1, Throwable arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void error(Marker arg0, String arg1, Object arg2, Object arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(String arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(String arg0, Object... arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(Marker arg0, String arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(String arg0, Object arg1, Object arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(Marker arg0, String arg1, Object arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(Marker arg0, String arg1, Object... arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(Marker arg0, String arg1, Throwable arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void info(Marker arg0, String arg1, Object arg2, Object arg3) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -270,12 +288,6 @@ public class LoggerAdapter implements Logger {
 
 	@Override
 	public void trace(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void trace(String arg0, Throwable arg1) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -317,12 +329,6 @@ public class LoggerAdapter implements Logger {
 	}
 
 	@Override
-	public void warn(String arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void warn(String arg0, Object arg1) {
 		// TODO Auto-generated method stub
 		
@@ -330,12 +336,6 @@ public class LoggerAdapter implements Logger {
 
 	@Override
 	public void warn(String arg0, Object... arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void warn(String arg0, Throwable arg1) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -374,6 +374,6 @@ public class LoggerAdapter implements Logger {
 	public void warn(Marker arg0, String arg1, Object arg2, Object arg3) {
 		// TODO Auto-generated method stub
 		
-	}    
+	} 
 }
 
