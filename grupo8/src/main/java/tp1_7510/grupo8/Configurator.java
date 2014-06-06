@@ -20,7 +20,11 @@ public class Configurator {
                 
         private LoaderConfiguration loaderConfiguration;
         private ParserJsonConfig parserJsonConfig;
-
+        
+        /*
+         * se encarga de cargar la configuracion de los distintos loggers, puede ser en formato properties o xml
+         * los datos levantados son parseados a un JSON
+         */
         public Configurator(){
         	String pathProperties = PathLogs.PATH_CONFIG + "config.properties";
         	String pathXml = PathLogs.PATH_CONFIG + "config.xml";
@@ -40,6 +44,9 @@ public class Configurator {
         	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
         }	
         
+        /*
+         * metodo para obtener la configuraion de los loggers parseada dentro de un JSON
+         */
         public JSONObject getConfigurationLogger(){
         	return parserJsonConfig.getConfigLoggers();
         }

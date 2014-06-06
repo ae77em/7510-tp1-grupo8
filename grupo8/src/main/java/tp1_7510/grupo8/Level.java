@@ -1,5 +1,7 @@
 package tp1_7510.grupo8;
-
+/*
+ * clase encargada de trabajar con los LEVEL de mensaje
+ */
 public class Level {
 	
 	LogLevel logLevel;

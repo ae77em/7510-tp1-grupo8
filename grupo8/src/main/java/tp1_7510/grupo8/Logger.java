@@ -26,6 +26,9 @@ import tp1_7510.grupo8.Printer.FilePrinter;
 import tp1_7510.grupo8.Printer.JsonPrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
+/*
+ * clase encarga de recibir el mensaje, procesarlo e imprimirlo
+ */
 public class Logger {
 	PrintWriter errorWriter;
 	
@@ -33,7 +36,7 @@ public class Logger {
 	
 	private Printer printer;
 	
-	Logger(JSONObject jsonConfig){
+	public Logger(JSONObject jsonConfig){
 		
 		generatePrinter(jsonConfig);
 		
@@ -46,8 +49,11 @@ public class Logger {
 		
 	}
 	
+	/*
+	 * instancia un determinado PRINTER, por un lado se obtienen la confifuracion de los distintos patterns
+	 * y por otroa la configuracioon del FILTER CUSTOM
+	 */
 	private void generatePrinter(JSONObject jsonConfig){
-		//System.out.println(jsonConfig.toJSONString());
 		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig);//obtenerConfigPatter
 		
 		Hashtable<String,String> filterCustom = getFilterCustom((JSONArray)jsonConfig.get("customFilter"));//obtenerConfigPatter

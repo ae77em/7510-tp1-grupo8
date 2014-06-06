@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.util.Hashtable;
 import java.util.Properties;
 
+/*
+ * levanta la data desde un properties, no se implemento por falta de TIEMPO
+ */
 public class LoaderPropertiesConfiguration implements LoaderConfiguration{
 	
 	private Object properties;
