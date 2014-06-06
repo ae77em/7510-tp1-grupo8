@@ -22,87 +22,81 @@ public class LoaderXmlConfiguration implements LoaderConfiguration{
 		  dom = db.parse(pathConfig);
 		}
 		catch(Exception ex) {
-			System.out.println("NO PUDE ABRI CONFI XML");
+			System.out.println("NO PUDE ABRIR CONFIG.XML");
 		}
 		
 		org.w3c.dom.Element rootElement = dom.getDocumentElement();
 		loggers = rootElement.getElementsByTagName("logger");
 	}
 
-	@Override
+
 	public int getLenghtLoggers() {
 		return loggers.getLength();
 	}
 
-	@Override
+
 	public String getNameLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
+		Element eElement = (Element) loggers.item(i);		
 		return eElement.getElementsByTagName("name").item(0).getTextContent();
 	}
 
-	@Override
+
 	public String getTypeLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
+		Element eElement = (Element) loggers.item(i);		
 		return eElement.getElementsByTagName("type").item(0).getTextContent();
 	}
 
-	@Override
+
 	public String getFileNameLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
-		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);
-		
+		Element eElement = (Element) loggers.item(i);		
+		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		
 		return fileName.getElementsByTagName("fileName").item(0).getTextContent();	
 	}
 
-	@Override
+
 	public String getLevelLogLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
-		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);
-		
+		Element eElement = (Element) loggers.item(i);		
+		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		
 		return fileName.getElementsByTagName("levelLog").item(0).getTextContent();
 	}
 
-	@Override
+
 	public String getFormatDateLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
-		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);
-		
+		Element eElement = (Element) loggers.item(i);		
+		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		
 		return fileName.getElementsByTagName("formatDate").item(0).getTextContent();
 	}
 
-	@Override
+
 	public String getPatternMessageLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
-		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);
-		
+		Element eElement = (Element) loggers.item(i);		
+		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		
 		return fileName.getElementsByTagName("patternMessage").item(0).getTextContent();	
 	}
 
-	@Override
+
 	public String getSeparatorLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
-		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);
-		
+		Element eElement = (Element) loggers.item(i);		
+		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		
 		return fileName.getElementsByTagName("separator").item(0).getTextContent();
 	}
 
-	@Override
+
 	public String getRegularExpresionLogger(int i) {
-		Element eElement = (Element) loggers.item(i);
 		
-		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);
-		
+		Element eElement = (Element) loggers.item(i);		
+		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		
 		return fileName.getElementsByTagName("regularExpresion").item(0).getTextContent();
 	}
 
-	@Override
+
 	public Hashtable<String, String> getCustomFilterLogger(int i) {
 		Hashtable<String, String> hashCustomsFilters = new Hashtable<String, String>();
 		

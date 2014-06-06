@@ -28,7 +28,6 @@ public class LoggerFactory implements ILoggerFactory {
 		}        
     }
  
-    @Override
     public Logger getLogger(String name) { 
         return loggerMap.get(name);        
     }

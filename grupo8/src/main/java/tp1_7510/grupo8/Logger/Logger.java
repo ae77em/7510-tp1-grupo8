@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Hashtable;
-import java.lang.Exception;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

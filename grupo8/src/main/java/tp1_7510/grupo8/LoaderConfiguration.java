@@ -3,6 +3,7 @@ package tp1_7510.grupo8;
 import java.util.Hashtable;
 
 public interface LoaderConfiguration {
+	
 	public int getLenghtLoggers();
 	public String getNameLogger(int i);
 	public String getTypeLogger(int i);
