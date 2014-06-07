@@ -1,5 +1,6 @@
 package tp1_7510.grupo8;
 
+import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
 import tp1_7510.grupo8.Patterns.PatternPrinterName;

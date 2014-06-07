@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 
+import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
 
 public class ControllerMessage {

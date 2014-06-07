@@ -1,5 +1,7 @@
 package tp1_7510.grupo8;
 
+import tp1_7510.grupo8.Logger.LogLevel;
+
 public class Level {
 	
 	LogLevel logLevel;

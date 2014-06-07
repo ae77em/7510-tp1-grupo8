@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 import tp1_7510.grupo8.ControllerMessage;
-import tp1_7510.grupo8.LogLevel;
+import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
 
 public abstract class Printer {

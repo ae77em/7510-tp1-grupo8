@@ -8,7 +8,6 @@ import java.util.Hashtable;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import tp1_7510.grupo8.LogLevel;
 import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.FilePrinter;
