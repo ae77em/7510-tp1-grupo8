@@ -2,7 +2,7 @@ package org.slf4j.impl;
 
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
-import org.slf4j.Marker;
+import org.slf4j.Marker; 
 
 public class LoggerAdapter implements Logger {
 	
