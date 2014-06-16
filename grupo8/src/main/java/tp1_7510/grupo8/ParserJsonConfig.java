@@ -7,7 +7,7 @@ import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class ParserJsonConfig {
+public class ParserJsonConfig{
 	LoaderConfiguration loaderConfiguration;
 	
 	public ParserJsonConfig(LoaderConfiguration aLoaderConfiguration){
