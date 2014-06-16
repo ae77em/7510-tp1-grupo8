@@ -46,13 +46,6 @@ public class TestPatterns extends TestCase {
 		assertEquals("aaaunArchivo.txt", patternFilename.addText("aaa"));
 	}
 	
-	public void testPatternLevel(){
-		
-		PatternLevel patternLevel = new PatternLevel();
-		
-		assertEquals(LogLevel.DEBUG.toString(), patternLevel.addText(""));
-	}
-	
 	public void testPatternLineNumber(){
 		
 		PatternLineNumber patternLineNumber = new PatternLineNumber();
