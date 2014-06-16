@@ -16,7 +16,7 @@ public class Configurator {
         	File ficheroProperties = new File(pathProperties);
         	File ficheroXml = new File(pathXml);
         	        	
-        	if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
+       /* 	if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
         		loaderConfiguration = new LoaderPropertiesConfiguration(pathProperties);
         	}
             else if (ficheroXml.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
@@ -24,7 +24,9 @@ public class Configurator {
         	}else{
             	loaderConfiguration = new LoaderDefaultConfiguration();        		
         	}         
-        	        	
+        */	        	
+        	loaderConfiguration = new LoaderPropertiesConfiguration(pathProperties);
+        	
         	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
         }	
         

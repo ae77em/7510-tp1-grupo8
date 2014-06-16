@@ -29,7 +29,7 @@ public class ParserJsonConfig {
 		return configLoggers;
 	}
 
-	private JSONObject getConfigurationLogger(int i) {
+	public JSONObject getConfigurationLogger(int i) {
 		//la estructura es un vector NOMBRELOGGER : { JsonCaracteristicas }
 		JSONObject configALogger = new JSONObject();
 		
@@ -47,7 +47,7 @@ public class ParserJsonConfig {
 		return configALogger;
 	}
 
-	private Object getCustomFilters(int i) {
+	private JSONArray getCustomFilters(int i) {
 		JSONArray jsonArrayCustomFilter = new JSONArray();
 		
 		Hashtable<String, String> hashCustomsFilters = loaderConfiguration.getCustomFilterLogger(i);

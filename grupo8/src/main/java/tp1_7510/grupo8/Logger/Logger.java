@@ -15,10 +15,10 @@ import tp1_7510.grupo8.Printer.JsonPrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
-	PrintWriter errorWriter;	
-	public static String message = "", level = "";	
+	private PrintWriter errorWriter;	
 	private Printer printer;
 	
+	public static String message = "", level = "";	
 	
 	public Logger(JSONObject jsonConfig){
 		

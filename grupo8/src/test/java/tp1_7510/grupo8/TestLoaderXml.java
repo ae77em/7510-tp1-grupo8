@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 
 public class TestLoaderXml extends TestCase{
-	String path = "src/main/java/tp1_7510/grupo8/Config/configTest.xml";
+	String path = "src/main/java/tp1_7510/grupo8/Config/test/config.xml";
 
 	public LoaderXmlConfiguration loaderXmlConfiguration = new LoaderXmlConfiguration(path);
 	
