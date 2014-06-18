@@ -17,7 +17,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 
 	public String getNameLogger(int i) {
 
-		return "CONSOLA";
+		return "CONSOLE";
 	}
 
 	public String getTypeLogger(int i) {
@@ -27,7 +27,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 
 	public String getFileNameLogger(int i) {
 
-		return "";
+		return "CONSOLE";
 	}
 
 	public String getLevelLogLogger(int i) {
@@ -42,7 +42,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 
 	public String getPatternMessageLogger(int i) {
 
-		return "%L%n%d%n%p%n%m";
+		return "%L-%n-%d-%n-%p-%n-%m";
 	}
 
 	public String getSeparatorLogger(int i) {
@@ -51,6 +51,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 	}
 
 	public String getRegularExpresionLogger(int i) {
+		//por default no lleva ningun filtro 
 		return "";
 	}
 
