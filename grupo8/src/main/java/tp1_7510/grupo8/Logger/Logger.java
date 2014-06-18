@@ -93,7 +93,6 @@ public class Logger {
 		
 		if(printer.isMessageOk(aMessage,aLogLevel)){
     		printer.print( messageFormated );
-    		System.out.println(messageFormated);
     	}else{
         	errorWriter.println(printer.getErrorMessage());        	
     	}

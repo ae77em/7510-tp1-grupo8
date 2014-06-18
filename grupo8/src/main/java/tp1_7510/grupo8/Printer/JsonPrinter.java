@@ -8,9 +8,9 @@ import java.io.FileOutputStream;
 
 import org.json.simple.JSONObject;
 
+import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import tp1_7510.grupo8.Patterns.Pattern;
 
- 
 public class JsonPrinter extends Printer {
 
 	private PrintWriter writter;
@@ -19,18 +19,18 @@ public class JsonPrinter extends Printer {
 	public JsonPrinter(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom) throws FileNotFoundException {
 		super(dataConfiguration,filterCustom);
 		
-		writter = new PrintWriter(new FileOutputStream(new File(dataConfiguration.get("name"))));
+		writter = new PrintWriter(new FileOutputStream(new File(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"))));
+				
 		jsonObject = new JSONObject();
 	}
 
 	public void print(String s) {
-		
-		for(Pattern aPattern : messagePatterns){
-			
+		for(Pattern aPattern : messagePatterns){	
 			jsonObject.put(aPattern.toString(), aPattern.getText());
 		}
 				
-		writter.println(jsonObject);
+		writter.println(jsonObject.toJSONString());
+	//	System.out.println( jsonObject );
 	}
 
 	public void close() {

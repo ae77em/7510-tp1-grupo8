@@ -36,11 +36,13 @@ public class LoaderPropertiesConfiguration implements LoaderConfiguration{
 		loadConsole();
 	}
 
-
 	private void loadConsole() {
-		String[] console = getNamesPrinters("CONSOLES");		
+		String console = (String) properties.get("CONSOLES");
+		
+		if(console.equals("ON"))
+			vecConfigurations.add( getConfiguration("console") );
+		
 	}
-
 
 	private void loadJsons() {
 		String[] jsons = getNamesPrinters("JSON");

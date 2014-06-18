@@ -14,7 +14,7 @@ public class MatcherExpresionRegular {
 	public boolean checkFormatMessage(String aMessage) {
 		matcher = pattern.matcher(aMessage);
 
-		return matcher.matches();
+		return matcher.find();
 	}
 	
 	

@@ -31,13 +31,12 @@ public class ControllerMessage {
 		}
 		
 		if(!matcherExpReg.checkFormatMessage(aMessage)){
-			errorMessage = "ERROR IN EXP REG "; 
+			errorMessage = "ERROR IN EXP REG"; 
 			return false;
 		}
 		
 		if(!filtersCustomIsOk(filtersCustom)){
-			errorMessage = "ERROR IN FILTER CUSTOM";
-			
+			errorMessage = "ERROR FILTER CUSTOM";	
 			return false;
 		}
 		
@@ -59,10 +58,6 @@ public class ControllerMessage {
 		      MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
 	 	      
 		      if( !matcherExpRegCustomFilters.checkFormatMessage( patternAplicatedMessage ) ){
-		    	  System.out.print("NO ANDUVO CON   ");
-		    	  System.out.print(key+"   ");
-			      System.out.print(patternAplicatedMessage+"   ");
-			      System.out.println(expRegular);
 		    	  return false;
 		      }
 	    }
