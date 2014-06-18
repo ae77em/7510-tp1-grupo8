@@ -13,24 +13,23 @@ public class Configurator {
         	String pathProperties = PathLogs.PATH_CONFIG + "config.properties";
         	String pathXml = PathLogs.PATH_CONFIG + "config.xml";
         	
-        	File ficheroProperties = new File(pathProperties);
-        	File ficheroXml = new File(pathXml);
-        	        	
-       /* 	if (ficheroProperties.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
+        	if (existsFile(pathProperties)){
         		loaderConfiguration = new LoaderPropertiesConfiguration(pathProperties);
         	}
-            else if (ficheroXml.exists()){//CODGIO PARA VER QUE OFRMATO DE CONFIGURAION SE LEVANTA
+            else if (existsFile(pathXml)){
             	loaderConfiguration = new LoaderXmlConfiguration(pathXml);
         	}else{
             	loaderConfiguration = new LoaderDefaultConfiguration();        		
         	}         
-        */	        	
-        	loaderConfiguration = new LoaderPropertiesConfiguration(pathProperties);
-        	
+       	        	        	
         	parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
         }	
         
-        public JSONObject getConfigurationLogger(){
+        private boolean existsFile(String pathFile) {        	
+        	return new File(pathFile).exists();
+		}
+
+		public JSONObject getConfigurationLogger(){
         	return parserJsonConfig.getConfigLoggers();
         }
 }
