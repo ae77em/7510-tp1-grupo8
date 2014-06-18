@@ -7,8 +7,8 @@ import junit.framework.TestCase;
 
 public class TestJsonParserConfiguration extends TestCase{
 
-	String path = "src/main/java/tp1_7510/grupo8/Config/test/config.properties";
-
+	String path = "src/test/java/tp1_7510/grupo8/testOutputFiles/testConfig/config.properties";
+	
 	LoaderConfiguration loaderConfiguration = new LoaderPropertiesConfiguration(path);
 
 	ParserJsonConfig parserJsonConfig = new ParserJsonConfig(loaderConfiguration);
@@ -16,11 +16,8 @@ public class TestJsonParserConfiguration extends TestCase{
 	private JSONArray createMockArrayFilterCustom(){
 		JSONArray jsonArrayCustomFilter = new JSONArray();
 		
-		jsonArrayCustomFilter.add( createKeyMockFilter("%T","filter%T"));
-		jsonArrayCustomFilter.add( createKeyMockFilter("%s","filter%s"));
-		jsonArrayCustomFilter.add( createKeyMockFilter("%d","filter%d"));
-		jsonArrayCustomFilter.add( createKeyMockFilter("%l","filter%l"));
-	    
+		jsonArrayCustomFilter.add( createKeyMockFilter("%p","DEBUG"));
+		 
 	    return jsonArrayCustomFilter;
 	}
 	
@@ -42,12 +39,12 @@ public class TestJsonParserConfiguration extends TestCase{
 		
 		configALogger.put("name","filer1");
 		configALogger.put("levelLog","DEBUG");
-		configALogger.put("type","file");
+		configALogger.put("type","FILES");
 		configALogger.put("fileName","aFileName1");
 		configALogger.put("formatDate","dd-M-yyyy hh:mm:ss");
-		configALogger.put("patternMessage","%d%s%l%s");
+		configALogger.put("patternMessage","%d-%n-%p-%n-%t-%n-%m");
 		configALogger.put("separator","-");
-		configALogger.put("regularExpresion","^[a-zA-Z0-9]*$");
+		configALogger.put("regularExpresion","^[a-zA-Z[:space:]]*$");
 		configALogger.put("customFilter", createMockArrayFilterCustom() );
 		
 		return configALogger;
