@@ -1,6 +1,8 @@
 package tp1_7510.grupo8;
 
+import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import tp1_7510.grupo8.Logger.LogLevel;
+import tp1_7510.grupo8.Logger.Logger;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
 import tp1_7510.grupo8.Patterns.PatternPrinterName;
@@ -16,7 +18,16 @@ import junit.framework.TestCase;
 import java.text.*;
 import java.util.Date;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class TestPatterns extends TestCase {
+	
+	Configurator configurator = new Configurator(PathLogs.PATH_TEST+"testConfig/config.properties");
+	
+	JSONArray configLoggers = configurator.getConfigurationLogger();
+	
+	Logger aLogger = new Logger((JSONObject)configLoggers.get(0));
 		
 	public void testPatternDate(){
 		
@@ -89,12 +100,11 @@ public class TestPatterns extends TestCase {
 	}
 	
 	public void testPatternUserDefinedMessage(){
-		
 		PatternUserDefinedMessage patternUserDefinedMessage = new PatternUserDefinedMessage();
 		
-		assertEquals("AAAA", patternUserDefinedMessage.addText("AAAA"));
+		aLogger.debug("MensajeLoguead");
 		
-		// TODO falta definir una prueba del log...
+		assertEquals("TrasfRealizada-MensajeLoguead", patternUserDefinedMessage.addText("TrasfRealizada-"));
 	}
 
 }
