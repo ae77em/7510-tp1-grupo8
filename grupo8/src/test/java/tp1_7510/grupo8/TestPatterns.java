@@ -106,5 +106,13 @@ public class TestPatterns extends TestCase {
 		
 		assertEquals("TrasfRealizada-MensajeLoguead", patternUserDefinedMessage.addText("TrasfRealizada-"));
 	}
+	
+	public void testPatternNamePrinter(){
+		PatternPrinterName patternPrinterName = new PatternPrinterName("filer1");
+		
+		aLogger.debug("MensajeLoguead");
+		
+		assertEquals("filer1", patternPrinterName.addText(""));
+	}
 
 }

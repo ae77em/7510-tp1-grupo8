@@ -90,7 +90,7 @@ public class Logger {
 		level = aLogLevel.toString();
 		
 		String messageFormated = printer.formatMessage();
-		
+			
 		if(printer.isMessageOk(aMessage,aLogLevel)){
     		printer.print( messageFormated );
     	}else{
