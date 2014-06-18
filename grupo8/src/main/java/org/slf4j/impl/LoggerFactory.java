@@ -19,8 +19,7 @@ public class LoggerFactory implements ILoggerFactory {
     	loggerMap = new HashMap<String,LoggerAdapter>();
         
         Configurator configurator = new Configurator();
-		JSONObject jsonConfig = configurator.getConfigurationLogger();
-		JSONArray jsonArrayConfigLoggers = (JSONArray) jsonConfig.get("loggers");
+		JSONArray jsonArrayConfigLoggers = configurator.getConfigurationLogger();
 		  
 		for(int i=0; i<jsonArrayConfigLoggers.size();i++){
 			JSONObject aConfigLogger = (JSONObject) jsonArrayConfigLoggers.get(i);

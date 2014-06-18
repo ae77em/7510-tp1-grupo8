@@ -15,6 +15,10 @@ public abstract class Printer {
 	
 	ControllerMessage controllerMessage;
 	
+	public abstract void print(String s);
+
+	public abstract void close();
+	
 	public Printer(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustomConfig){
 		factoryPatterns = new FactoryPatterns(dataConfiguration);
 		
@@ -28,9 +32,7 @@ public abstract class Printer {
 				,dataConfiguration.get("regularExpresion"),filterCustomConfig); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
 	}
 	
-	public abstract void print(String s);
-
-	public abstract void close();
+	
 
 	public boolean isMessageOk(String aMessage, LogLevel aLogLevel) {
 		return controllerMessage.isMessageOk(aMessage,aLogLevel,patternsAplicatedToMessage);

@@ -16,8 +16,6 @@ import junit.framework.TestCase;
 import java.text.*;
 import java.util.Date;
 
-
-
 public class TestPatterns extends TestCase {
 		
 	public void testPatternDate(){

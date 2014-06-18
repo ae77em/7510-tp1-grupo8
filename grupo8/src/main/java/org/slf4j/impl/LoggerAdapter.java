@@ -10,9 +10,7 @@ public class LoggerAdapter implements Logger {
 
 	public LoggerAdapter(JSONObject jsonObject) {
 		logger = new tp1_7510.grupo8.Logger.Logger(jsonObject);
-		
 	}
-
 
 	public void debug(String message) {
 		logger.debug(message);		

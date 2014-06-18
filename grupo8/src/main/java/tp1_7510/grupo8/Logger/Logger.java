@@ -20,8 +20,7 @@ public class Logger {
 	
 	public static String message = "", level = "";	
 	
-	public Logger(JSONObject jsonConfig){
-		
+	public Logger(JSONObject jsonConfig){	
 		generatePrinter(jsonConfig);
 		
 		try {
@@ -32,8 +31,7 @@ public class Logger {
 	}
 	
 	private void generatePrinter(JSONObject jsonConfig){
-		//System.out.println(jsonConfig.toJSONString());
-		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig);//obtenerConfigPatter
+		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig); 
 		
 		Hashtable<String,String> filterCustom = getFilterCustom((JSONArray)jsonConfig.get("customFilter"));//obtenerConfigPatter
 			
@@ -95,8 +93,9 @@ public class Logger {
 		
 		if(printer.isMessageOk(aMessage,aLogLevel)){
     		printer.print( messageFormated );
+    		System.out.println(messageFormated);
     	}else{
-        	errorWriter.println(printer.getErrorMessage());
+        	errorWriter.println(printer.getErrorMessage());        	
     	}
 	}
 	
@@ -164,7 +163,6 @@ public class Logger {
 
 	public void close() {
 		printer.close();
-
 		errorWriter.close();
 	}	
 }

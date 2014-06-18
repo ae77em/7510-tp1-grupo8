@@ -14,8 +14,7 @@ public class ParserJsonConfig{
 		loaderConfiguration = aLoaderConfiguration;
 	}
 
-	public JSONObject getConfigLoggers() {
-		JSONObject configLoggers = new JSONObject();
+	public JSONArray getConfigLoggers() {
 		JSONArray jsonArrayConfigLogger = new JSONArray();
 
 		int cantidadLoggers = loaderConfiguration.getLenghtLoggers();
@@ -24,9 +23,7 @@ public class ParserJsonConfig{
 			jsonArrayConfigLogger.add( getConfigurationLogger( i ) );
 		}
 		
-		configLoggers.put("loggers",jsonArrayConfigLogger);
-		
-		return configLoggers;
+		return jsonArrayConfigLogger;
 	}
 
 	public JSONObject getConfigurationLogger(int i) {

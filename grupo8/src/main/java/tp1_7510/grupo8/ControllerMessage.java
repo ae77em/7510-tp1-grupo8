@@ -23,28 +23,25 @@ public class ControllerMessage {
 	}
 	
 	public boolean isMessageOk(String aMessage,LogLevel aLogLevel, Hashtable<String, Pattern> filtersCustom) {
-		boolean statusMessage = true;
 		errorMessage = "";
 		
 		if(!level.isLowerOrEqual(aLogLevel)){
-			statusMessage = false;
-			
-			errorMessage += "ERROR LEVEL, level message is: "+aLogLevel.toString() + " level Log is: "+level.getLogLevel().toString(); 			
+			errorMessage = "ERROR LEVEL, level message is: "+aLogLevel.toString() + " level Log is: "+level.getLogLevel().toString();
+			return false;
 		}
 		
 		if(!matcherExpReg.checkFormatMessage(aMessage)){
-			statusMessage = false;
-			
-			errorMessage += "ERROR IN EXP REG "; //DESPUES MEJORAR			
+			errorMessage = "ERROR IN EXP REG "; 
+			return false;
 		}
 		
 		if(!filtersCustomIsOk(filtersCustom)){
-			errorMessage += "ERROR IN FILTER CUSTOM";
+			errorMessage = "ERROR IN FILTER CUSTOM";
 			
-			statusMessage = false;
+			return false;
 		}
-			
-		return statusMessage;
+		
+		return true;
 	}
 
 	private boolean filtersCustomIsOk(Hashtable<String, Pattern> aFiltersCustom) {

@@ -34,7 +34,6 @@ public class FactoryPatterns {
 	}
 	
 	public ArrayList<Pattern> buildPatterns(){
-		
 		for( String fm : formatMessage ){
 			Pattern aPattern = createPattern(fm);
 			
@@ -48,7 +47,7 @@ public class FactoryPatterns {
 		
 	private Pattern createPattern(String aPattern) {	
 		Pattern patternCreated = null;
-		
+
 		switch(aPattern){
 			 case "%g":					
 			     patternCreated = new PatternPrinterName(namePrinter);
@@ -81,20 +80,18 @@ public class FactoryPatterns {
 				 patternCreated = new PatternMethodName();
 				 break;
 			 default:
-					patternCreated = new PatternSimpleMessage(aPattern);
-	                break;
+				patternCreated = new PatternSimpleMessage(aPattern);
+                break;
 			}
 		
 		return patternCreated;
 	}
 
 	public ArrayList<Pattern> getListOfPatterns() {
-		// TODO Auto-generated method stub
 		return patterns;
 	}
 
 	public Hashtable<String, Pattern> getFilterCustomOfPatterns() {
-		// TODO Auto-generated method stub
 		return filterCustom;
 	}
 
