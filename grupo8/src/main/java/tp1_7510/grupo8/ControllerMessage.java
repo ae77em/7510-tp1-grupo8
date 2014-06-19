@@ -10,7 +10,7 @@ import tp1_7510.grupo8.Patterns.Pattern;
 public class ControllerMessage {
 	String errorMessage;
 
-	Level level;
+	LogLevel level;
 	MatcherExpresionRegular matcherExpReg;
 	Hashtable<String, String> filterCustom; 
 	/*
@@ -18,7 +18,7 @@ public class ControllerMessage {
 	 * y filter custom de cada Logger
 	 */
 	public ControllerMessage(LogLevel aLogLevel,String patternExpReg, Hashtable<String, String> aFilterCustom){		
-		level = new Level(aLogLevel);
+		level = LogLevel.getLogLevel(aLogLevel);
 		
 		matcherExpReg = new MatcherExpresionRegular(patternExpReg);
 		

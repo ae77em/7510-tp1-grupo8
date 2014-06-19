@@ -27,7 +27,7 @@ public class TestLoaderXml extends TestCase{
 	}
 	
 	public void testLevelLoggers(){
-		assertEquals("DEBUG",loaderXmlConfiguration.getLevelLogLogger(0));
+		assertEquals("DEBUG",loaderXmlConfiguration.getLogLevelLogger(0));
 	}
 	
 	public void testFormatDateLoggers(){

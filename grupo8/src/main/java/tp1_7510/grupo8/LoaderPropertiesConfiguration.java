@@ -121,7 +121,7 @@ public class LoaderPropertiesConfiguration implements LoaderConfiguration{
 	}
 
 
-	public String getLevelLogLogger(int i) {
+	public String getLogLevelLogger(int i) {
 		// TODO Auto-generated method stub
 		return vecConfigurations.get(i).get("levelLog");
 	}

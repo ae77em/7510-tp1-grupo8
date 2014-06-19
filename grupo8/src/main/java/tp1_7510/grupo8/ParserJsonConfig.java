@@ -35,7 +35,7 @@ public class ParserJsonConfig{
 		JSONObject configALogger = new JSONObject();
 		
 		configALogger.put("name", loaderConfiguration.getNameLogger(i) );
-		configALogger.put("levelLog", loaderConfiguration.getLevelLogLogger(i) );
+		configALogger.put("levelLog", loaderConfiguration.getLogLevelLogger(i) );
 		configALogger.put("type",loaderConfiguration.getTypeLogger(i));
 		configALogger.put("name",loaderConfiguration.getNameLogger(i));
 		configALogger.put("fileName",loaderConfiguration.getFileNameLogger(i));

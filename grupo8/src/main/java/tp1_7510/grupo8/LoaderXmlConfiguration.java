@@ -13,22 +13,22 @@ public class LoaderXmlConfiguration implements LoaderConfiguration{
 	org.w3c.dom.NodeList loggers;
 	
 	public LoaderXmlConfiguration(String pathConfig){
-		org.w3c.dom.Document dom = null;
-		javax.xml.parsers.DocumentBuilderFactory dbf;
-		javax.xml.parsers.DocumentBuilder db;
+		org.w3c.dom.Document domDocument = null;
+		javax.xml.parsers.DocumentBuilderFactory documentBuilderFactory;
+		javax.xml.parsers.DocumentBuilder documentBuilder;
 		
-		dbf = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+		documentBuilderFactory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
 		
 		try
 		{
-		  db = dbf.newDocumentBuilder();
-		  dom = db.parse(pathConfig);
+		  documentBuilder = documentBuilderFactory.newDocumentBuilder();
+		  domDocument = documentBuilder.parse(pathConfig);
 		}
 		catch(Exception ex) {
 			System.out.println("NO PUDE ABRIR CONFIG.XML");
 		}
 		
-		org.w3c.dom.Element rootElement = dom.getDocumentElement();
+		org.w3c.dom.Element rootElement = domDocument.getDocumentElement();
 		loggers = rootElement.getElementsByTagName("logger");
 	}
 
@@ -60,7 +60,7 @@ public class LoaderXmlConfiguration implements LoaderConfiguration{
 	}
 
 
-	public String getLevelLogLogger(int i) {
+	public String getLogLevelLogger(int i) {
 		
 		Element eElement = (Element) loggers.item(i);		
 		Element fileName = (Element) eElement.getElementsByTagName("output").item(0);		

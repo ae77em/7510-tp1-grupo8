@@ -27,7 +27,7 @@ public class TestLoaderProperties extends TestCase {
 	}
 	
 	public void testLevelLoggers(){
-		assertEquals("DEBUG",loaderPropertiesConfiguration.getLevelLogLogger(0));
+		assertEquals("DEBUG",loaderPropertiesConfiguration.getLogLevelLogger(0));
 	}
 	
 	public void testFormatDateLoggers(){

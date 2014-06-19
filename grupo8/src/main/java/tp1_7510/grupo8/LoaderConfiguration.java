@@ -10,7 +10,7 @@ public interface LoaderConfiguration {
 	public String getNameLogger(int i);
 	public String getTypeLogger(int i);
 	public String getFileNameLogger(int i);
-	public String getLevelLogLogger(int i);
+	public String getLogLevelLogger(int i);
 	public String getFormatDateLogger(int i);
 	public String getPatternMessageLogger(int i);
 	public String getSeparatorLogger(int i);

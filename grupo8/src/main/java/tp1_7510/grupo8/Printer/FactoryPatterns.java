@@ -29,8 +29,8 @@ public class FactoryPatterns {
 		filterCustom = new Hashtable<String,Pattern>();
 	}
 	
-	public void setLogLevel(LogLevel ll){
-		this.logLevel = ll;
+	public void setLogLevel(LogLevel logLevel){
+		this.logLevel = logLevel;
 	}
 	
 	/*
@@ -39,12 +39,12 @@ public class FactoryPatterns {
 	 * tomar desde ahi el String devuleto por el pattern aplicado y evaluarlo con el filter custom definido sobre dicho pattern 
 	 */
 	public ArrayList<Pattern> buildPatterns(){
-		for( String fm : formatMessage ){
-			Pattern aPattern = createPattern(fm);
+		for( String aFormatMessage : formatMessage ){
+			Pattern aPattern = createPattern(aFormatMessage);
 			
 			patterns.add( aPattern );
 			
-			filterCustom.put(fm,aPattern);	
+			filterCustom.put(aFormatMessage,aPattern);	
 		}
 		
 		return patterns;

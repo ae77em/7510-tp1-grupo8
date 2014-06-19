@@ -34,7 +34,7 @@ public class LoaderDefaultConfiguration implements LoaderConfiguration {
 		return "CONSOLE";
 	}
 
-	public String getLevelLogLogger(int i) {
+	public String getLogLevelLogger(int i) {
 
 		return LogLevel.TRACE.toString();
 	}
