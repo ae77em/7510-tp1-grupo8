@@ -102,9 +102,9 @@ public class TestPatterns extends TestCase {
 	public void testPatternUserDefinedMessage(){
 		PatternUserDefinedMessage patternUserDefinedMessage = new PatternUserDefinedMessage();
 		
-		aLogger.debug("MensajeLoguead");
+		aLogger.debug("MensajeLogueado");
 		
-		assertEquals("TrasfRealizada-MensajeLoguead", patternUserDefinedMessage.addText("TrasfRealizada-"));
+		assertEquals("TrasfRealizada-MensajeLogueado", patternUserDefinedMessage.addText("TrasfRealizada-"));
 	}
 	
 	public void testPatternNamePrinter(){
