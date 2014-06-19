@@ -7,6 +7,10 @@ import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/*
+ * se encarga se tomar la configuracion a traves de una clase que implemente la interface LoaderCOnfigurator y la pasa
+ * a formato JSON
+ */
 public class ParserJsonConfig{
 	LoaderConfiguration loaderConfiguration;
 	

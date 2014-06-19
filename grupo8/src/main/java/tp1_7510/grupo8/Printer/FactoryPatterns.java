@@ -33,6 +33,11 @@ public class FactoryPatterns {
 		this.logLevel = ll;
 	}
 	
+	/*
+	 * se encarga se crear los disintos patterns a aplicar el logger sobre un mensaje
+	 * y ademas los carga en un hash junto con su ID (%g,%T, etc) para luego, en la parte de validacion de mensajes
+	 * tomar desde ahi el String devuleto por el pattern aplicado y evaluarlo con el filter custom definido sobre dicho pattern 
+	 */
 	public ArrayList<Pattern> buildPatterns(){
 		for( String fm : formatMessage ){
 			Pattern aPattern = createPattern(fm);

@@ -16,6 +16,9 @@ public class Configurator {
     private LoaderConfiguration loaderConfiguration;
     private ParserJsonConfig parserJsonConfig;
     
+    /*
+     * se usa solamente en los test para forzar la configuracion desde un properties
+     */
     public Configurator(String pathFileConfig){
     	loaderConfiguration = new LoaderPropertiesConfiguration(pathFileConfig);
 

@@ -30,7 +30,6 @@ public class JsonPrinter extends Printer {
 		}
 				
 		writter.println(jsonObject.toJSONString());
-	//	System.out.println( jsonObject );
 	}
 
 	public void close() {

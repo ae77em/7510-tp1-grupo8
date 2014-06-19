@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
+/*
+ * leventa la configuracion desde un properties
+ */
 public class LoaderPropertiesConfiguration implements LoaderConfiguration{
 	
 	private Properties properties;

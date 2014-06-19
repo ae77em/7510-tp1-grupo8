@@ -3,6 +3,10 @@ package tp1_7510.grupo8;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*
+ * toma una expresion regular al instanciarse y luego se le pasa un mensaje para que lo teste en funcion del a exp reg
+ * antes seteada
+ */
 public class MatcherExpresionRegular {
 	Pattern pattern; 
 	Matcher matcher;

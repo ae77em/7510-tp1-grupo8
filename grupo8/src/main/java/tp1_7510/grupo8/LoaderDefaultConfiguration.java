@@ -4,6 +4,10 @@ import java.util.Hashtable;
 
 import tp1_7510.grupo8.Logger.LogLevel;
 
+/*
+ * simplemente devuelve la configuracion por default del logger, en caso de que no se haya especificado ningun archivo
+ * de configuraciones
+ */
 public class LoaderDefaultConfiguration implements LoaderConfiguration {
 	
 	public LoaderDefaultConfiguration(){
