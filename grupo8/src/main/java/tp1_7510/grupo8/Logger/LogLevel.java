@@ -1,44 +1,55 @@
 package tp1_7510.grupo8.Logger;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
 
 public enum LogLevel {
-        OFF,
-        FATAL,
-        ERROR,
-        WARN,
-        INFO,
-        DEBUG,
-        TRACE;
+        OFF("OFF"),
+        FATAL("FATAL"),
+        ERROR("ERROR"),
+        WARN("WARN"),
+        INFO("INFO"),
+        DEBUG("DEBUG"),
+        TRACE("TRACE");
         
-        LogLevel logLevel;
+        String logLevel;
                 
-        private static final Map<String, LogLevel> logLevelsNameMap = new HashMap<String, LogLevel>();
-        static {
-            for (LogLevel logLevel:LogLevel.values()) {
-                logLevelsNameMap.put(logLevel.name(), logLevel);
+        private static final Map<String, LogLevel> logLevelsNameMap = Collections.unmodifiableMap(initializeLog());
+        
+        private static Map<String, LogLevel> initializeLog(){
+        	
+        	Map<String, LogLevel> lMap = new HashMap<String, LogLevel>();
+        	
+        	for (LogLevel logLevel:LogLevel.values()) {
+        		lMap.put(logLevel.name(), logLevel);
             }
+        	
+        	return lMap;
         }
         
         LogLevel(){
-    		this.logLevel= LogLevel.getLogLevel("DEBUG");
+    		this.logLevel= "DEBUG";
     	}
         
-    	LogLevel(LogLevel logLevel){
+    	LogLevel(String logLevel){
     		this.logLevel= logLevel;
     	}
     	
     	public Boolean isLowerOrEqual(LogLevel logLevel){
-    		return this.ordinal() <= logLevel.ordinal();				
+    		return this.ordinal() >= logLevel.ordinal();				
     	}
     	
     	public void setLogLevel(LogLevel logLevel){
+    		this.logLevel = logLevel.name();
+    	}
+    	
+    	public void setLogLevel(String logLevel){
     		this.logLevel = logLevel;
     	}
     	
     	public LogLevel getLogLevel(){
-    		return logLevel;
+    		return logLevelsNameMap.get(this.logLevel);
     	}
     	
         public static LogLevel getLogLevel(LogLevel logLevel) {

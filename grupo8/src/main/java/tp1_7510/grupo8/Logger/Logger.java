@@ -30,6 +30,7 @@ public class Logger {
 		}		
 	}
 	
+	
 	private void generatePrinter(JSONObject jsonConfig){
 		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig); 
 		

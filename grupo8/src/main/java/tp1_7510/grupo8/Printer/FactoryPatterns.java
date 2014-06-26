@@ -18,7 +18,8 @@ public class FactoryPatterns {
 	Hashtable<String, Pattern> filterCustom;
 	
 	public FactoryPatterns(Hashtable<String, String> dataConfiguration){
-		setLogLevel(LogLevel.valueOf((String) dataConfiguration.get("logLevel")));
+		String logLevel = (String) dataConfiguration.get("logLevel"); 
+		setLogLevel(LogLevel.valueOf(logLevel));
 		separator = (String) dataConfiguration.get("separator");
 		formatDate = (String) dataConfiguration.get("formatDate");
 		nameFile = (String) dataConfiguration.get("name");
