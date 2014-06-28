@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import tp1_7510.grupo8.ControllerMessage;
 import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
+import tp1_7510.grupo8.Patterns.PatternSeparator;
 
 public abstract class Printer {
 	
@@ -29,7 +30,7 @@ public abstract class Printer {
 		patternsAplicatedToMessage = factoryPatterns.getFilterCustomOfPatterns();
 				
 		controllerMessage = new ControllerMessage(LogLevel.valueOf((String) dataConfiguration.get("logLevel"))
-				,dataConfiguration.get("regularExpresion"),filterCustomConfig); //ACTUALIZAR CUANDO SE DEFINA EL XML O PROPERTIES
+				,dataConfiguration.get("regularExpresion"),filterCustomConfig);
 	}
 	
 	
@@ -44,11 +45,31 @@ public abstract class Printer {
 	
 	public String formatMessage(){
 		String messageFormated = "";
-
-		for(Pattern aPattern : messagePatterns){
-			messageFormated = aPattern.addText(messageFormated);
+		
+		try {
+			String separator = getSeparator();
+			
+			for(Pattern aPattern : messagePatterns){
+				messageFormated = aPattern.addText(messageFormated)+separator;
+			}
 		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}	
 
 		return messageFormated;
+	}
+
+	private String getSeparator() {
+		String separator=" ";
+		int i = 0;
+				
+		while (messagePatterns.get(i).getClass() != PatternSeparator.class 
+				&& i < messagePatterns.size() )
+			i++;
+		
+		if ( i < messagePatterns.size() )
+			separator = messagePatterns.get(i).getText();
+		return separator;
 	}
 }

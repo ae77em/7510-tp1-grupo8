@@ -1,35 +1,27 @@
 package tp1_7510.grupo8;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import tp1_7510.grupo8.Logger.Logger;
+import org.slf4j.*;
+import org.slf4j.LoggerFactory;
 
 
 public class Application {
 
-	public static void main(String[] args) {
-		Configurator configurator = new Configurator();
+	public static void main(String[] args){
+
+		Logger logger1 = LoggerFactory.getLogger("logger1");
+		Logger logger2 = LoggerFactory.getLogger("logger2");
+		Logger logger3 = LoggerFactory.getLogger("logger3");
+
+		logger1.info("Hello World..",new NullPointerException());	
+		logger1.info("Hola Mundo..");	
+		logger1.info("Hallo Welt..");
 		
-		JSONArray jsonArrayConfigLogger = configurator.getConfigurationLogger();
+		logger2.info("no deberia loguearse");
+		logger2.debug("tp deberia loguearse");
 		
-		//solo para probar como se cargan las configuraciones
-		/*System.out.println((JSONObject)jsonArrayConfigLogger.get(0));
-		System.out.println((JSONObject)jsonArrayConfigLogger.get(1));
-		System.out.println((JSONObject)jsonArrayConfigLogger.get(2));
-		System.out.println((JSONObject)jsonArrayConfigLogger.get(3));*/
-		
-		Logger aLogger = new Logger((JSONObject)jsonArrayConfigLogger.get(2));
-		
-		aLogger.fatal("estoy logueando FATAL");
-		aLogger.error("estoy logueando ERROR");
-		aLogger.error("estoy logueando ERROR",new Exception());
-		aLogger.debug("estoy logueando DEBUG");
-		aLogger.trace("estoy logueando TRACE");
-		aLogger.warn("estoy logueando WARN");		
-		aLogger.fatal("estoy logueando FATAL");
-		aLogger.debug("estoy logueando DEBUG");
-		
-		aLogger.close();
+		logger3.trace("no deberia loguearse...");
+		logger3.warn("esto deberia loguearse con excepcion...", new NullPointerException());
+		logger3.error("esto deberia loguearse tambien...");
 	}
 
 }
