@@ -21,6 +21,26 @@ public class LoggerAdapter implements Logger {
 		logger.debug(message,throwable);
 		
 	}
+	
+	public void fatal(String message) {
+		logger.fatal(message);		
+	}
+
+
+	public void fatal(String message, Throwable throwable) {
+		logger.fatal(message,throwable);
+		
+	}
+	
+	public void off(String message) {
+		logger.off(message);		
+	}
+
+
+	public void off(String message, Throwable throwable) {
+		logger.off(message,throwable);
+		
+	}
 
 
 	public void error(String message) {

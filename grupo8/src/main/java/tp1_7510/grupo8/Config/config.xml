@@ -1,0 +1,45 @@
+<loggers>
+	<logger>
+		<type>CONSOLES</type>
+		<name>logger1</name>
+		<output>
+			<fileName>logger1.log</fileName>
+			<levelLog>DEBUG</levelLog>
+			<formatDate>dd-MM-YYYY hh:mm:ss.SSS</formatDate>
+			<patternMessage>%d-%p-%g-%t-%F-%L-%%-%m-%n</patternMessage>
+			<separator>~</separator>
+			<regularExpresion>^*$</regularExpresion>
+			<customFilter>
+				<valPattern pattern="%L">^\d*[13579]$</valPattern>
+			</customFilter>			
+		</output>
+	</logger>
+	<logger>
+		<type className='tp1_7510.grupo8.Printer.CustomPrinter'>CUSTOM</type>
+		<name>logger2</name>
+		<output>
+			<fileName>logger2.log</fileName>
+			<levelLog>ERROR</levelLog>
+			<formatDate>dd-MM-YYYY hh:mm:ss.SSS</formatDate>
+			<patternMessage>%d-%p-%g-%t-%F-%L-%%-%m-%n</patternMessage>
+			<separator>" "</separator>
+			<regularExpresion>^*$</regularExpresion>
+			<customFilter>
+				<valPattern pattern="%m">^*tp*$</valPattern>
+			</customFilter>			
+		</output>
+	</logger>
+	<logger>
+		<type>JSON</type>
+		<name>logger3</name>
+		<output>
+			<fileName>logger3.log</fileName>
+			<levelLog>WARN</levelLog>
+			<formatDate>dd-MM-YYYY hh:mm:ss.SSS</formatDate>
+			<separator>_</separator>
+			<patternMessage>%d-%p-%g-%t-%F-%L-%%-%m-%n</patternMessage>
+			<regularExpresion>^*$</regularExpresion>
+			<customFilter></customFilter>
+		</output>
+	</logger>
+</loggers>

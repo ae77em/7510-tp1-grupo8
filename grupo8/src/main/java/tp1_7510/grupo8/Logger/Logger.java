@@ -1,8 +1,11 @@
 package tp1_7510.grupo8.Logger;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Hashtable;
 
 import org.json.simple.JSONArray;
@@ -15,19 +18,13 @@ import tp1_7510.grupo8.Printer.JsonPrinter;
 import tp1_7510.grupo8.Printer.Printer;
 
 public class Logger {
-	private PrintWriter errorWriter;	
+	private FileWriter errorWriter;	
 	private Printer printer;
 	
 	public static String message = "", level = "";	
 	
 	public Logger(JSONObject jsonConfig){	
-		generatePrinter(jsonConfig);
-		
-		try {
-			errorWriter = new PrintWriter( new File (PathLogs.PATH_ERROR + "error.dat" ) );
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}		
+		generatePrinter(jsonConfig);		
 	}
 	
 	
@@ -56,7 +53,54 @@ public class Logger {
 				e.printStackTrace();
 			 }
 		     break;
+		 case "CUSTOM":  
+			 createCustomClass(jsonConfig, configPatter, filterCustom);
+		     break;
 		 }
+	}
+
+
+	private void createCustomClass(JSONObject jsonConfig,
+			Hashtable<String, String> configPatter,
+			Hashtable<String, String> filterCustom) {
+		try {				 
+			 	String customClassName = customClassName((JSONArray)jsonConfig.get("type"));
+				Class<? extends Printer> customPrinterClass = getCustomClass(customClassName);
+				try {
+					try {
+						printer = (Printer) customPrinterClass.getDeclaredConstructor(customPrinterClass).newInstance(configPatter,filterCustom);
+					} catch (IllegalArgumentException e) {
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						e.printStackTrace();
+					} catch (NoSuchMethodException e) {
+						e.printStackTrace();
+					} catch (SecurityException e) {
+						e.printStackTrace();
+					}						
+				} catch (InstantiationException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				}			 
+		 } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		 }
+	}
+
+
+	private Class<? extends Printer> getCustomClass(String className) throws ClassNotFoundException {
+		return (Class<? extends Printer>) Class.forName(className);
+	}
+	
+	private String customClassName(JSONArray jsonArray){
+				
+		JSONObject obj = (JSONObject) jsonArray.get(0);
+		JSONObject key = (JSONObject) obj.get("className");
+				
+		
+		return key.toString();
+		
 	}
 
 	private Hashtable<String, String> getFilterCustom(JSONArray jsonArray) {
@@ -95,12 +139,43 @@ public class Logger {
 		if(printer.isMessageOk(aMessage,aLogLevel)){
     		printer.print( messageFormated );
     	}else{
-        	errorWriter.println(printer.getErrorMessage());        	
+        	writeErrorFile(printer.getErrorMessage());        	
     	}
 	}
 	
+	private void writeErrorFile(String output) {
+		
+		openErrorFile();		
+		
+		try {
+			errorWriter.write(getHour()+" - Desc: "+output+System.getProperty("line.separator"));
+            System.out.println(getHour() + " - Desc: "+output);            
+ 
+        } catch (IOException e) {
+            e.printStackTrace(); 
+        }
+		
+		closeErrorFile();
+	}
+	
+	private String getHour(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		Calendar cal = Calendar.getInstance();
+    	    	
+    	return sdf.format(cal.getTime());
+	}
+	
+	private void openErrorFile(){
+		try {
+			errorWriter = new FileWriter( PathLogs.PATH_ERROR + "error.dat",true );						
+			//errorWriter = new PrintWriter( new File (PathLogs.PATH_ERROR + "error.dat" ) );			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private String FormatMessageWithException(String message, Throwable tr) {
-		message += System.getProperty("line.separator") + tr.getMessage();
+		message += ". Exception: " + tr.getLocalizedMessage();
 		return message;
 	}
 	
@@ -161,8 +236,16 @@ public class Logger {
 		
 	}	
 
-	public void close() {
+	public void close() {		
 		printer.close();
-		errorWriter.close();
 	}	
+	
+	public void closeErrorFile() {		
+		try {        	
+        	errorWriter.flush();
+        	errorWriter.close();        				
+		} catch (IOException e) {			
+			e.printStackTrace();
+		}
+	}
 }
