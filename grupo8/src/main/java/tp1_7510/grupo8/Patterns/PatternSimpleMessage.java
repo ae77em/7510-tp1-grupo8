@@ -20,6 +20,10 @@ public class PatternSimpleMessage implements Pattern {
 		return simpleText;
 	}
 	
+	public String setText(String aMessage){		
+		return simpleText = aMessage;
+	}
+	
 	public String toString(){
 		return "simpleMessage";
 	}

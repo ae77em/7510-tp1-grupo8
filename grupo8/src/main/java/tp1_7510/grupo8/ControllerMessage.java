@@ -12,23 +12,23 @@ public class ControllerMessage {
 
 	LogLevel level;
 	MatcherExpresionRegular matcherExpReg;
-	Hashtable<String, String> filterCustom; 
+	ControllerCustom controllerCustom; 
 	/*
 	 * clase que se encarga de testear que el mensaje a loguear cumpla con el nivel de log, expresion regular
 	 * y filter custom de cada Logger
 	 */
-	public ControllerMessage(LogLevel aLogLevel,String patternExpReg, Hashtable<String, String> aFilterCustom){		
+	public ControllerMessage(LogLevel aLogLevel,String patternExpReg, ControllerCustom aControllerCustom){		
 		level = LogLevel.getLogLevel(aLogLevel);
 		
 		matcherExpReg = new MatcherExpresionRegular(patternExpReg);
 		
-		filterCustom = aFilterCustom;
+		controllerCustom = aControllerCustom;
 	}
 	
 	/*
 	 * metodo que controlar level, exp reg y filter custom
 	 */
-	public boolean isMessageOk(String aMessage,LogLevel aLogLevel, Hashtable<String, Pattern> filtersCustom) {
+	public boolean isMessageOk(String aMessage,LogLevel aLogLevel) {
 		errorMessage = "";
 		
 		if(!level.isLowerOrEqual(aLogLevel)){
@@ -41,10 +41,10 @@ public class ControllerMessage {
 			return false;
 		}
 		
-		if(!filtersCustomIsOk(filtersCustom)){
+		/*if(!filtersCustomIsOk()){
 			errorMessage = "ERROR FILTER CUSTOM";	
 			return false;
-		}
+		}*/
 		
 		return true;
 	}
@@ -54,26 +54,8 @@ public class ControllerMessage {
 	 * luego se insntancia la clase MatcherExpresionRegular con el filtes custom a probar y luego se testeas que el mensaje
 	 * transformado cumpla con filter custom
 	 */
-	private boolean filtersCustomIsOk(Hashtable<String, Pattern> aFiltersCustom) {
-		Set<String> set = filterCustom.keySet(); //obtengo los cod de pattern
-
-	    Iterator<String> itr = set.iterator();
-	    
-	    while (itr.hasNext()) {
-		      String key = itr.next();
-		      
-		      String expRegular = filterCustom.get(key);
-		      
-		      //obtengo el pattern aplicado sobre el mensaje
-		      String patternAplicatedMessage = aFiltersCustom.get(key).getText();
-		      //controlo que el resultado del pattenr aplicado cumpla con el filtro defenido en la configuracion
-		      MatcherExpresionRegular matcherExpRegCustomFilters = new MatcherExpresionRegular(expRegular);
-	 	      
-		      if( !matcherExpRegCustomFilters.checkFormatMessage( patternAplicatedMessage ) ){
-		    	  return false;
-		      }
-	    }
-		return true;
+	private boolean filtersCustomIsOk() {
+		return controllerCustom.validate();
 	}
 
 	public String getErrorMessage() {

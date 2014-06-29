@@ -3,6 +3,8 @@ package tp1_7510.grupo8.Printer;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import tp1_7510.grupo8.ControllerCustom;
+import tp1_7510.grupo8.FilterCustom;
 import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Patterns.*;
 
@@ -15,7 +17,7 @@ public class FactoryPatterns {
 	private String[] formatMessage;
 	
 	ArrayList<Pattern> patterns;
-	Hashtable<String, Pattern> filterCustom;
+	ControllerCustom controllerFilterCustom;
 	
 	public FactoryPatterns(Hashtable<String, String> dataConfiguration){
 		String logLevel = (String) dataConfiguration.get("logLevel"); 
@@ -27,7 +29,7 @@ public class FactoryPatterns {
 		namePrinter = (String) dataConfiguration.get("namePrinter");
 		
 		patterns = new ArrayList<Pattern>();
-		filterCustom = new Hashtable<String,Pattern>();
+		controllerFilterCustom = new ControllerCustom();
 	}
 	
 	public void setLogLevel(LogLevel logLevel){
@@ -45,7 +47,7 @@ public class FactoryPatterns {
 			
 			patterns.add( aPattern );
 			
-			filterCustom.put(aFormatMessage,aPattern);	
+			controllerFilterCustom.addFilterCustom(new FilterCustom(aFormatMessage,aPattern));	
 		}
 		
 		return patterns;
@@ -97,8 +99,8 @@ public class FactoryPatterns {
 		return patterns;
 	}
 
-	public Hashtable<String, Pattern> getFilterCustomOfPatterns() {
-		return filterCustom;
+	public ControllerCustom getFilterCustomOfPatterns() {
+		return controllerFilterCustom;
 	}
 
 }

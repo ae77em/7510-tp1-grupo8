@@ -25,4 +25,8 @@ public class PatternLineNumber implements Pattern {
 		return "lineNumber";
 	}
 
+	public void setLine(int i) {
+		numberLine = i;
+	}
+
 }

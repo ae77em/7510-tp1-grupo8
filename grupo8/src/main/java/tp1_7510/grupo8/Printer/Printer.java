@@ -3,6 +3,7 @@ package tp1_7510.grupo8.Printer;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import tp1_7510.grupo8.ControllerCustom;
 import tp1_7510.grupo8.ControllerMessage;
 import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Patterns.Pattern;
@@ -11,7 +12,7 @@ import tp1_7510.grupo8.Patterns.PatternSeparator;
 public abstract class Printer {
 	
 	protected ArrayList<Pattern> messagePatterns;
-	protected Hashtable<String,Pattern> patternsAplicatedToMessage;
+	protected ControllerCustom controllerCustom;
 	protected FactoryPatterns factoryPatterns;
 	
 	ControllerMessage controllerMessage;
@@ -27,16 +28,16 @@ public abstract class Printer {
 		
 		messagePatterns = factoryPatterns.getListOfPatterns();
 		
-		patternsAplicatedToMessage = factoryPatterns.getFilterCustomOfPatterns();
+		controllerCustom = factoryPatterns.getFilterCustomOfPatterns();
 				
 		controllerMessage = new ControllerMessage(LogLevel.valueOf((String) dataConfiguration.get("logLevel"))
-				,dataConfiguration.get("regularExpresion"),filterCustomConfig);
+				,dataConfiguration.get("regularExpresion"),controllerCustom);
 	}
 	
 	
 
 	public boolean isMessageOk(String aMessage, LogLevel aLogLevel) {
-		return controllerMessage.isMessageOk(aMessage,aLogLevel,patternsAplicatedToMessage);
+		return controllerMessage.isMessageOk(aMessage,aLogLevel);
 	}
 
 	public String getErrorMessage() {
