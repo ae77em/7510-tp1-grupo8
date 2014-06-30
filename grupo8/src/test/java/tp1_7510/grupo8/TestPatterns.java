@@ -1,7 +1,7 @@
 package tp1_7510.grupo8;
 
+import tp1_7510.grupo8.CONSTANTS.LogLevel;
 import tp1_7510.grupo8.CONSTANTS.PathLogs;
-import tp1_7510.grupo8.Logger.LogLevel;
 import tp1_7510.grupo8.Logger.Logger;
 import tp1_7510.grupo8.Patterns.PatternDate;
 import tp1_7510.grupo8.Patterns.PatternEscape;
@@ -13,6 +13,7 @@ import tp1_7510.grupo8.Patterns.PatternSeparator;
 import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
 import tp1_7510.grupo8.Patterns.PatternThread;
 import tp1_7510.grupo8.Patterns.PatternUserDefinedMessage;
+import tp1_7510.loadersConfigurations.Configurator;
 import junit.framework.TestCase;
 
 import java.text.*;

@@ -1,0 +1,28 @@
+{
+	"loggers" : [
+				 	{
+				 		"name" : "aNameLogger",
+				 		"files" : [
+				 					{
+				 						"fileName":"aFileName",
+				 						"separator":"-",
+				 						"IDEM":"para los demas",
+				 						"customFilter":[{"%d":"--"},{"%p":"--"},{"%t":"--"}]
+				 					}
+				 				  ],
+				 		"console":"ACA LA CONFIG DE CONSOLAS"
+				 	},
+				 	{
+				 		"name" : "aNameLogger2",
+				 		"files" : [
+				 					{
+				 						"fileName":"aFileName2",
+				 						"separator":"-2",
+				 						"IDEM":"para los demas",
+				 						"customFilter":[{"%d":"--"},{"%p":"--"},{"%t":"--"}]
+				 					}
+				 				  ],
+				 	"console":"ACA LA CONFIG DE CONSOLAS"
+				 	}
+				]
+}

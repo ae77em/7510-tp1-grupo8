@@ -8,15 +8,12 @@ public class CustomPrinter extends Printer{
 	
 	private CustomDestiny output;
 
-
 	public CustomPrinter(Hashtable<String, String> dataConfiguration,Hashtable<String, String> filterCustom) {
 		super(dataConfiguration, filterCustom);			
 	}
 	
-	public void print(String message) {
-		
+	public void print(String message) {		
 		setOutput(CustomDestiny.getInstance(message));	
-		
 	}
 
 	

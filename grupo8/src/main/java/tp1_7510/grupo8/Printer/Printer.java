@@ -3,9 +3,10 @@ package tp1_7510.grupo8.Printer;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import tp1_7510.grupo8.ControllerCustom;
-import tp1_7510.grupo8.ControllerMessage;
-import tp1_7510.grupo8.Logger.LogLevel;
+import tp1_7510.filters.ControllerCustom;
+import tp1_7510.grupo8.CONSTANTS.LogLevel;
+import tp1_7510.grupo8.Logger.ControllerMessage;
+import tp1_7510.grupo8.Patterns.FactoryPatterns;
 import tp1_7510.grupo8.Patterns.Pattern;
 import tp1_7510.grupo8.Patterns.PatternSeparator;
 

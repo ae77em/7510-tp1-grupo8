@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import tp1_7510.filters.ControllerCustom;
+import tp1_7510.filters.FilterCustom;
 import tp1_7510.grupo8.Patterns.PatternLineNumber;
 import tp1_7510.grupo8.Patterns.PatternSimpleMessage;
 

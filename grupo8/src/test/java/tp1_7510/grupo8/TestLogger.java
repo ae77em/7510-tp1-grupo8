@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import tp1_7510.grupo8.Logger.Logger;
+import tp1_7510.loadersConfigurations.Configurator;
 
 public class TestLogger{	
     final static ArrayList<String> files = new ArrayList<String>();

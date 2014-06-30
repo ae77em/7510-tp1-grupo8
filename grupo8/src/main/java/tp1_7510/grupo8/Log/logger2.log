@@ -1,0 +1,6 @@
+30-06-2014 08:05:08.65" "INFO" "logger2" "main" "logger2.log" "0" "%" "no deberia loguearse" "" "" "
+30-06-2014 08:05:08.77" "DEBUG" "logger2" "main" "logger2.log" "1" "%" "tpdeberialoguearse" "" "" "
+30-06-2014 08:11:42.211" "DEBUG" "logger2" "main" "logger2.log" "1" "%" "12389" "" "" "
+30-06-2014 08:17:27.891" "DEBUG" "logger2" "main" "logger2.log" "1" "%" "12389" "" "" "
+30-06-2014 08:17:41.274" "DEBUG" "logger2" "main" "logger2.log" "1" "%" "12389" "" "" "
+30-06-2014 08:17:56.866" "DEBUG" "logger2" "main" "logger2.log" "1" "%" "12389" "" "" "

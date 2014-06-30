@@ -1,5 +1,6 @@
 package tp1_7510.grupo8;
 
+import tp1_7510.filters.MatcherExpresionRegular;
 import junit.framework.TestCase;
 
 public class TestMatcherExpReg extends TestCase{

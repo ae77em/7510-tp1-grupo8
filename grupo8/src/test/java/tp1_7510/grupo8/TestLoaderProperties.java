@@ -2,6 +2,7 @@ package tp1_7510.grupo8;
 
 import java.util.Hashtable;
 
+import tp1_7510.loadersConfigurations.LoaderPropertiesConfiguration;
 import junit.framework.TestCase;
 
 public class TestLoaderProperties extends TestCase {

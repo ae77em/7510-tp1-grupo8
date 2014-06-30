@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Test;
+
+import tp1_7510.loadersConfigurations.LoaderConfiguration;
+import tp1_7510.loadersConfigurations.LoaderPropertiesConfiguration;
+import tp1_7510.loadersConfigurations.ParserJsonConfig;
 	
 	public class TestJsonParserConfiguration{
 

@@ -23,7 +23,6 @@ public class CustomDestiny {
         if (INSTANCE == null) createInstance(destinyValue);
         return INSTANCE;
     }
-	
 }
 
 

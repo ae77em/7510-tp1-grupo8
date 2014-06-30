@@ -5,7 +5,7 @@ import org.json.simple.JSONObject;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 
-import tp1_7510.grupo8.Configurator;
+import tp1_7510.loadersConfigurations.Configurator;
 
 import java.util.HashMap;
 import java.util.Map;

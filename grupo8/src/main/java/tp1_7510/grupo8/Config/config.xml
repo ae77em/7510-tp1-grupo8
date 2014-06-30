@@ -20,13 +20,13 @@
 		<name>logger2</name>
 		<output>
 			<fileName>logger2.log</fileName>
-			<levelLog>ERROR</levelLog>
+			<levelLog>DEBUG</levelLog>
 			<formatDate>dd-MM-YYYY hh:mm:ss.SSS</formatDate>
 			<patternMessage>%d-%p-%g-%t-%F-%L-%%-%m-%n</patternMessage>
 			<separator>" "</separator>
 			<regularExpresion>^*$</regularExpresion>
 			<customFilter>
-				<valPattern pattern="%m">^*tp*$</valPattern>
+				<valPattern pattern="%m">^[0-9]*$</valPattern>
 			</customFilter>			
 		</output>
 	</logger>

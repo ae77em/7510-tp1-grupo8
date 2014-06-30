@@ -25,6 +25,7 @@ import tp1_7510.grupo8.CONSTANTS.PathLogs;
 import tp1_7510.grupo8.Logger.Logger;
 import tp1_7510.grupo8.Printer.ConsolePrinter;
 import tp1_7510.grupo8.Printer.JsonPrinter;
+import tp1_7510.loadersConfigurations.Configurator;
 
 public class TestJsonPrinter {
 
