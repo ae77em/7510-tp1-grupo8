@@ -4,8 +4,8 @@ import java.util.Hashtable;
 
 public class ConsolePrinter extends Printer {
 
-	public ConsolePrinter(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom){
-		super(dataConfiguration,filterCustom);
+	public ConsolePrinter(Hashtable<String, String> dataConfiguration, Hashtable<String, String> filterCustom){
+		super(dataConfiguration, filterCustom);
 	}
 	
 	public void print(String aMessage){		

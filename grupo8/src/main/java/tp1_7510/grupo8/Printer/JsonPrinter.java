@@ -16,7 +16,7 @@ public class JsonPrinter extends Printer {
 	private JSONObject 	jsonObject;
 	private Hashtable<String, String> dataConfiguration;
 		
-	public JsonPrinter(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom) throws FileNotFoundException {
+	public JsonPrinter(Hashtable<String, String> dataConfiguration, Hashtable<String, String> filterCustom) throws FileNotFoundException {
 		super(dataConfiguration,filterCustom);
 		
 		this.dataConfiguration = dataConfiguration;

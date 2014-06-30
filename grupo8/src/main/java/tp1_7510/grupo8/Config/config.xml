@@ -1,6 +1,6 @@
 <loggers>
 	<logger>
-		<type>CONSOLES</type>
+		<type>FILES</type>
 		<name>logger1</name>
 		<output>
 			<fileName>logger1.log</fileName>
@@ -15,7 +15,8 @@
 		</output>
 	</logger>
 	<logger>
-		<type className='tp1_7510.grupo8.Printer.CustomPrinter'>CUSTOM</type>
+		<!--<type className='tp1_7510.grupo8.Printer.CustomPrinter'>CUSTOM</type>-->
+		<type>FILES</type>
 		<name>logger2</name>
 		<output>
 			<fileName>logger2.log</fileName>

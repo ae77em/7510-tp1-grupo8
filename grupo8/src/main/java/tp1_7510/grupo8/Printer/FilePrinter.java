@@ -10,8 +10,8 @@ public class FilePrinter extends Printer{
 	private FileWriter writter;
 	private Hashtable<String, String> dataConfiguration;
 
-	public FilePrinter(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustom) throws FileNotFoundException{
-		super(dataConfiguration,filterCustom);
+	public FilePrinter(Hashtable<String, String> dataConfiguration, Hashtable<String, String> filterCustom) throws FileNotFoundException{
+		super(dataConfiguration, filterCustom);
 		
 		this.dataConfiguration = dataConfiguration;
 	}

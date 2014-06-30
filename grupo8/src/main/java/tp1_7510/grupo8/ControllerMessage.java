@@ -41,10 +41,10 @@ public class ControllerMessage {
 			return false;
 		}
 		
-		/*if(!filtersCustomIsOk()){
+		if(!filtersCustomIsOk()){
 			errorMessage = "ERROR FILTER CUSTOM";	
 			return false;
-		}*/
+		}
 		
 		return true;
 	}

@@ -1,0 +1,6 @@
+29-06-2014 10:04:02.802~INFO~logger1~main~logger1.log~0~%~Hello World... Exception: null~~~
+29-06-2014 10:04:02.828~INFO~logger1~main~logger1.log~2~%~Hallo Welt..~~~
+29-06-2014 10:04:52.121~INFO~logger1~main~logger1.log~0~%~Hello World... Exception: null~~~
+29-06-2014 10:04:52.143~INFO~logger1~main~logger1.log~2~%~Hallo Welt..~~~
+29-06-2014 10:09:09.385~INFO~logger1~main~logger1.log~0~%~Hello World... Exception: null~~~
+29-06-2014 10:09:09.406~INFO~logger1~main~logger1.log~2~%~Hallo Welt..~~~

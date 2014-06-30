@@ -11,8 +11,10 @@ public class ControllerCustom {
 
 	public boolean validate(){
 		for (FilterCustom aFilter : filters){
-			if(!aFilter.validate())
+			if(!aFilter.validate()){
+				System.out.println("ERROR DENTRO DEL FILTER CUSTOM");
 				return false;
+			}
 		}
 		return true;
 	}

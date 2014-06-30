@@ -12,6 +12,7 @@ public class FilterCustom {
 	}
 
 	public boolean validate() {
+		System.out.println("VAL: " + aPattern.getText() + " WITH " + matcherExpReg.getExpReg());
 		return matcherExpReg.checkFormatMessage(aPattern.getText());
 	}
 

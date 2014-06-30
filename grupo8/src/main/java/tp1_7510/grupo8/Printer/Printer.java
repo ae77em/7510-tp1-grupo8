@@ -10,7 +10,6 @@ import tp1_7510.grupo8.Patterns.Pattern;
 import tp1_7510.grupo8.Patterns.PatternSeparator;
 
 public abstract class Printer {
-	
 	protected ArrayList<Pattern> messagePatterns;
 	protected ControllerCustom controllerCustom;
 	protected FactoryPatterns factoryPatterns;
@@ -21,8 +20,8 @@ public abstract class Printer {
 
 	public abstract void close();
 	
-	public Printer(Hashtable<String, String> dataConfiguration,Hashtable<String,String> filterCustomConfig){
-		factoryPatterns = new FactoryPatterns(dataConfiguration);
+	public Printer(Hashtable<String, String> dataConfiguration, Hashtable<String, String> aFiltersCustom){
+		factoryPatterns = new FactoryPatterns(dataConfiguration,aFiltersCustom);
 		
 		factoryPatterns.buildPatterns();
 		

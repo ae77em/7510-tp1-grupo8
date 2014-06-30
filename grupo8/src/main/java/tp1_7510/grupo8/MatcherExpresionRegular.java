@@ -12,6 +12,7 @@ public class MatcherExpresionRegular {
 	Matcher matcher;
 	
 	public MatcherExpresionRegular(String patternExpReg) {
+		System.out.println("EXPr: "+ patternExpReg);
 		pattern = Pattern.compile(patternExpReg);
 	}
 
@@ -19,6 +20,11 @@ public class MatcherExpresionRegular {
 		matcher = pattern.matcher(aMessage);
 
 		return matcher.find();
+	}
+
+	public String getExpReg() {
+		// TODO Auto-generated method stub
+		return pattern.toString();
 	}
 	
 	

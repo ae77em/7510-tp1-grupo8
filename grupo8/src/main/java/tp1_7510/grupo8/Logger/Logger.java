@@ -27,7 +27,6 @@ public class Logger {
 		generatePrinter(jsonConfig);		
 	}
 	
-	
 	private void generatePrinter(JSONObject jsonConfig){
 		Hashtable<String,String> configPatter = getConfigPattern(jsonConfig); 
 		
@@ -54,21 +53,20 @@ public class Logger {
 			 }
 		     break;
 		 case "CUSTOM":  
-			 createCustomClass(jsonConfig, configPatter, filterCustom);
+			 createCustomClass(jsonConfig, configPatter,filterCustom);
 		     break;
 		 }
 	}
 
 
 	private void createCustomClass(JSONObject jsonConfig,
-			Hashtable<String, String> configPatter,
-			Hashtable<String, String> filterCustom) {
+			Hashtable<String, String> configPatter, Hashtable<String, String> filterCustom) {
 		try {				 
 			 	String customClassName = customClassName((JSONArray)jsonConfig.get("type"));
 				Class<? extends Printer> customPrinterClass = getCustomClass(customClassName);
 				try {
 					try {
-						printer = (Printer) customPrinterClass.getDeclaredConstructor(customPrinterClass).newInstance(configPatter,filterCustom);
+						printer = (Printer) customPrinterClass.getDeclaredConstructor(customPrinterClass).newInstance(configPatter);
 					} catch (IllegalArgumentException e) {
 						e.printStackTrace();
 					} catch (InvocationTargetException e) {

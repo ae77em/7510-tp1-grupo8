@@ -19,7 +19,11 @@ public class FactoryPatterns {
 	ArrayList<Pattern> patterns;
 	ControllerCustom controllerFilterCustom;
 	
-	public FactoryPatterns(Hashtable<String, String> dataConfiguration){
+	Hashtable<String, String> filtersCustom;
+	
+	public FactoryPatterns(Hashtable<String, String> dataConfiguration, Hashtable<String, String> aFiltersCustom){
+		filtersCustom = aFiltersCustom;
+		
 		String logLevel = (String) dataConfiguration.get("logLevel"); 
 		setLogLevel(LogLevel.valueOf(logLevel));
 		separator = (String) dataConfiguration.get("separator");
@@ -41,16 +45,16 @@ public class FactoryPatterns {
 	 * y ademas los carga en un hash junto con su ID (%g,%T, etc) para luego, en la parte de validacion de mensajes
 	 * tomar desde ahi el String devuleto por el pattern aplicado y evaluarlo con el filter custom definido sobre dicho pattern 
 	 */
-	public ArrayList<Pattern> buildPatterns(){
+	public void buildPatterns(){
 		for( String aFormatMessage : formatMessage ){
 			Pattern aPattern = createPattern(aFormatMessage);
 			
 			patterns.add( aPattern );
 			
-			controllerFilterCustom.addFilterCustom(new FilterCustom(aFormatMessage,aPattern));	
+			if(filtersCustom.get(aFormatMessage) != null){
+				controllerFilterCustom.addFilterCustom(new FilterCustom(filtersCustom.get(aFormatMessage),aPattern));		
+			}
 		}
-		
-		return patterns;
 	}
 		
 	private Pattern createPattern(String aPattern) {	
