@@ -18,8 +18,8 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 import tp1_7510.grupo8.CONSTANTS.PathLogs;
+import tp1_7510.grupo8.ConfigurationLoaders.Configurator;
 import tp1_7510.grupo8.Logger.Logger;
-import tp1_7510.loadersConfigurations.Configurator;
 
 public class TestLogger{	
     final static ArrayList<String> files = new ArrayList<String>();
@@ -61,6 +61,8 @@ public class TestLogger{
 		
 		aLogger.close();
 				
+		System.out.println(getMessageFromFile(PathLogs.PATH_LOG + "aFileName1"));
+		
 		assertEquals(getLogMessageMock(message),getMessageFromFile(PathLogs.PATH_LOG + "aFileName1"));
     }
 	
@@ -73,18 +75,6 @@ public class TestLogger{
 		aLogger.close();
 				
 		assertEquals(getErrorExpRegMessageMock(),getMessageFromFile(PathLogs.PATH_ERROR + "error.dat"));
-    }
-
-	@Test
-	public void testOkFilterCustomP() throws IOException{
-		//solo se puede loguear mensaje DEBUG
-		String message = "DEBUG"; 
-		
-		aLogger.debug(message);
-		
-		aLogger.close();
-				
-		assertEquals(getLogMessageMock(message),getMessageFromFile(PathLogs.PATH_LOG + "aFileName1"));
     }
 
 	@Test
@@ -125,7 +115,7 @@ public class TestLogger{
 	}
 			
 	private String getLogMessageMock(String message) {
-		return new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(new Date())+"-DEBUG-main-"+message;
+		return "aFileName1---DEBUG---main---"+message+"-";
 	}
 
 	@AfterClass

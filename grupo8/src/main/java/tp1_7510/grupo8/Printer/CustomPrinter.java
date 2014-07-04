@@ -14,6 +14,7 @@ public class CustomPrinter extends Printer{
 	
 	public void print(String message) {		
 		setOutput(CustomDestiny.getInstance(message));	
+		
 	}
 
 	

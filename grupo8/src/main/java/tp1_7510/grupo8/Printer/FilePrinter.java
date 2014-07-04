@@ -18,26 +18,20 @@ public class FilePrinter extends Printer{
 	
 
 	public void print(String aMessage){
-		
 		open();
 		
 		try {
-			writter.write(aMessage+System.getProperty("line.separator"));
-            System.out.println("Successfully Copied Log to File...");
-            System.out.println("Log: " + aMessage);
- 
+			writter.write(aMessage+System.getProperty("line.separator")); 
         } catch (IOException e) {
             e.printStackTrace();
- 
         }
-		
 		close();
 	}
 	
 	
 	private void open() {
 		try {
-			writter = new FileWriter(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"),true);
+			writter = new FileWriter(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"));
 		} catch (IOException e) {
 			
 			e.printStackTrace();

@@ -2,7 +2,7 @@ package tp1_7510.grupo8;
 
 import java.util.Hashtable;
 
-import tp1_7510.loadersConfigurations.LoaderXmlConfiguration;
+import tp1_7510.grupo8.ConfigurationLoaders.LoaderXmlConfiguration;
 import junit.framework.TestCase;
 
 

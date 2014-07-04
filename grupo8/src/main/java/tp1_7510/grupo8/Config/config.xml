@@ -1,6 +1,7 @@
 <loggers>
 	<logger>
 		<type>FILES</type>
+		<customClassName></customClassName>
 		<name>logger1</name>
 		<output>
 			<fileName>logger1.log</fileName>
@@ -15,8 +16,8 @@
 		</output>
 	</logger>
 	<logger>
-		<!--<type className='tp1_7510.grupo8.Printer.CustomPrinter'>CUSTOM</type>-->
-		<type>FILES</type>
+		<type>CUSTOM</type>
+		<customClassName>tp1_7510.grupo8.Printer.CustomPrinter</customClassName>
 		<name>logger2</name>
 		<output>
 			<fileName>logger2.log</fileName>
@@ -24,14 +25,13 @@
 			<formatDate>dd-MM-YYYY hh:mm:ss.SSS</formatDate>
 			<patternMessage>%d-%p-%g-%t-%F-%L-%%-%m-%n</patternMessage>
 			<separator>" "</separator>
-			<regularExpresion>^*$</regularExpresion>
-			<customFilter>
-				<valPattern pattern="%m">^[0-9]*$</valPattern>
-			</customFilter>			
+			<regularExpresion>tp</regularExpresion>
+			<customFilter></customFilter>			
 		</output>
 	</logger>
 	<logger>
 		<type>JSON</type>
+		<customClassName></customClassName>
 		<name>logger3</name>
 		<output>
 			<fileName>logger3.log</fileName>

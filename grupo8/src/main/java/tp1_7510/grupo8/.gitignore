@@ -1,2 +1,8 @@
 /Main.java
 /Level.java
+/Configurator.java
+/LoaderConfiguration.java
+/LoaderDefaultConfiguration.java
+/LoaderPropertiesConfiguration.java
+/LoaderXmlConfiguration.java
+/ParserJsonConfig.java

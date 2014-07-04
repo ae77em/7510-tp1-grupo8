@@ -2,7 +2,7 @@ package tp1_7510.grupo8;
 
 import java.util.Hashtable;
 
-import tp1_7510.loadersConfigurations.LoaderPropertiesConfiguration;
+import tp1_7510.grupo8.ConfigurationLoaders.LoaderPropertiesConfiguration;
 import junit.framework.TestCase;
 
 public class TestLoaderProperties extends TestCase {
@@ -32,11 +32,11 @@ public class TestLoaderProperties extends TestCase {
 	}
 	
 	public void testFormatDateLoggers(){
-		assertEquals("dd-M-yyyy hh:mm:ss",loaderPropertiesConfiguration.getFormatDateLogger(0));
+		assertEquals("dd-MM-yyyy hh:mm",loaderPropertiesConfiguration.getFormatDateLogger(0));
 	}
 	
 	public void testPatternMessageLoggers(){
-		assertEquals("%d-%n-%p-%n-%t-%n-%m",loaderPropertiesConfiguration.getPatternMessageLogger(0));
+		assertEquals("%F-%n-%p-%n-%t-%n-%m",loaderPropertiesConfiguration.getPatternMessageLogger(0));
 	}
 	
 	public void testSeparatorLoggers(){

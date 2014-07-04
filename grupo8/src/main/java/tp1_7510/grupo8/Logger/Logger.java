@@ -63,11 +63,13 @@ public class Logger {
 	private void createCustomClass(JSONObject jsonConfig,
 			Hashtable<String, String> configPatter, Hashtable<String, String> filterCustom) {
 		try {				 
-			 	String customClassName = customClassName((JSONArray)jsonConfig.get("type"));
+				String customClassName = (String) jsonConfig.get("customClassName");
+			 	
 				Class<? extends Printer> customPrinterClass = getCustomClass(customClassName);
 				try {
 					try {
-						printer = (Printer) customPrinterClass.getDeclaredConstructor(customPrinterClass).newInstance(configPatter);
+						instantiateCustomClass(configPatter, filterCustom,
+								customPrinterClass);
 					} catch (IllegalArgumentException e) {
 						e.printStackTrace();
 					} catch (InvocationTargetException e) {
@@ -85,6 +87,17 @@ public class Logger {
 		 } catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		 }
+	}
+
+	private void instantiateCustomClass(Hashtable<String, String> configPatter,
+			Hashtable<String, String> filterCustom,
+			Class<? extends Printer> customPrinterClass)
+			throws InstantiationException, IllegalAccessException,
+			InvocationTargetException, NoSuchMethodException {
+		Class[] cArg = new Class[2];
+		cArg[0] = Hashtable.class;
+		cArg[1] = Hashtable.class;
+		printer = (Printer) customPrinterClass.getDeclaredConstructor(cArg).newInstance(configPatter,filterCustom);
 	}
 
 

@@ -6,9 +6,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Test;
 
-import tp1_7510.loadersConfigurations.LoaderConfiguration;
-import tp1_7510.loadersConfigurations.LoaderPropertiesConfiguration;
-import tp1_7510.loadersConfigurations.ParserJsonConfig;
+import tp1_7510.grupo8.ConfigurationLoaders.LoaderConfiguration;
+import tp1_7510.grupo8.ConfigurationLoaders.LoaderPropertiesConfiguration;
+import tp1_7510.grupo8.ConfigurationLoaders.ParserJsonConfig;
 	
 	public class TestJsonParserConfiguration{
 
@@ -47,11 +47,12 @@ import tp1_7510.loadersConfigurations.ParserJsonConfig;
 			configALogger.put("levelLog","DEBUG");
 			configALogger.put("type","FILES");
 			configALogger.put("fileName","aFileName1");
-			configALogger.put("formatDate","dd-M-yyyy hh:mm:ss");
-			configALogger.put("patternMessage","%d-%n-%p-%n-%t-%n-%m");
+			configALogger.put("formatDate","dd-MM-yyyy hh:mm");
+			configALogger.put("patternMessage","%F-%n-%p-%n-%t-%n-%m");
 			configALogger.put("separator","-");
 			configALogger.put("regularExpresion","^[a-zA-Z[:space:]]*$");
 			configALogger.put("customFilter", createMockArrayFilterCustom() );
+			configALogger.put("customClassName", "aClass" );
 	
 			return configALogger;
 		}
@@ -62,7 +63,9 @@ import tp1_7510.loadersConfigurations.ParserJsonConfig;
 	
 			JSONObject aConfigurationPrinterMock = createMockJsonConfig();
 	
+			System.out.println(aConfigurationPrinter);
+			System.out.println(aConfigurationPrinterMock);
+			
 			assertEquals(aConfigurationPrinter,aConfigurationPrinterMock);
-
 		}
 }

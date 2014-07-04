@@ -11,8 +11,8 @@ public class PatternLevel implements Pattern {
 		level = LogLevel.DEBUG;
 	}
 
-	public PatternLevel(LogLevel p) {
-		level = p;
+	public PatternLevel(LogLevel logLevel) {
+		level = logLevel;
 	}
 	 
 	public String addText(String s) {

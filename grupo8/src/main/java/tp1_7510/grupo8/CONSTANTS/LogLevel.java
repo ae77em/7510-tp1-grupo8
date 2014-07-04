@@ -59,7 +59,6 @@ public enum LogLevel {
         public static LogLevel getLogLevel(String logLevelName) {
             return logLevelsNameMap.get(logLevelName);
         }
-    	
 }
 
 

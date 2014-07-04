@@ -39,9 +39,7 @@ public class JsonPrinter extends Printer {
 	private void writeJsonFile(String output) {
 		try {
 			writter.write(output+System.getProperty("line.separator"));
-            System.out.println("Successfully Copied JSON Object to File...");
-            System.out.println("JSON Object: " + output);
- 
+
         } catch (IOException e) {
             e.printStackTrace();
  
@@ -50,7 +48,7 @@ public class JsonPrinter extends Printer {
 
 	private void openJsonFile() {
 		try {
-			writter = new FileWriter(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"),true);
+			writter = new FileWriter(PathLogs.PATH_LOG + (String) dataConfiguration.get("name"));
 		} catch (IOException e) {
 			
 			e.printStackTrace();

@@ -7,7 +7,6 @@ public class PatternUserDefinedMessage implements Pattern {
 	}
 	
 	public String addText(String s) {
-		System.out.println("Aplciando: " + Logger.message);
 		return s + Logger.message;
 	}
 

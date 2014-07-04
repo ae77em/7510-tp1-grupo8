@@ -6,7 +6,8 @@ public class CustomDestiny {
 	private static CustomDestiny INSTANCE;
 	
 	private CustomDestiny(String destinyValue) {
-		DESTINY = destinyValue;
+		DESTINY = "";
+		DESTINY += destinyValue;
 	}
 	
 	public static String getDestiny(){
@@ -20,9 +21,16 @@ public class CustomDestiny {
     }
  
     public static CustomDestiny getInstance(String destinyValue) {
-        if (INSTANCE == null) createInstance(destinyValue);
+        if (INSTANCE == null) 
+        	createInstance(destinyValue);
+        else 
+        	addToDestiny(System.getProperty("line.separator")+destinyValue);
         return INSTANCE;
     }
+
+	private static void addToDestiny(String destinyValue) {
+		DESTINY += destinyValue;		
+	}
 }
 
 
